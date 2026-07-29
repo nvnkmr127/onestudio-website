@@ -187,15 +187,15 @@ export default function CallModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="relative w-full bg-[#E52328] hover:bg-[#d01b20] active:scale-[0.99] disabled:opacity-50 text-white font-extrabold text-base tracking-wide py-4 px-14 rounded-2xl shadow-xl transition-all cursor-pointer mt-2 flex items-center justify-center overflow-hidden group"
+                  className="relative w-full bg-[#f2bd19] hover:bg-amber-400 active:scale-[0.99] disabled:opacity-50 text-slate-950 font-black text-base tracking-wide py-4 px-14 rounded-2xl shadow-xl transition-all cursor-pointer mt-2 flex items-center justify-center overflow-hidden group"
                 >
-                  <span className="text-white font-bold text-base md:text-lg">
+                  <span className="text-slate-950 font-black text-base md:text-lg">
                     {isSubmitting ? 'Submitting...' : 'Book 3D Design Session'}
                   </span>
 
                   {/* Curved Arc FREE ★ Rotating Badge + Right Arrow */}
                   <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 pointer-events-none">
-                    <svg className="w-12 h-12 animate-spin-slow text-white" viewBox="0 0 100 100">
+                    <svg className="w-12 h-12 animate-spin-slow text-slate-950" viewBox="0 0 100 100">
                       <path
                         id="btnArcPathModal"
                         d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"
@@ -208,7 +208,7 @@ export default function CallModal() {
                       </text>
                     </svg>
                     <svg
-                      className="absolute w-5 h-5 text-white stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5"
+                      className="absolute w-5 h-5 text-slate-950 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
