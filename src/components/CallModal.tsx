@@ -208,9 +208,10 @@ export default function CallModal() {
                       </text>
                     </svg>
                     <svg
-                      className="absolute w-5 h-5 text-slate-950 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5"
+                      className="absolute w-5 h-5 text-slate-950 transition-transform duration-300 group-hover:translate-x-0.5"
                       fill="none"
                       stroke="currentColor"
+                      strokeWidth="2.5"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />

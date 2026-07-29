@@ -84,7 +84,15 @@ export default function Header() {
           >
             <span className="hidden sm:inline">Get a Quote</span>
             <span className="sm:hidden">Quote 📞</span>
-            <span className="bg-black/20 rounded-full p-0.5 text-[10px] hidden sm:inline-block">→</span>
+            <svg
+              className="w-4 h-4 text-slate-950 hidden sm:inline-block transition-transform duration-200 group-hover:translate-x-0.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
           </button>
 
           {/* Hamburger Icon */}

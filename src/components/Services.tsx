@@ -88,7 +88,12 @@ export default function Services() {
             href="/services"
             className="bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl shadow-md transition-all w-fit shrink-0 flex items-center gap-2 group"
           >
-            VIEW ALL SERVICES <span className="bg-amber-400 text-slate-950 rounded-full w-5 h-5 flex items-center justify-center text-[10px] group-hover:translate-x-0.5 transition-transform">→</span>
+            VIEW ALL SERVICES{' '}
+            <span className="bg-amber-400 text-slate-950 rounded-full w-5 h-5 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+              <svg className="w-3 h-3 text-slate-950" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </span>
           </Link>
         </div>
 
