@@ -4,145 +4,156 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
+import FAQ from '@/components/FAQ';
 import Link from 'next/link';
 
 const steps = [
   {
     num: '01',
     phase: 'plan',
-    title: 'Raise a Request',
-    subtitle: 'Share your site location & initial requirements',
+    title: 'Share Your Floor Plan',
+    subtitle: 'Upload floor plan or schedule a free site consultation',
     bullets: [
-      'Submit your interior request online or call our Hyderabad team at +91 9014303409.',
-      'Our senior project consultant connects with you within 2 hours to understand plot size, location, and vision.',
-      'Schedule a free 1-on-1 consultation with a technical specialist at your convenient time.',
+      'Submit your home floor plan online or call our Hyderabad design team at +91 9014303409.',
+      'Our senior interior consultant connects within 2 hours to discuss carpet area, style preferences, and budget.',
+      'Book a 1-on-1 consultation at your site or visit our Jubilee Hills Experience Center.',
     ],
-    ctaText: 'Raise Request Now',
+    ctaText: 'Share Floor Plan Now',
     ctaHref: '/contact',
     icon: 'assignment_add',
   },
   {
     num: '02',
     phase: 'plan',
-    title: 'Meet Our Expert Architect',
-    subtitle: 'Personalized package guidance & site inspection',
+    title: 'Meet Our Senior Interior Designer',
+    subtitle: 'Personalized 3D VR concept guidance & material selection',
     bullets: [
-      'Meet with our licensed architects to explore package options tailored to your budget and plot dimensions.',
-      'Receive initial floor plan options, BBMP/BDA setback guidance, and structural advice.',
-      'Clear all doubts regarding material brands, estimated timelines, and sanction approvals.',
+      'Explore live 3D VR layouts, space planning options, and material sample boards.',
+      'Choose from premium BWP marine plywood, acrylic finishes, lacquered glass, and Hettich hardware.',
+      'Receive instant itemized quote with 100% price lock guarantee and zero hidden costs.',
     ],
     icon: 'person_search',
   },
   {
     num: '03',
-    phase: 'plan',
-    title: 'Book with One Studio',
-    subtitle: 'Lock in your package & lock down your price',
-    bullets: [
-      'Pay 10% booking amount to lock your pricing and secure your construction slot.',
-      'Get formal contract agreement with zero hidden cost guarantees and strict timeline commitments.',
-      'Dedicated Project Manager and Quality Audit Engineer assigned to your project.',
-    ],
-    icon: 'edit_calendar',
-  },
-  {
-    num: '04',
     phase: 'design',
-    title: 'Receive Detailed 2D & 3D Plans',
-    subtitle: 'Complete architectural, structural & interior drawings',
+    title: '3D VR Layout & Design Freeze',
+    subtitle: 'Finalize modular kitchens, wardrobes & lighting layouts',
     bullets: [
-      'Our design team provides exhaustive 2D floor plans, 3D elevation renders, structural diagrams, and electrical & plumbing layouts.',
-      'Unlimited revisions until you are 100% satisfied with every detail of your future home.',
-      'All technical specifications, milestone schedules, and material brands fed into your digital tracking app.',
+      'Our design team crafts detailed 3D VR renders for living rooms, modular kitchens, and bedrooms.',
+      'Unlimited design revisions until your dream interior vision is perfectly captured.',
+      'Sign off design freeze to trigger instant factory order processing.',
     ],
     icon: 'architecture',
   },
   {
+    num: '04',
+    phase: 'design',
+    title: 'Factory Precision Manufacturing',
+    subtitle: 'German CNC automated modular woodwork production',
+    bullets: [
+      'Woodwork manufactured in state-of-the-art automated factories using high-precision German CNC machinery.',
+      '100% BWP marine plywood with anti-termite and moisture-resistant treatment.',
+      'Factory edge-banding for flawless finish and maximum durability.',
+    ],
+    icon: 'precision_manufacturing',
+  },
+  {
     num: '05',
     phase: 'build',
-    title: 'Track & Transact (Milestone Safety)',
-    subtitle: 'Stage-wise payment release & 150+ quality checks',
+    title: 'Site Delivery & 150+ Quality Audits',
+    subtitle: 'On-site installation & real-time app progress tracking',
     bullets: [
-      'Safe stage-wise milestone payment system: money is released to the execution team ONLY after each stage passes quality audit.',
-      'Track 3D site progress, view daily site photos, and review inspection reports live on the One Studio app.',
-      'Our independent quality auditor performs 150+ quality tests at every key milestone (modular woodwork, electrical, finishing).',
+      'Factory-finished modular units delivered to your home and assembled by master craftsmen.',
+      'Our dedicated Quality Auditor conducts 150+ checks covering alignment, hardware fitment, and electrical safety.',
+      'Track daily site photos, inspection reports, and milestone progress live on the One Studio app.',
     ],
-    icon: 'security',
+    icon: 'fact_check',
   },
   {
     num: '06',
     phase: 'build',
-    title: 'Settle In & Enjoy 10-Year Warranty',
-    subtitle: 'Key handover with zero-defect sign-off',
+    title: 'Key Handover & 10-Year Warranty',
+    subtitle: 'Deep cleaning & zero-defect handover',
     bullets: [
-      'Final joint inspection and deep cleaning of your newly designed home before key handover.',
-      'Receive official 10-Year Modular Woodwork Warranty certificate and maintenance manual.',
-      'Our relationship continues with 1-year free post-handover maintenance support.',
+      'Joint site walk-through and professional deep cleaning before handover.',
+      'Receive your official 10-Year Modular Woodwork Warranty certificate.',
+      'Enjoy 1-year free post-handover maintenance support and lifetime dedicated assistance.',
     ],
     icon: 'key',
   },
 ];
 
-const faqs = [
+const faqsInterior = [
   {
-    q: 'How does stage-wise milestone payment protect my money?',
-    a: 'Your payments are released per completed stage milestone. Funds are paid to the project team only after our certified quality audit team verifies that the stage meets all 150+ quality benchmarks.',
+    q: 'How long does a 3BHK home interior project take to complete in Hyderabad?',
+    a: 'A standard 3BHK interior project is completed within 45 days from design freeze to key handover, backed by a strict delay penalty clause.',
   },
   {
-    q: 'Can I track my site construction progress remotely?',
-    a: 'Yes! Our One Studio Customer App provides live 3D site captures, daily photo updates, material test reports, and milestone tracking so you can monitor progress from anywhere in the world.',
+    q: 'What materials are used for modular kitchens and wardrobes?',
+    a: 'We exclusively use BWP-grade marine plywood with HDMR options, finished with premium acrylic, laminates, or lacquered glass, fitted with Hettich or Blum hardware.',
   },
   {
-    q: 'What architectural drawings are included before construction starts?',
-    a: 'You receive complete 2D floor plans, 3D exterior elevations, structural engineering drawings, electrical layouts, plumbing schematics, and 3D interior renders.',
+    q: 'Can I track my interior project progress remotely?',
+    a: 'Yes! The One Studio app provides real-time 3D site captures, daily photo updates, quality audit certificates, and milestone tracking.',
   },
   {
     q: 'What happens if there is a delay in delivery?',
-    a: 'We include a strict penalty clause in our contract: if construction is delayed beyond the committed milestone timeline due to our fault, we compensate you per day of delay.',
+    a: 'We include a strict penalty clause in our contract: if delivery is delayed beyond the committed timeline, we compensate you per day of delay.',
   },
 ];
 
 export default function HowItWorksPage() {
   const [activePhase, setActivePhase] = useState<'all' | 'plan' | 'design' | 'build'>('all');
-  const [selectedStep, setSelectedStep] = useState<string>('01');
   const [activeAppTab, setActiveAppTab] = useState<'overview' | 'photo' | 'audit' | 'milestone'>('overview');
 
-  // Interactive Calculator State
-  const [plotArea, setPlotArea] = useState<number>(1200);
-  const [floors, setFloors] = useState<number>(2);
-  const [packageTier, setPackageTier] = useState<number>(2049); // price per sqft
+  // Interactive Interior Estimator State
+  const [homeType, setHomeType] = useState<string>('3bhk');
+  const [finishTier, setFinishTier] = useState<string>('signature');
 
-  const totalBuiltupArea = plotArea * floors;
-  const estimatedCost = totalBuiltupArea * packageTier;
-  const estimatedMonths = Math.max(5, Math.ceil(floors * 2.5 + (plotArea > 2000 ? 2 : 0)));
+  const estimateData: Record<string, Record<string, { cost: string; time: string; items: string }>> = {
+    '2bhk': {
+      essential: { cost: '₹3.8L - ₹4.5L', time: '35 Days', items: 'Modular Kitchen, Master Wardrobe, TV Unit' },
+      signature: { cost: '₹5.5L - ₹6.8L', time: '40 Days', items: 'Full 2BHK Modular Woodwork, False Ceiling, Lighting' },
+      luxury: { cost: '₹8.2L - ₹10.5L', time: '45 Days', items: 'Premium Acrylic Kitchen, PU Wardrobes, Designer Wall Paneling' },
+    },
+    '3bhk': {
+      essential: { cost: '₹5.2L - ₹6.5L', time: '40 Days', items: 'Modular Kitchen, 2 Bedrooms Wardrobes, TV Unit' },
+      signature: { cost: '₹7.8L - ₹9.5L', time: '45 Days', items: 'Complete 3BHK Woodwork, False Ceiling, Crockery & Foyer' },
+      luxury: { cost: '₹12.5L - ₹15.8L', time: '50 Days', items: 'Luxury Villa Grade Finishes, Quartz Countertops, Smart Lighting' },
+    },
+    'villa': {
+      essential: { cost: '₹9.5L - ₹12.0L', time: '50 Days', items: 'Full Villa Modular Storage, Island Kitchen' },
+      signature: { cost: '₹14.5L - ₹18.0L', time: '55 Days', items: 'Turnkey Villa Interiors, False Ceiling, Bar & Dressing Rooms' },
+      luxury: { cost: '₹22.0L - ₹28.0L', time: '60 Days', items: 'High-End Italian Veneers, Automated Lighting, Custom Furniture' },
+    },
+  };
 
-  const filteredSteps = steps.filter(
-    (s) => activePhase === 'all' || s.phase === activePhase
-  );
+  const currentEst = estimateData[homeType][finishTier];
 
   return (
     <>
       <Header />
-      <main className="bg-white">
+      <main className="bg-white font-sans">
         <PageHero
-          title="How Construction Works"
-          image="/images/bangalore_architect_planning.png"
+          title="How Luxury Interior Design Works"
+          image="/images/bangalore_modern_interior.png"
         />
 
         {/* 4 Trust Badges Strip */}
-        <section className="bg-slate-900 text-white py-6 border-b border-slate-800">
+        <section className="bg-slate-950 text-white py-6 border-b border-slate-800">
           <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-xs font-bold uppercase tracking-wider">
             <div className="flex items-center justify-center gap-2 text-slate-200">
-              <span className="text-primary-orange font-black text-lg">✓</span> 100% On-Time Delivery
+              <span className="text-amber-400 font-black text-lg">⚡</span> 45-Day Delivery Guarantee
             </div>
             <div className="flex items-center justify-center gap-2 text-slate-200">
-              <span className="text-primary-orange font-black text-lg">🔒</span> Stage Payment Safety
+              <span className="text-amber-400 font-black text-lg">🔒</span> Stage Milestone Payment
             </div>
             <div className="flex items-center justify-center gap-2 text-slate-200">
-              <span className="text-primary-orange font-black text-lg">🛡️</span> 430+ Quality Checks
+              <span className="text-amber-400 font-black text-lg">🛡️</span> 150+ Quality Audits
             </div>
             <div className="flex items-center justify-center gap-2 text-slate-200">
-              <span className="text-primary-orange font-black text-lg">🏆</span> 10-Year Warranty
+              <span className="text-amber-400 font-black text-lg">🏆</span> 10-Year Woodwork Warranty
             </div>
           </div>
         </section>
@@ -150,14 +161,14 @@ export default function HowItWorksPage() {
         {/* Overview Header & Phase Selector */}
         <section className="py-16 bg-slate-50 border-b border-slate-100">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100/80 border border-orange-200 text-primary-orange text-xs font-extrabold uppercase tracking-widest mb-6 animate-pulse-subtle">
-              Simple 4-Phase Promise
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-900 text-xs font-extrabold uppercase tracking-widest mb-6">
+              ✨ 6-Step Seamless Experience
             </div>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-              Plan • Build • Track • Settle In
+              Design • Manufacture • Install • Settle In
             </h2>
             <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed mb-10">
-              We make luxury interiors transparent, tech-enabled, and stress-free. From 3D space planning to 150+ quality inspections and 10-year warranty, discover how we transform your dream home in Hyderabad step by step.
+              We make luxury home interiors transparent, tech-enabled, and stress-free. From 3D VR planning to 150+ quality inspections and 10-year warranty, discover how we transform your dream home in Hyderabad.
             </p>
 
             {/* Interactive Phase Filter Buttons */}
@@ -165,15 +176,15 @@ export default function HowItWorksPage() {
               {[
                 { id: 'all', label: 'All 6 Steps' },
                 { id: 'plan', label: '1. Plan & Consultation' },
-                { id: 'design', label: '2. Design & Sanctions' },
-                { id: 'build', label: '3. Build & Milestone Track' },
+                { id: 'design', label: '2. 3D VR Design & Factory' },
+                { id: 'build', label: '3. Site Assembly & Handover' },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActivePhase(tab.id as any)}
-                  className={`px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-200 ${
+                  className={`px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-200 cursor-pointer ${
                     activePhase === tab.id
-                      ? 'bg-primary-orange text-white shadow-md scale-105'
+                      ? 'bg-slate-900 text-white shadow-md scale-105'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
@@ -184,136 +195,87 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* 6-Step Folding Card Timeline Journey on Scroll */}
-        <section className="py-24 relative">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="relative space-y-12">
-              {filteredSteps.map((step, idx) => {
-                const isSelected = selectedStep === step.num;
-                // Calculate incremental sticky top offset for the folding stack effect
-                const stickyTop = 100 + idx * 28;
-
-                return (
+        {/* Steps Grid */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {steps
+                .filter((s) => activePhase === 'all' || s.phase === activePhase)
+                .map((step) => (
                   <div
                     key={step.num}
-                    onClick={() => setSelectedStep(step.num)}
-                    style={{ top: `${stickyTop}px` }}
-                    className={`sticky cursor-pointer transition-all duration-300 transform ${
-                      isSelected ? 'scale-[1.01]' : 'hover:scale-[1.005]'
-                    }`}
+                    className="bg-slate-50 rounded-[32px] p-8 border border-slate-200/80 shadow-md flex flex-col justify-between hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 group"
                   >
-                    {/* Folding Card Container */}
-                    <div
-                      className={`bg-white border-2 rounded-3xl p-8 md:p-12 shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
-                        isSelected
-                          ? 'border-primary-orange shadow-2xl bg-gradient-to-r from-orange-50/50 via-white to-orange-50/20'
-                          : 'border-slate-200/90 shadow-lg hover:border-orange-300'
-                      }`}
-                    >
-                      {/* Left Icon / Badge Column */}
-                      <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
-                        <div
-                          className={`w-16 h-16 rounded-2xl font-black text-2xl flex items-center justify-center shadow-lg mb-4 transition-transform duration-300 ${
-                            isSelected
-                              ? 'bg-primary-orange text-white scale-110 shadow-orange-500/30'
-                              : 'bg-slate-900 text-white'
-                          }`}
-                        >
+                    <div>
+                      <div className="flex items-center justify-between mb-6">
+                        <span className="text-3xl font-black text-amber-500/40 group-hover:text-amber-500 transition-colors">
                           {step.num}
+                        </span>
+                        <div className="w-12 h-12 rounded-2xl bg-white text-slate-900 flex items-center justify-center shadow-sm border border-slate-200 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
+                          <span className="material-symbols-outlined">{step.icon}</span>
                         </div>
-                        <span className="material-symbols-outlined text-6xl text-primary-orange/40 mb-2 animate-float">
-                          {step.icon}
-                        </span>
-                        <span className="text-xs font-extrabold uppercase tracking-widest text-primary-orange">
-                          Step {step.num} of 06
-                        </span>
                       </div>
 
-                      {/* Right Details Column */}
-                      <div className="lg:col-span-8">
-                        <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-2">
-                          {step.title}
-                        </h3>
-                        <p className="text-primary-orange font-bold text-sm mb-6">
-                          {step.subtitle}
-                        </p>
-                        <ul className="space-y-3.5 mb-6">
-                          {step.bullets.map((b, bIdx) => (
-                            <li key={bIdx} className="flex items-start gap-3">
-                              <span className="material-symbols-outlined text-primary-orange shrink-0 mt-0.5 text-lg">
-                                check_circle
-                              </span>
-                              <span className="text-slate-700 font-medium text-sm leading-relaxed">
-                                {b}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                      <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs font-bold text-amber-900 uppercase tracking-wider mb-5">
+                        {step.subtitle}
+                      </p>
 
-                        {step.ctaText && (
-                          <Link
-                            href={step.ctaHref!}
-                            className="inline-flex items-center gap-2 bg-primary-orange hover:bg-orange-600 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
-                          >
-                            {step.ctaText} <span>→</span>
-                          </Link>
-                        )}
-                      </div>
+                      <ul className="space-y-3 mb-8">
+                        {step.bullets.map((b, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed font-medium">
+                            <span className="text-amber-500 font-bold shrink-0">•</span>
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    {/* Milestone Banner between Step 4 & 5 */}
-                    {step.num === '04' && activePhase === 'all' && (
-                      <div className="my-6 py-6 px-8 bg-slate-900 text-white rounded-3xl flex flex-wrap items-center justify-between gap-4 shadow-2xl border border-slate-800 animate-fade-in">
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-2xl shadow-inner">
-                            ✓
-                          </div>
-                          <div>
-                            <h4 className="font-extrabold text-lg">Phase 1 Complete: Design &amp; Sanctions Approved</h4>
-                            <p className="text-slate-400 text-xs font-medium">Actual on-site ground construction &amp; foundation work begins now!</p>
-                          </div>
-                        </div>
-                        <span className="text-xs font-bold text-primary-orange uppercase tracking-wider bg-orange-950/60 px-4 py-2 rounded-full border border-orange-800/40">
-                          100% Transparent Milestone
-                        </span>
-                      </div>
+                    {step.ctaText && (
+                      <Link
+                        href={step.ctaHref}
+                        className="w-full bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-extrabold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-sm text-center transition-all"
+                      >
+                        {step.ctaText} →
+                      </Link>
                     )}
                   </div>
-                );
-              })}
+                ))}
             </div>
           </div>
         </section>
 
-        {/* Live App Tracking Interactive Simulator Section */}
-        <section className="py-20 bg-slate-900 text-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary-orange/20 text-primary-orange text-xs font-bold uppercase tracking-widest mb-6">
-                One Studio App
+        {/* Live Interior Site Tracker Simulator */}
+        <section className="py-24 bg-slate-950 text-white border-t border-slate-800">
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-black uppercase tracking-widest">
+                📱 ONE STUDIO LIVE APP TRACKER
               </div>
-              <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
-                We Build Your Dream Home. You Track Progress Live.
+              <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+                Track Every Stage From Your Mobile Phone
               </h2>
-              <p className="text-slate-400 text-base mb-8 leading-relaxed">
-                Stay updated at every step with our customer tracking application. Never worry about site visits or contractor delays.
+              <p className="text-slate-400 text-base leading-relaxed">
+                Stay updated on daily 3D site captures, material inspection reports, and milestone approvals without visiting the site every day.
               </p>
 
-              {/* Interactive App Control Tabs */}
-              <div className="flex flex-wrap gap-2 mb-8">
+              {/* App Control Tabs */}
+              <div className="flex flex-wrap gap-2 pt-2">
                 {[
                   { id: 'overview', label: 'Milestones' },
-                  { id: 'photo', label: '3D Photos' },
-                  { id: 'audit', label: '430+ Quality Audits' },
-                  { id: 'milestone', label: 'Milestone Safe Pay' },
+                  { id: 'photo', label: 'Daily Photos' },
+                  { id: 'audit', label: '150+ Audits' },
+                  { id: 'milestone', label: 'Stage Payments' },
                 ].map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveAppTab(tab.id as any)}
-                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       activeAppTab === tab.id
-                        ? 'bg-primary-orange text-white shadow-md'
-                        : 'bg-slate-800 text-slate-400 hover:text-white'
+                        ? 'bg-amber-500 text-slate-950 shadow-md font-black'
+                        : 'bg-slate-900 text-slate-400 hover:text-white'
                     }`}
                   >
                     {tab.label}
@@ -321,104 +283,93 @@ export default function HowItWorksPage() {
                 ))}
               </div>
 
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-4 pt-4">
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary-orange">photo_camera</span>
+                  <span className="material-symbols-outlined text-amber-400">photo_camera</span>
                   <div>
-                    <h5 className="font-bold text-white text-base">3D Site Progress Captures</h5>
-                    <p className="text-slate-400 text-sm">View high-resolution 3D site captures and daily construction photos.</p>
+                    <h5 className="font-bold text-white text-sm">Real-Time Daily Site Captures</h5>
+                    <p className="text-slate-400 text-xs">High-definition daily site photos uploaded by your dedicated site engineer.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-primary-orange">fact_check</span>
+                  <span className="material-symbols-outlined text-amber-400">verified</span>
                   <div>
-                    <h5 className="font-bold text-white text-base">430+ Quality Audit Reports</h5>
-                    <p className="text-slate-400 text-sm">Access lab test reports for cement, steel, concrete cube strength, and waterproofing.</p>
+                    <h5 className="font-bold text-white text-sm">150+ Material Quality Audits</h5>
+                    <p className="text-slate-400 text-xs">Certified inspection reports for BWP marine plywood moisture, edge-banding, and hardware alignment.</p>
                   </div>
                 </li>
               </ul>
-
-              <Link
-                href="/contact"
-                className="bg-primary-orange hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider inline-flex items-center gap-2 shadow-lg hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all"
-              >
-                Book Free Consultation <span>→</span>
-              </Link>
             </div>
 
-            {/* Interactive App Screen Simulator */}
-            <div className="relative flex justify-center">
-              <div className="bg-slate-800/90 p-8 rounded-[40px] border border-slate-700/60 shadow-2xl max-w-md w-full transition-all duration-300 hover:border-primary-orange/50">
-                <div className="flex items-center justify-between border-b border-slate-700/60 pb-6 mb-6">
+            {/* App Screen Card */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="bg-slate-900 p-8 rounded-[40px] border border-slate-800 shadow-2xl max-w-md w-full">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-5 mb-5">
                   <div>
-                    <p className="text-xs font-bold text-slate-400 uppercase">Live Site Status</p>
-                    <h4 className="text-xl font-bold text-white">Whitefield Villa #104</h4>
+                    <p className="text-[10px] font-black uppercase text-amber-400">Active Interior Project</p>
+                    <h4 className="text-lg font-bold text-white">Jubilee Hills Villa #104</h4>
                   </div>
-                  <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-bold uppercase flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                    On Schedule
+                  <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-black uppercase flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    45-Day Track
                   </span>
                 </div>
 
-                {/* Tab 1: Overview */}
                 {activeAppTab === 'overview' && (
-                  <div className="space-y-4 animate-fade-in">
-                    <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex justify-between items-center">
+                  <div className="space-y-3">
+                    <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex justify-between items-center">
                       <div>
-                        <p className="text-xs text-slate-400">Current Milestone</p>
-                        <p className="font-bold text-white text-sm">1st Floor Slab Casting</p>
+                        <p className="text-[10px] text-slate-400 uppercase font-bold">Current Milestone</p>
+                        <p className="font-bold text-white text-xs">Modular Kitchen &amp; Wardrobe Assembly</p>
                       </div>
-                      <span className="text-xs font-bold text-primary-orange">85% Complete</span>
+                      <span className="text-xs font-black text-amber-400">85% Complete</span>
                     </div>
-                    <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800 flex justify-between items-center">
+                    <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex justify-between items-center">
                       <div>
-                        <p className="text-xs text-slate-400">Quality Inspection</p>
-                        <p className="font-bold text-white text-sm">Steel Reinforcement Audit</p>
+                        <p className="text-[10px] text-slate-400 uppercase font-bold">Quality Inspection</p>
+                        <p className="font-bold text-white text-xs">BWP Marine Plywood Audit</p>
                       </div>
-                      <span className="text-xs font-bold text-emerald-400">PASSED ✓</span>
+                      <span className="text-xs font-black text-emerald-400">PASSED ✓</span>
                     </div>
                   </div>
                 )}
 
-                {/* Tab 2: Photo */}
                 {activeAppTab === 'photo' && (
-                  <div className="space-y-4 animate-fade-in">
-                    <div className="relative rounded-2xl overflow-hidden h-44 border border-slate-700">
+                  <div className="space-y-3">
+                    <div className="relative rounded-2xl overflow-hidden h-44 border border-slate-800">
                       <img
-                        alt="Daily Site Capture"
+                        alt="Daily Site Progress"
                         className="w-full h-full object-cover"
-                        src="/images/bangalore_hero_building.png"
+                        src="/images/luxury_modular_kitchen.png"
                       />
-                      <div className="absolute bottom-2 left-2 bg-black/70 px-3 py-1 rounded-lg text-[10px] text-white">
-                        📷 Captured Today 09:30 AM
+                      <div className="absolute bottom-2 left-2 bg-slate-950/80 px-3 py-1 rounded-lg text-[10px] text-amber-400 font-bold">
+                        📷 Site Progress • Kitchen Assembly Today
                       </div>
                     </div>
                   </div>
                 )}
 
-                {/* Tab 3: Audit */}
                 {activeAppTab === 'audit' && (
-                  <div className="space-y-3 animate-fade-in">
-                    <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between text-xs">
-                      <span className="text-slate-300">Concrete Cube Test (M25)</span>
-                      <span className="text-emerald-400 font-bold">28.5 N/mm² ✓</span>
+                  <div className="space-y-3">
+                    <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between text-xs">
+                      <span className="text-slate-300">Moisture Content Test (&lt;12%)</span>
+                      <span className="text-emerald-400 font-bold">8.4% PASSED ✓</span>
                     </div>
-                    <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between text-xs">
-                      <span className="text-slate-300">Steel Tensile Strength</span>
-                      <span className="text-emerald-400 font-bold">500D Grade ✓</span>
+                    <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between text-xs">
+                      <span className="text-slate-300">Hettich Soft-Close Hardware Audit</span>
+                      <span className="text-emerald-400 font-bold">100% PASSED ✓</span>
                     </div>
                   </div>
                 )}
 
-                {/* Tab 4: Milestone Pay */}
                 {activeAppTab === 'milestone' && (
-                  <div className="space-y-3 animate-fade-in">
-                    <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800">
+                  <div className="space-y-3">
+                    <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800">
                       <div className="flex justify-between text-xs text-slate-400 mb-1">
-                        <span>Stage 3 Milestone Deposit</span>
-                        <span className="text-emerald-400 font-bold">Verified Milestone</span>
+                        <span>Woodwork Delivery Milestone</span>
+                        <span className="text-emerald-400 font-bold">Passed Inspection</span>
                       </div>
-                      <p className="text-sm font-bold text-white">₹3,50,000 Verified</p>
+                      <p className="text-sm font-bold text-white">Stage Payment Verified ✓</p>
                     </div>
                   </div>
                 )}
@@ -427,186 +378,93 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* Interactive Construction Estimator Widget */}
-        <section className="py-24 bg-orange-50/50 border-y border-orange-100">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary-orange/10 text-primary-orange text-xs font-bold uppercase tracking-widest mb-4">
-                Instant Estimator
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
-                Estimate Your Construction Cost &amp; Timeline
-              </h2>
-              <p className="text-slate-600 text-sm font-medium">
-                Adjust your plot size, floors, and package to preview your project metrics.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200/80 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              {/* Controls */}
-              <div className="lg:col-span-7 space-y-6">
-                <div>
-                  <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-2">
-                    Plot Dimensions / Area (sq.ft): {plotArea} sq.ft
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {[1200, 1500, 2400, 4000].map((size) => (
-                      <button
-                        key={size}
-                        onClick={() => setPlotArea(size)}
-                        className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                          plotArea === size
-                            ? 'bg-primary-orange text-white shadow-md'
-                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                        }`}
-                      >
-                        {size} sq.ft {size === 1200 ? '(30x40)' : size === 2400 ? '(40x60)' : ''}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-2">
-                    Number of Floors: G + {floors - 1} Floors ({totalBuiltupArea} sq.ft builtup)
-                  </label>
-                  <div className="flex gap-2">
-                    {[1, 2, 3, 4].map((f) => (
-                      <button
-                        key={f}
-                        onClick={() => setFloors(f)}
-                        className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                          floors === f
-                            ? 'bg-primary-orange text-white shadow-md'
-                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                        }`}
-                      >
-                        G+{f - 1}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-2">
-                    Construction Package Tier
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      { rate: 1849, label: 'Essential @ ₹1,849/sq.ft' },
-                      { rate: 2049, label: 'Prime @ ₹2,049/sq.ft' },
-                      { rate: 2349, label: 'Signature @ ₹2,349/sq.ft' },
-                      { rate: 2699, label: 'Elite @ ₹2,699/sq.ft' },
-                    ].map((pkg) => (
-                      <button
-                        key={pkg.rate}
-                        onClick={() => setPackageTier(pkg.rate)}
-                        className={`px-3 py-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
-                          packageTier === pkg.rate
-                            ? 'bg-primary-orange text-white shadow-md'
-                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                        }`}
-                      >
-                        {pkg.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Estimation Display Box */}
-              <div className="lg:col-span-5 bg-slate-900 text-white rounded-3xl p-8 shadow-2xl flex flex-col justify-between border border-slate-800 text-center">
-                <span className="text-xs font-bold uppercase tracking-widest text-primary-orange mb-2">
-                  Estimated Summary
-                </span>
-                <div className="my-4">
-                  <p className="text-xs text-slate-400 uppercase font-semibold">Total Estimated Cost</p>
-                  <h3 className="text-3xl md:text-4xl font-black text-white mt-1">
-                    ₹{(estimatedCost / 100000).toFixed(2)} Lacs
-                  </h3>
-                  <p className="text-[11px] text-slate-400 mt-1">
-                    Includes materials, labor &amp; architectural designs
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-slate-800 grid grid-cols-2 gap-4 text-left">
-                  <div>
-                    <p className="text-[10px] text-slate-400 uppercase font-semibold">Builtup Area</p>
-                    <p className="font-extrabold text-sm text-white">{totalBuiltupArea} sq.ft</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-slate-400 uppercase font-semibold">Timeline</p>
-                    <p className="font-extrabold text-sm text-emerald-400">{estimatedMonths} Months</p>
-                  </div>
-                </div>
-                <Link
-                  href="/contact"
-                  className="mt-6 w-full bg-primary-orange hover:bg-orange-600 text-white font-bold py-3 rounded-2xl text-xs uppercase tracking-wider shadow-md text-center"
-                >
-                  Get Detailed Quote →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-24 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-slate-500 font-medium">
-                Everything you need to know about our construction process &amp; safety.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {faqs.map((faq, idx) => (
-                <details
-                  key={idx}
-                  className="group bg-white border border-slate-200 rounded-2xl p-6 open:shadow-sm transition-all"
-                >
-                  <summary className="cursor-pointer font-bold text-base md:text-lg text-slate-900 list-none flex justify-between items-center">
-                    {faq.q}
-                    <span className="text-primary-orange transition-transform group-open:rotate-45 font-bold text-xl ml-4">
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-4 text-slate-600 leading-relaxed text-sm md:text-base">
-                    {faq.a}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Bottom CTA Banner */}
-        <section className="py-20 bg-primary-orange text-white text-center">
-          <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-black mb-6">
-              Ready to Design Your Dream Home in Hyderabad?
+        {/* Interactive Interior Estimator Quick Widget */}
+        <section className="py-24 bg-slate-50 border-t border-slate-200/80">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/30 text-xs font-black uppercase tracking-widest mb-4">
+              ⚡ INSTANT INTERIOR TIMELINE &amp; PRICE GUIDE
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-8">
+              Estimate Your Home Interior Timeline
             </h2>
-            <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
-              Get 1:1 consultation with Hyderabad's top interior design experts and guaranteed 100% transparent pricing.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
+
+            {/* Selectors */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 md:p-8 rounded-[32px] border border-slate-200 shadow-xl mb-8 text-left">
+              <div>
+                <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-3">
+                  1. Select Home Type
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { id: '2bhk', label: '2BHK' },
+                    { id: '3bhk', label: '3BHK' },
+                    { id: 'villa', label: 'Villa' },
+                  ].map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setHomeType(t.id)}
+                      className={`py-3 rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer ${
+                        homeType === t.id
+                          ? 'bg-slate-900 text-white shadow-md'
+                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      }`}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-3">
+                  2. Select Finish Tier
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { id: 'essential', label: 'Essential' },
+                    { id: 'signature', label: 'Signature' },
+                    { id: 'luxury', label: 'Luxury' },
+                  ].map((f) => (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => setFinishTier(f.id)}
+                      className={`py-3 rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer ${
+                        finishTier === f.id
+                          ? 'bg-amber-500 text-slate-950 shadow-md'
+                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Estimated Output Result */}
+            <div className="bg-slate-900 text-white rounded-[32px] p-8 shadow-2xl border border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+              <div>
+                <p className="text-[10px] font-black uppercase text-amber-400">Estimated Cost Range</p>
+                <p className="text-2xl md:text-3xl font-black text-white mt-1">{currentEst.cost}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-black uppercase text-amber-400">Delivery Timeline</p>
+                <p className="text-2xl md:text-3xl font-black text-emerald-400 mt-1">{currentEst.time}</p>
+              </div>
               <Link
-                href="/contact"
-                className="bg-slate-900 hover:bg-black text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all"
+                href="/estimate"
+                className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider py-4 px-6 rounded-2xl transition-all text-center shadow-lg hover:shadow-xl"
               >
-                Talk to an Expert Now
-              </Link>
-              <Link
-                href="/services"
-                className="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider shadow-lg transition-all"
-              >
-                Explore Services
+                Detailed Itemized Cost →
               </Link>
             </div>
           </div>
         </section>
+
+        {/* Theme Styled FAQ Section */}
+        <FAQ />
       </main>
       <Footer />
     </>
