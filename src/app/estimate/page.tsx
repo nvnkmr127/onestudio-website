@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InteriorEstimator from '@/components/InteriorEstimator';
+import FAQ from '@/components/FAQ';
 
 export const metadata: Metadata = {
   title: 'Interior Design Cost Estimator | One Studio Hyderabad',
@@ -34,6 +35,11 @@ export default function EstimatePage() {
 
         {/* Core Estimator Component */}
         <InteriorEstimator />
+
+        {/* Theme Styled FAQ Section */}
+        <div className="mt-16">
+          <FAQ />
+        </div>
       </main>
       <Footer />
     </>
