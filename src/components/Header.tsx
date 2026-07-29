@@ -80,7 +80,7 @@ export default function Header() {
           <button
             type="button"
             onClick={openCallModal}
-            className="flex bg-amber-500 hover:bg-amber-600 text-slate-950 px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full font-extrabold text-[11px] sm:text-xs uppercase tracking-wider items-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer shrink-0"
+            className="flex bg-amber-500 hover:bg-amber-600 text-slate-950 px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full font-extrabold text-[11px] sm:text-xs uppercase tracking-wider items-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer shrink-0 btn-flicker"
           >
             <span className="hidden sm:inline">Get a Quote</span>
             <span className="sm:hidden">Quote 📞</span>

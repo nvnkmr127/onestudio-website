@@ -184,9 +184,9 @@ export default function CallModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary-orange hover:bg-orange-600 disabled:opacity-50 text-white font-extrabold text-sm tracking-wide py-3.5 rounded-xl shadow-md transition-all uppercase cursor-pointer mt-1"
+                  className="w-full bg-[#f2bd19] hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-black text-sm tracking-wider py-4 rounded-xl shadow-lg transition-all uppercase cursor-pointer mt-1 btn-flicker flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'SUBMITTING...' : 'CONTINUE'}
+                  {isSubmitting ? 'SUBMITTING...' : 'CONTINUE ⚡'}
                 </button>
               </form>
 
