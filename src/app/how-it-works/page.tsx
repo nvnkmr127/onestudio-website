@@ -278,6 +278,113 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
+        {/* Turnkey Interior Space Breakdown Section */}
+        <section className="py-24 bg-white border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/30 text-xs font-black uppercase tracking-widest mb-4">
+                🏡 COMPLETE TURNKEY INTERIORS
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                Designed for Every Corner of Your Home
+              </h2>
+              <p className="text-slate-600 font-medium text-base mt-4">
+                Factory-precision modular woodwork, customized false ceilings, designer ambient lighting, and handpicked wall finishes for Hyderabad residences.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: 'Modular Kitchens',
+                  desc: 'BWP Marine Plywood, Quartz countertops, Tandem drawers & Hettich soft-close hinges.',
+                  icon: 'kitchen',
+                  tag: 'Factory Modular',
+                },
+                {
+                  title: 'Master Bedrooms',
+                  desc: 'Floor-to-ceiling sliding wardrobes, upholstered headboards & integrated study desks.',
+                  icon: 'bed',
+                  tag: 'Custom Storage',
+                },
+                {
+                  title: 'Living & Dining',
+                  desc: 'Geometric false ceilings, fluted louvers, TV console units & ambient LED strip lighting.',
+                  icon: 'weekend',
+                  tag: 'Luxury Decor',
+                },
+                {
+                  title: 'Foyer & Vanity Units',
+                  desc: 'Shoe racks with seating, partition screens, stone vanity units & gold-accent mirrors.',
+                  icon: 'door_front',
+                  tag: 'Custom Joinery',
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-slate-50 rounded-[32px] p-8 border border-slate-200/80 hover:border-amber-500/40 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-950 flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-colors">
+                      <span className="material-symbols-outlined text-3xl">{item.icon}</span>
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-amber-900 bg-amber-500/20 px-3 py-1 rounded-full">
+                      {item.tag}
+                    </span>
+                    <h3 className="text-xl font-black text-slate-900 mt-4 mb-2 group-hover:text-amber-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-600 text-xs font-medium leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-bold text-slate-900">
+                    <span>Explore Space</span>
+                    <span className="group-hover:translate-x-1 transition-transform text-amber-500">→</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Premium Material & Hardware Guarantee Section */}
+        <section className="py-20 bg-amber-500/10 border-t border-b border-amber-500/20">
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="inline-block px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-widest">
+                🛡️ PREMIUM BRANDED MATERIALS
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-950 tracking-tight">
+                Zero Compromise Materials &amp; Hardware
+              </h2>
+              <p className="text-slate-700 text-sm font-medium leading-relaxed">
+                We only source factory-certified IS 710 BWP marine grade plywood, HDMR boards, and hardware from top global manufacturers.
+              </p>
+              <div className="pt-2 flex items-center gap-6 text-slate-950 font-black text-xs uppercase tracking-wider">
+                <span>✓ Hettich</span>
+                <span>✓ Blum</span>
+                <span>✓ Greenply</span>
+                <span>✓ CenturyPly</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: '100% BWP Marine Plywood', text: 'Boiling waterproof plywood with 21-year manufacturer guarantee against termites and moisture.' },
+                { title: 'German Soft-Close Hinges', text: 'Tested for 200,000+ open-close cycles for silent, effortless door and drawer motion.' },
+                { title: 'Anti-Bubble Edge-Banding', text: 'Machine pur edge banding ensuring seamless 0mm joint sealing and zero moisture ingress.' },
+                { title: 'High-Gloss Acrylic & PU', text: 'Scratch-resistant, UV-stable surfaces with zero yellowing over decades of daily use.' },
+              ].map((m, mIdx) => (
+                <div key={mIdx} className="bg-white p-6 rounded-2xl border border-amber-500/30 shadow-md">
+                  <h4 className="font-black text-slate-950 text-sm mb-1">{m.title}</h4>
+                  <p className="text-slate-600 text-xs font-medium leading-relaxed">{m.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Live Interior Site Tracker Simulator */}
         <section className="py-24 bg-slate-950 text-white border-t border-slate-800">
           <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
