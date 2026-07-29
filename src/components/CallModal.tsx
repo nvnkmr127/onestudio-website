@@ -181,12 +181,22 @@ export default function CallModal() {
                   </div>
                 )}
 
+                {/* Ribbon with Marquee Text & Free Badge */}
+                <div className="overflow-hidden rounded-xl bg-amber-500/15 border border-amber-500/30 py-1.5 px-2 my-1 flex items-center shadow-inner">
+                  <div className="flex animate-marquee-slow space-x-6 whitespace-nowrap text-[11px] font-black text-amber-950 uppercase tracking-wider">
+                    <span>🎁 100% FREE NO OBLIGATION CONSULTATION</span>
+                    <span>⚡ INSTANT 3D FLOOR PLAN &amp; COST ITEMIZATION</span>
+                    <span>🎁 100% FREE NO OBLIGATION CONSULTATION</span>
+                    <span>⚡ INSTANT 3D FLOOR PLAN &amp; COST ITEMIZATION</span>
+                  </div>
+                </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-[#f2bd19] hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-black text-sm tracking-wider py-4 rounded-xl shadow-lg transition-all uppercase cursor-pointer mt-1 btn-flicker flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'SUBMITTING...' : 'CONTINUE ⚡'}
+                  {isSubmitting ? 'SUBMITTING...' : 'GET INSTANT QUOTE ⚡'}
                 </button>
               </form>
 
