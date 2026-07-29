@@ -60,12 +60,12 @@ const steps = [
   {
     num: '05',
     phase: 'build',
-    title: 'Track & Transact (Escrow Safety)',
-    subtitle: 'Stage-wise payment release & 430+ quality checks',
+    title: 'Track & Transact (Milestone Safety)',
+    subtitle: 'Stage-wise payment release & 150+ quality checks',
     bullets: [
-      'Safe stage-wise escrow payment system: money is released to the build team ONLY after each stage passes quality audit.',
+      'Safe stage-wise milestone payment system: money is released to the execution team ONLY after each stage passes quality audit.',
       'Track 3D site progress, view daily site photos, and review inspection reports live on the One Studio app.',
-      'Our independent quality auditor performs 430+ structural tests at every key milestone (foundation, slab, masonry, finishing).',
+      'Our independent quality auditor performs 150+ quality tests at every key milestone (modular woodwork, electrical, finishing).',
     ],
     icon: 'security',
   },
@@ -75,8 +75,8 @@ const steps = [
     title: 'Settle In & Enjoy 10-Year Warranty',
     subtitle: 'Key handover with zero-defect sign-off',
     bullets: [
-      'Final joint inspection and deep cleaning of your newly constructed home before key handover.',
-      'Receive official 10-Year Structural Warranty certificate and maintenance manual.',
+      'Final joint inspection and deep cleaning of your newly designed home before key handover.',
+      'Receive official 10-Year Modular Woodwork Warranty certificate and maintenance manual.',
       'Our relationship continues with 1-year free post-handover maintenance support.',
     ],
     icon: 'key',
@@ -85,8 +85,8 @@ const steps = [
 
 const faqs = [
   {
-    q: 'How does stage-wise escrow payment protect my money?',
-    a: 'Your money is deposited into a safe escrow account per construction stage. Funds are released to the project team only after our certified quality audit team verifies that the stage meets all 430+ QASCON quality benchmarks.',
+    q: 'How does stage-wise milestone payment protect my money?',
+    a: 'Your payments are released per completed stage milestone. Funds are paid to the project team only after our certified quality audit team verifies that the stage meets all 150+ quality benchmarks.',
   },
   {
     q: 'Can I track my site construction progress remotely?',
@@ -105,7 +105,7 @@ const faqs = [
 export default function HowItWorksPage() {
   const [activePhase, setActivePhase] = useState<'all' | 'plan' | 'design' | 'build'>('all');
   const [selectedStep, setSelectedStep] = useState<string>('01');
-  const [activeAppTab, setActiveAppTab] = useState<'overview' | 'photo' | 'audit' | 'escrow'>('overview');
+  const [activeAppTab, setActiveAppTab] = useState<'overview' | 'photo' | 'audit' | 'milestone'>('overview');
 
   // Interactive Calculator State
   const [plotArea, setPlotArea] = useState<number>(1200);
@@ -136,7 +136,7 @@ export default function HowItWorksPage() {
               <span className="text-primary-orange font-black text-lg">✓</span> 100% On-Time Delivery
             </div>
             <div className="flex items-center justify-center gap-2 text-slate-200">
-              <span className="text-primary-orange font-black text-lg">🔒</span> Escrow Stage Safety
+              <span className="text-primary-orange font-black text-lg">🔒</span> Stage Payment Safety
             </div>
             <div className="flex items-center justify-center gap-2 text-slate-200">
               <span className="text-primary-orange font-black text-lg">🛡️</span> 430+ Quality Checks
@@ -166,7 +166,7 @@ export default function HowItWorksPage() {
                 { id: 'all', label: 'All 6 Steps' },
                 { id: 'plan', label: '1. Plan & Consultation' },
                 { id: 'design', label: '2. Design & Sanctions' },
-                { id: 'build', label: '3. Build & Escrow Track' },
+                { id: 'build', label: '3. Build & Milestone Track' },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -305,7 +305,7 @@ export default function HowItWorksPage() {
                   { id: 'overview', label: 'Milestones' },
                   { id: 'photo', label: '3D Photos' },
                   { id: 'audit', label: '430+ Quality Audits' },
-                  { id: 'escrow', label: 'Escrow Safe Pay' },
+                  { id: 'milestone', label: 'Milestone Safe Pay' },
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -410,15 +410,15 @@ export default function HowItWorksPage() {
                   </div>
                 )}
 
-                {/* Tab 4: Escrow */}
-                {activeAppTab === 'escrow' && (
+                {/* Tab 4: Milestone Pay */}
+                {activeAppTab === 'milestone' && (
                   <div className="space-y-3 animate-fade-in">
                     <div className="bg-slate-900 p-4 rounded-2xl border border-slate-800">
                       <div className="flex justify-between text-xs text-slate-400 mb-1">
-                        <span>Stage 3 Escrow Deposit</span>
-                        <span className="text-emerald-400 font-bold">Locked in Escrow</span>
+                        <span>Stage 3 Milestone Deposit</span>
+                        <span className="text-emerald-400 font-bold">Verified Milestone</span>
                       </div>
-                      <p className="text-sm font-bold text-white">₹3,50,000 Safe</p>
+                      <p className="text-sm font-bold text-white">₹3,50,000 Verified</p>
                     </div>
                   </div>
                 )}

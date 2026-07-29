@@ -68,7 +68,7 @@ export default function Footer() {
                 />
               </div>
               <p className="text-gray-400 leading-relaxed text-sm font-normal">
-                Hyderabad's premier luxury home interior design studio delivering bespoke homes with 150+ quality checks, escrow payment safety, and 10-year woodwork warranty.
+                Hyderabad's premier luxury home interior design studio delivering bespoke homes with 150+ quality checks, stage milestone payments, and 10-year woodwork warranty.
               </p>
 
               {/* Social Media SVG Icon Row */}

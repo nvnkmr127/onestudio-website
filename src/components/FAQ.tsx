@@ -5,7 +5,7 @@ import { openCallModal } from '@/components/CallModal';
 
 interface FAQItem {
   id: number;
-  category: 'General' | 'Pricing & Escrow' | 'Quality & Warranty' | 'Approvals';
+  category: 'General' | 'Pricing & Milestones' | 'Quality & Warranty' | 'Approvals';
   question: string;
   answer: string;
 }
@@ -21,7 +21,7 @@ const faqData: FAQItem[] = [
     id: 2,
     category: 'General',
     question: 'What is the step-by-step process for working with One Studio?',
-    answer: 'Our process is simple and transparent: 1) Free 3D VR Space Plan & Instant Cost Estimate, 2) Material Selection & Moodboards, 3) Stage-wise Escrow Payment Setup, 4) Real-Time App Tracking with 150+ Quality Checks, 5) 45-Day Guaranteed Handover.',
+    answer: 'Our process is simple and transparent: 1) Free 3D VR Space Plan & Instant Cost Estimate, 2) Material Selection & Moodboards, 3) Stage-wise Milestone Payment Setup, 4) Real-Time App Tracking with 150+ Quality Checks, 5) 45-Day Guaranteed Handover.',
   },
   {
     id: 3,
@@ -31,9 +31,9 @@ const faqData: FAQItem[] = [
   },
   {
     id: 4,
-    category: 'Pricing & Escrow',
+    category: 'Pricing & Milestones',
     question: 'How are payment milestones handled to prevent cost overruns?',
-    answer: 'All payments are linked to escrow stage milestones. You never pay upfront lump sums. Funds for each stage (Design, Factory Production, Woodwork Delivery, Assembly, Finishing) are released only after our certified designers inspect and pass 150+ quality checks.',
+    answer: 'All payments are linked to clear stage milestones. You never pay upfront lump sums. Funds for each stage (Design, Factory Production, Woodwork Delivery, Assembly, Finishing) are paid only after our certified designers inspect and pass 150+ quality checks.',
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ export default function FAQ() {
   const [openId, setOpenId] = useState<number | null>(1);
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  const categories = ['All', 'Quality & Warranty', 'General', 'Pricing & Escrow', 'Approvals'];
+  const categories = ['All', 'Quality & Warranty', 'General', 'Pricing & Milestones', 'Approvals'];
 
   const filteredFaqs = activeCategory === 'All'
     ? faqData
@@ -81,36 +81,27 @@ export default function FAQ() {
             </h2>
 
             <p className="text-slate-500 text-sm leading-relaxed max-w-md">
-              Everything you need to know about interior estimation, escrow stage safety, 45-day delivery, and 15-year warranties in Hyderabad.
+              Everything you need to know about interior estimation, stage payment safety, 45-day delivery, and 10-year warranties in Hyderabad.
             </p>
           </div>
 
           {/* Support Representative Card */}
           <div className="bg-slate-900 p-7 rounded-[32px] text-white shadow-2xl flex items-center gap-5 border border-slate-800 relative overflow-hidden">
             <div className="pointer-events-none absolute -bottom-10 -right-10 w-40 h-40 bg-amber-500/20 rounded-full blur-2xl" />
-
             <img
-              alt="Kiran - Senior Support Advisor"
-              className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-500 shrink-0 shadow-md"
+              alt="Senior Interior Advisor"
+              className="w-16 h-16 rounded-2xl object-cover border-2 border-amber-400 shrink-0 shadow-lg"
               src="/images/indian_professional_man_1.png"
             />
-            <div className="space-y-1">
-              <p className="font-extrabold text-base text-white">Hello, I'm Kiran From Support</p>
-              <p className="text-slate-400 text-xs font-normal">
-                Have specific design or budget questions? Talk to our designers directly.
-              </p>
-              <button
-                type="button"
-                onClick={openCallModal}
-                className="mt-2 bg-amber-500 hover:bg-amber-600 text-slate-950 px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
-              >
-                Ask a Question <span>→</span>
-              </button>
+            <div>
+              <h4 className="font-extrabold text-base text-white">Rahul Verma</h4>
+              <p className="text-amber-400 text-xs font-semibold">Chief Design Specialist • One Studio</p>
+              <p className="text-slate-400 text-xs mt-1">Have custom questions? Call +91 9014303409</p>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Category Filter Pills & Accordion */}
+        {/* Right Column: Category Filters & Accordion List */}
         <div className="lg:col-span-7 space-y-6">
           {/* Category Filter Pills */}
           <div className="flex flex-wrap gap-2 pb-2">
@@ -119,10 +110,10 @@ export default function FAQ() {
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-2xl text-xs font-extrabold transition-all cursor-pointer ${
                   activeCategory === cat
                     ? 'bg-slate-900 text-white shadow-md'
-                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                    : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 border border-slate-200/80'
                 }`}
               >
                 {cat}
@@ -130,54 +121,61 @@ export default function FAQ() {
             ))}
           </div>
 
-          {/* Accordion Questions List */}
-          <div className="space-y-3">
+          {/* Accordion List */}
+          <div className="space-y-4">
             {filteredFaqs.map((faq) => {
               const isOpen = openId === faq.id;
               return (
                 <div
                   key={faq.id}
-                  className={`rounded-3xl transition-all duration-200 overflow-hidden border ${
+                  className={`bg-white rounded-3xl border transition-all duration-300 overflow-hidden ${
                     isOpen
-                      ? 'bg-[#1C1C1C] text-white border-white/10 shadow-2xl'
-                      : 'bg-white text-slate-900 border-slate-200 hover:border-slate-300 shadow-sm'
+                      ? 'border-amber-500/50 shadow-xl ring-1 ring-amber-500/20'
+                      : 'border-slate-200/80 shadow-sm hover:border-slate-300'
                   }`}
                 >
                   <button
                     type="button"
                     onClick={() => toggleFaq(faq.id)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base md:text-lg cursor-pointer select-none"
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
                   >
-                    <span className="leading-snug">{faq.question}</span>
-                    <span
-                      className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-black shrink-0 transition-transform duration-300 ${
+                    <span className="font-extrabold text-slate-900 text-base md:text-lg leading-snug">
+                      {faq.question}
+                    </span>
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shrink-0 transition-transform duration-300 ${
                         isOpen
                           ? 'bg-amber-500 text-slate-950 rotate-180'
-                          : 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
+                          : 'bg-slate-100 text-slate-600'
                       }`}
                     >
-                      ▼
-                    </span>
+                      ↓
+                    </div>
                   </button>
 
                   {isOpen && (
-                    <div className="p-6 pt-0 border-t border-slate-100 bg-slate-50/50 text-slate-600 text-sm leading-relaxed">
-                      <p className="mb-3">{faq.answer}</p>
-                      <div className="flex items-center justify-between text-xs font-semibold text-slate-400 border-t border-slate-200/60 pt-3">
-                        <span className="text-amber-600 font-bold">Category: {faq.category}</span>
-                        <button
-                          type="button"
-                          onClick={openCallModal}
-                          className="hover:text-slate-900 underline transition-colors cursor-pointer"
-                        >
-                          Need more details? Talk to Advisor →
-                        </button>
-                      </div>
+                    <div className="px-6 pb-6 pt-2 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+                      {faq.answer}
                     </div>
                   )}
                 </div>
               );
             })}
+          </div>
+
+          {/* Bottom Help Box */}
+          <div className="bg-amber-500/10 border border-amber-500/20 rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+              <h4 className="font-extrabold text-slate-900 text-sm">Still have questions?</h4>
+              <p className="text-slate-600 text-xs font-medium">Get a personalized answer for your home floor plan.</p>
+            </div>
+            <button
+              type="button"
+              onClick={openCallModal}
+              className="bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-2xl shadow-md transition-all cursor-pointer shrink-0"
+            >
+              Ask an Expert 📞
+            </button>
           </div>
         </div>
       </div>
