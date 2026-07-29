@@ -187,9 +187,35 @@ export default function CallModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#f2bd19] hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-black text-sm tracking-wider py-4 rounded-xl shadow-lg transition-all uppercase cursor-pointer mt-1 btn-flicker flex items-center justify-center gap-2"
+                  className="relative w-full bg-[#E52328] hover:bg-[#d01b20] active:scale-[0.99] disabled:opacity-50 text-white font-extrabold text-base tracking-wide py-4 px-14 rounded-2xl shadow-xl transition-all cursor-pointer mt-2 flex items-center justify-center overflow-hidden group"
                 >
-                  {isSubmitting ? 'SUBMITTING...' : 'GET INSTANT QUOTE ⚡'}
+                  <span className="text-white font-bold text-base md:text-lg">
+                    {isSubmitting ? 'Submitting...' : 'Book 3D Design Session'}
+                  </span>
+
+                  {/* Curved Arc FREE ★ Rotating Badge + Right Arrow */}
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 pointer-events-none">
+                    <svg className="w-12 h-12 animate-spin-slow text-white" viewBox="0 0 100 100">
+                      <path
+                        id="btnArcPathModal"
+                        d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0"
+                        fill="none"
+                      />
+                      <text className="text-[13px] font-black uppercase tracking-[0.22em] fill-current">
+                        <textPath href="#btnArcPathModal" startOffset="0%">
+                          FREE ★ FREE ★
+                        </textPath>
+                      </text>
+                    </svg>
+                    <svg
+                      className="absolute w-5 h-5 text-white stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </div>
                 </button>
               </form>
 
