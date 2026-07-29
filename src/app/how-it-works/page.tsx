@@ -84,27 +84,9 @@ const steps = [
   },
 ];
 
-const faqsInterior = [
-  {
-    q: 'How long does a 3BHK home interior project take to complete in Hyderabad?',
-    a: 'A standard 3BHK interior project is completed within 45 days from design freeze to key handover, backed by a strict delay penalty clause.',
-  },
-  {
-    q: 'What materials are used for modular kitchens and wardrobes?',
-    a: 'We exclusively use BWP-grade marine plywood with HDMR options, finished with premium acrylic, laminates, or lacquered glass, fitted with Hettich or Blum hardware.',
-  },
-  {
-    q: 'Can I track my interior project progress remotely?',
-    a: 'Yes! The One Studio app provides real-time 3D site captures, daily photo updates, quality audit certificates, and milestone tracking.',
-  },
-  {
-    q: 'What happens if there is a delay in delivery?',
-    a: 'We include a strict penalty clause in our contract: if delivery is delayed beyond the committed timeline, we compensate you per day of delay.',
-  },
-];
-
 export default function HowItWorksPage() {
   const [activePhase, setActivePhase] = useState<'all' | 'plan' | 'design' | 'build'>('all');
+  const [selectedStep, setSelectedStep] = useState<string>('01');
   const [activeAppTab, setActiveAppTab] = useState<'overview' | 'photo' | 'audit' | 'milestone'>('overview');
 
   // Interactive Interior Estimator State
@@ -130,6 +112,7 @@ export default function HowItWorksPage() {
   };
 
   const currentEst = estimateData[homeType][finishTier];
+  const filteredSteps = steps.filter((s) => activePhase === 'all' || s.phase === activePhase);
 
   return (
     <>
@@ -195,54 +178,102 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* Steps Grid */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {steps
-                .filter((s) => activePhase === 'all' || s.phase === activePhase)
-                .map((step) => (
+        {/* 6-Step Folding Sticky Card Stack Journey on Scroll */}
+        <section className="py-24 relative bg-slate-50/50">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="relative space-y-12 pb-12">
+              {filteredSteps.map((step, idx) => {
+                const isSelected = selectedStep === step.num;
+                const stickyTop = 110 + idx * 28;
+
+                return (
                   <div
                     key={step.num}
-                    className="bg-slate-50 rounded-[32px] p-8 border border-slate-200/80 shadow-md flex flex-col justify-between hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 group"
+                    onClick={() => setSelectedStep(step.num)}
+                    style={{ top: `${stickyTop}px` }}
+                    className={`sticky cursor-pointer transition-all duration-300 transform ${
+                      isSelected ? 'scale-[1.01]' : 'hover:scale-[1.005]'
+                    }`}
                   >
-                    <div>
-                      <div className="flex items-center justify-between mb-6">
-                        <span className="text-3xl font-black text-amber-500/40 group-hover:text-amber-500 transition-colors">
+                    {/* Folding Card Container */}
+                    <div
+                      className={`bg-white border-2 rounded-[36px] p-8 md:p-12 shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
+                        isSelected
+                          ? 'border-amber-500 shadow-2xl bg-gradient-to-r from-amber-50/40 via-white to-amber-50/20'
+                          : 'border-slate-200/90 shadow-lg hover:border-amber-300'
+                      }`}
+                    >
+                      {/* Left Icon / Badge Column */}
+                      <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
+                        <div
+                          className={`w-16 h-16 rounded-2xl font-black text-2xl flex items-center justify-center shadow-lg mb-4 transition-transform duration-300 ${
+                            isSelected
+                              ? 'bg-amber-500 text-slate-950 scale-110 shadow-amber-500/30'
+                              : 'bg-slate-900 text-white'
+                          }`}
+                        >
                           {step.num}
-                        </span>
-                        <div className="w-12 h-12 rounded-2xl bg-white text-slate-900 flex items-center justify-center shadow-sm border border-slate-200 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
-                          <span className="material-symbols-outlined">{step.icon}</span>
                         </div>
+                        <span className="material-symbols-outlined text-6xl text-amber-500/40 mb-2 animate-float">
+                          {step.icon}
+                        </span>
+                        <span className="text-xs font-extrabold uppercase tracking-widest text-amber-600">
+                          Step {step.num} of 06
+                        </span>
                       </div>
 
-                      <h3 className="text-xl font-black text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs font-bold text-amber-900 uppercase tracking-wider mb-5">
-                        {step.subtitle}
-                      </p>
+                      {/* Right Details Column */}
+                      <div className="lg:col-span-8">
+                        <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
+                          {step.title}
+                        </h3>
+                        <p className="text-amber-600 font-extrabold text-xs uppercase tracking-wider mb-6">
+                          {step.subtitle}
+                        </p>
+                        <ul className="space-y-3.5 mb-6">
+                          {step.bullets.map((b, bIdx) => (
+                            <li key={bIdx} className="flex items-start gap-3">
+                              <span className="material-symbols-outlined text-amber-500 shrink-0 mt-0.5 text-lg">
+                                check_circle
+                              </span>
+                              <span className="text-slate-700 font-medium text-sm leading-relaxed">
+                                {b}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
 
-                      <ul className="space-y-3 mb-8">
-                        {step.bullets.map((b, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed font-medium">
-                            <span className="text-amber-500 font-bold shrink-0">•</span>
-                            <span>{b}</span>
-                          </li>
-                        ))}
-                      </ul>
+                        {step.ctaText && (
+                          <Link
+                            href={step.ctaHref!}
+                            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-all"
+                          >
+                            {step.ctaText} <span>→</span>
+                          </Link>
+                        )}
+                      </div>
                     </div>
 
-                    {step.ctaText && (
-                      <Link
-                        href={step.ctaHref}
-                        className="w-full bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-extrabold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-sm text-center transition-all"
-                      >
-                        {step.ctaText} →
-                      </Link>
+                    {/* Milestone Banner between Step 3 & 4 */}
+                    {step.num === '03' && activePhase === 'all' && (
+                      <div className="my-6 py-6 px-8 bg-slate-900 text-white rounded-[32px] flex flex-wrap items-center justify-between gap-4 shadow-2xl border border-slate-800 animate-fade-in">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-2xl shadow-inner">
+                            ✓
+                          </div>
+                          <div>
+                            <h4 className="font-extrabold text-lg">Phase 1 Complete: 3D VR Design &amp; Order Freeze</h4>
+                            <p className="text-slate-400 text-xs font-medium">Factory precision CNC manufacturing begins now!</p>
+                          </div>
+                        </div>
+                        <span className="text-xs font-black text-amber-400 uppercase tracking-wider bg-amber-950/60 px-4 py-2 rounded-full border border-amber-800/40">
+                          100% Guaranteed Price Lock
+                        </span>
+                      </div>
                     )}
                   </div>
-                ))}
+                );
+              })}
             </div>
           </div>
         </section>
