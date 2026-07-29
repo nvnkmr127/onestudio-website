@@ -7,7 +7,7 @@ const INTERIOR_THEMES = [
   { id: 'living',  label: 'Living Room',    image: '/images/luxury_living_room_hero.png' },
   { id: 'kitchen', label: 'Modular Kitchen', image: '/images/luxury_modular_kitchen.png' },
   { id: 'bedroom', label: 'Bedroom',         image: '/images/luxury_master_bedroom.png' },
-  { id: 'villa',   label: 'Complete Villa',  image: '/images/bangalore_modern_interior.png' },
+  { id: 'villa',   label: 'Complete Villa',  image: '/images/luxury_living_room_hero.png' },
 ];
 
 export default function Hero() {
@@ -129,10 +129,13 @@ export default function Hero() {
                 <LocationAutocomplete />
 
                 <button
-                  className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm uppercase tracking-wider py-4 rounded-2xl shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer mt-1"
+                  className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm uppercase tracking-wider py-4 rounded-2xl shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer mt-1 flex items-center justify-center gap-2 group"
                   type="submit"
                 >
-                  Talk to a Designer →
+                  <span>Talk to a Designer</span>
+                  <svg className="w-4 h-4 text-slate-950 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
                 </button>
                 <p className="text-[10px] text-slate-400 text-center">
                   🔒 Zero spam. Instant callback.
