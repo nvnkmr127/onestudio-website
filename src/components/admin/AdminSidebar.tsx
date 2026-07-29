@@ -28,7 +28,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     groupLabel: 'Local & Geo SEO',
     items: [
-      { label: 'Geo Pages & NAP Audit', href: '/admin/dashboard/geo', icon: '📍', badge: 'HBR' },
+      { label: 'Geo Pages & NAP Audit', href: '/admin/dashboard/geo', icon: '📍', badge: 'HYD' },
       { label: 'Schema.org Studio', href: '/admin/dashboard/schema', icon: '🧱' },
     ],
   },

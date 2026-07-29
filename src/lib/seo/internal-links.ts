@@ -34,7 +34,7 @@ const STATIC_TARGET_PAGES: TargetPage[] = [
   {
     title: 'Contact One Studio Team',
     path: '/contact',
-    keywords: ['contact us', 'consultation', 'hbr layout', 'book appointment'],
+    keywords: ['contact us', 'consultation', 'jubilee hills', 'book appointment'],
   },
 ];
 

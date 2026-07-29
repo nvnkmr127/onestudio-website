@@ -5,28 +5,28 @@ import type { SeoMeta, SeoSettings } from '@/lib/types';
 const DEFAULT_SETTINGS: SeoSettings = {
   id: 1,
   site_name: 'One Studio',
-  site_url: 'https://www.onestudio.co',
+  site_url: 'https://www.onestudio.co.in',
   default_title_template: '%s | One Studio',
-  default_meta_desc: 'Luxury interior design studio & bespoke modular woodwork in Bengaluru. 45-day delivery guarantee, transparent pricing & 10-year warranty.',
-  default_og_image: 'https://www.onestudio.co/og-default.jpg',
+  default_meta_desc: 'Luxury interior design studio & bespoke modular woodwork in Hyderabad. 45-day delivery guarantee, transparent pricing & 10-year warranty.',
+  default_og_image: 'https://www.onestudio.co.in/og-default.jpg',
   business_name: 'One Studio',
-  street_address: '38th Cross Rd, 1751, 15th Main Rd, 5th Block, 1st Stage, Telecom Layout',
-  locality: 'HBR Layout',
-  region: 'Bengaluru, Karnataka',
-  postal_code: '560043',
+  street_address: 'Road No. 36, Jubilee Hills',
+  locality: 'Jubilee Hills',
+  region: 'Hyderabad, Telangana',
+  postal_code: '500033',
   country: 'IN',
   phone: '+91 90143 03409',
-  email: 'hello@onestudio.co',
+  email: 'reachus@onestudio.co.in',
   whatsapp: '+91 90143 03409',
-  geo_lat: 13.0247,
-  geo_lng: 77.6288,
+  geo_lat: 17.4355,
+  geo_lng: 78.3336,
   opening_hours: [{ day: 'Monday-Saturday', opens: '09:00', closes: '19:00' }],
   social_profiles: {},
   gsc_verification: null,
   bing_verification: null,
   brand_stats: {
-    quality_checks: 415,
-    warranty_structural: '10-15 years',
+    quality_checks: 150,
+    warranty_structural: '10 years',
     warranty_workmanship: '1 year',
     delays: 'zero',
   },
@@ -47,7 +47,7 @@ export async function resolveSeo(rawPath: string): Promise<Metadata> {
   let titleStr = m?.title;
   if (!titleStr) {
     if (path === '/') {
-      titleStr = `${s.site_name} | Luxury Interior Designers & Bespoke Woodwork in Bengaluru`;
+      titleStr = `${s.site_name} | Luxury Interior Designers & Bespoke Woodwork in Hyderabad`;
     } else {
       const pathLabel = path.split('/').filter(Boolean).pop()?.replace(/-/g, ' ') || 'Home';
       const capitalized = pathLabel.charAt(0).toUpperCase() + pathLabel.slice(1);

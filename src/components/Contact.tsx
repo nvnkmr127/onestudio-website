@@ -52,7 +52,7 @@ export default function Contact() {
 
             <div className="space-y-4 relative z-10">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f2bd19]/20 border border-[#f2bd19]/40 text-[#f2bd19] text-xs font-black uppercase tracking-widest">
-                📍 HBR Layout, Bengaluru HQ
+                📍 Jubilee Hills, Hyderabad HQ
               </div>
 
               <h3 className="text-3xl md:text-4xl font-black text-white leading-tight tracking-tight">
@@ -60,7 +60,7 @@ export default function Contact() {
               </h3>
 
               <p className="text-slate-400 text-sm leading-relaxed">
-                Visit our HBR Layout Experience Center or speak directly with our senior interior designers and space planners.
+                Visit our Jubilee Hills Experience Center or speak directly with our senior interior designers and space planners.
               </p>
             </div>
 

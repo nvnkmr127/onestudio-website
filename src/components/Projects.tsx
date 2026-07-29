@@ -19,7 +19,7 @@ const PROJECTS: Project[] = [
     id: '1',
     title: 'Modern Island Modular Kitchen & Dining',
     category: 'kitchens',
-    location: 'Whitefield, Bengaluru',
+    location: 'Jubilee Hills, Hyderabad',
     bua: '450 sq.ft.',
     packageTier: 'SIGNATURE (₹1,949/sqft)',
     year: 'Delivered 2025',
@@ -29,7 +29,7 @@ const PROJECTS: Project[] = [
     id: '2',
     title: 'Contemporary 3BHK Luxury Living Room',
     category: 'living',
-    location: 'HBR Layout, Bengaluru',
+    location: 'Gachibowli, Hyderabad',
     bua: '1,200 sq.ft.',
     packageTier: 'PRIME (₹1,549/sqft)',
     year: 'Delivered 2025',
@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
     id: '3',
     title: 'Custom Master Bedroom & Walk-in Wardrobe',
     category: 'bedrooms',
-    location: 'Indiranagar, Bengaluru',
+    location: 'Banjara Hills, Hyderabad',
     bua: '650 sq.ft.',
     packageTier: 'ELITE (₹2,449/sqft)',
     year: 'Delivered 2024',
@@ -49,7 +49,7 @@ const PROJECTS: Project[] = [
     id: '4',
     title: 'Minimalist L-Shaped Kitchen & Loft Storage',
     category: 'kitchens',
-    location: 'Sarjapur Road, Bengaluru',
+    location: 'Hitec City, Hyderabad',
     bua: '380 sq.ft.',
     packageTier: 'PRIME (₹1,549/sqft)',
     year: 'Delivered 2024',
@@ -78,7 +78,7 @@ export default function Projects() {
                 Our Landmark Interior Design Projects
               </h2>
               <p className="text-slate-600 text-sm md:text-base font-medium">
-                Explore turnkey modular kitchens, living rooms, and bedroom interiors designed with 150+ quality checks across Bengaluru.
+                Explore turnkey modular kitchens, living rooms, and bedroom interiors designed with 150+ quality checks across Hyderabad.
               </p>
             </div>
 
@@ -88,16 +88,15 @@ export default function Projects() {
                 { id: 'all', label: 'All Projects' },
                 { id: 'kitchens', label: 'Modular Kitchens' },
                 { id: 'living', label: 'Living & Dining' },
-                { id: 'bedrooms', label: 'Master Bedrooms' },
+                { id: 'bedrooms', label: 'Bedrooms' },
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  type="button"
                   onClick={() => setActiveTab(tab.id as any)}
-                  className={`px-4 py-2 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                  className={`px-5 py-2.5 rounded-xl font-extrabold text-xs transition-all cursor-pointer ${
                     activeTab === tab.id
-                      ? 'bg-amber-400 text-slate-950 shadow-md scale-105'
-                      : 'text-slate-600 hover:text-slate-900'
+                      ? 'bg-slate-900 text-white shadow-md'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                   }`}
                 >
                   {tab.label}
@@ -106,76 +105,59 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Swipeable Grid / Mobile Touch Carousel */}
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:pb-0 md:grid md:grid-cols-2 md:overflow-visible">
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="min-w-[290px] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-[32px] p-5 md:p-6 border border-slate-200/80 shadow-md flex flex-col justify-between group hover:shadow-2xl hover:border-amber-400/50 hover:-translate-y-1.5 transition-all duration-300 shrink-0 md:shrink"
+                className="group bg-slate-50 rounded-[36px] overflow-hidden border border-slate-200/80 shadow-md hover:shadow-2xl hover:border-amber-500/40 transition-all duration-500 flex flex-col justify-between"
               >
-                {/* Image Container with Badges */}
-                <div className="relative rounded-[26px] overflow-hidden mb-5 h-[280px] sm:h-[340px]">
+                <div className="relative h-[260px] sm:h-[320px] overflow-hidden">
                   <img
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     src={project.image}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
 
-                  {/* Top Floating Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                    <span className="bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black text-slate-900 shadow-md uppercase tracking-wider border border-slate-200/50">
-                      {project.packageTier}
-                    </span>
-                    <span className="bg-amber-400 text-slate-950 px-3 py-1 rounded-full text-[10px] font-black shadow-md uppercase tracking-wider">
-                      {project.year}
-                    </span>
-                  </div>
+                  <span className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-amber-400 border border-white/10 text-[10px] font-black uppercase px-3.5 py-1.5 rounded-full tracking-wider shadow-sm">
+                    {project.packageTier}
+                  </span>
 
-                  {/* Bottom Image Overlay Specs */}
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                    <div className="space-y-0.5">
-                      <span className="text-[11px] font-bold text-slate-200 flex items-center gap-1">
-                        📍 {project.location}
-                      </span>
-                      <span className="text-[10px] font-medium text-slate-300 block">
-                        BUA: {project.bua}
-                      </span>
-                    </div>
+                  <span className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-black uppercase px-3 py-1.5 rounded-full shadow-sm">
+                    {project.year}
+                  </span>
 
-                    <button
-                      type="button"
-                      onClick={openCallModal}
-                      className="bg-white hover:bg-amber-400 text-slate-900 p-3 rounded-2xl shadow-lg transition-colors cursor-pointer"
-                      aria-label="View Project Specs"
-                    >
-                      <span className="text-xs font-black">→</span>
-                    </button>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <p className="text-amber-400 text-xs font-black uppercase tracking-widest mb-1">
+                      📍 {project.location}
+                    </p>
+                    <h3 className="text-xl sm:text-2xl font-black tracking-tight leading-snug">
+                      {project.title}
+                    </h3>
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-primary-orange transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex justify-between items-center text-xs font-bold text-slate-500 pt-1 border-t border-slate-100">
-                    <span>150+ Quality Checked</span>
-                    <span className="text-slate-900">45-Day Delivery Guaranteed</span>
+                <div className="p-6 bg-white flex items-center justify-between border-t border-slate-100">
+                  <div className="flex items-center gap-4 text-xs font-bold text-slate-600">
+                    <span>📐 {project.bua}</span>
+                    <span>•</span>
+                    <span className="text-emerald-600 font-extrabold">✓ 100% Handover On Time</span>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={openCallModal}
+                    className="bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-extrabold text-xs uppercase tracking-wider px-5 py-2.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
+                  >
+                    View Layout 📞
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Marquee Ticker Banner */}
-      <div className="bg-amber-500 py-5 overflow-hidden flex whitespace-nowrap border-y border-slate-900/10">
-        <div className="flex items-center space-x-12 animate-marquee text-slate-950 font-black text-xl md:text-2xl uppercase tracking-wider">
-          <span>Luxury Home Interiors ★ Custom Modular Kitchens ★ 45-Day Delivery ★ 15-Year Woodwork Warranty</span>
-          <span>Luxury Home Interiors ★ Custom Modular Kitchens ★ 45-Day Delivery ★ 15-Year Woodwork Warranty</span>
-        </div>
-      </div>
     </>
   );
 }

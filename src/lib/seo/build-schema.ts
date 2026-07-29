@@ -65,7 +65,7 @@ export function buildGlobalSchemas(settings: SeoSettings): {
     areaServed: [
       {
         '@type': 'City',
-        name: 'Bengaluru',
+        name: 'Hyderabad',
       },
     ],
     openingHoursSpecification: (settings.opening_hours || []).map((h) => ({

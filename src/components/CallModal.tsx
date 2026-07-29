@@ -170,7 +170,7 @@ export default function CallModal() {
                     required
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    placeholder="Plot Address / Location (e.g. Whitefield, Sarjapur)"
+                    placeholder="Property Address / Location (e.g. Jubilee Hills, Gachibowli)"
                     className="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-all bg-white shadow-sm"
                   />
                 </div>

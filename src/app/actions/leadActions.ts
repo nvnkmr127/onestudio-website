@@ -60,7 +60,7 @@ export async function submitLeadAction(data: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'One Studio Leads <leads@onestudio.in>',
+          from: 'One Studio Leads <leads@onestudio.co.in>',
           to: [NOTIFICATION_EMAIL],
           subject: `🚨 New Lead Received: ${name} (${phone})`,
           html: `

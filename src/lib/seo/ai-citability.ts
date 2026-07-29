@@ -59,7 +59,7 @@ export function calculateAiCitabilityScore(input: {
 
   // 3. Entity & NAP Clarity
   const mentionsBrand = text.toLowerCase().includes('one studio');
-  const mentionsLocation = text.toLowerCase().includes('bengaluru') || text.toLowerCase().includes('hbr layout');
+  const mentionsLocation = text.toLowerCase().includes('hyderabad') || text.toLowerCase().includes('jubilee hills');
   const entityPassed = mentionsBrand && mentionsLocation;
 
   checks.push({
@@ -69,7 +69,7 @@ export function calculateAiCitabilityScore(input: {
     score: entityPassed ? 25 : 10,
     recommendation: entityPassed
       ? 'Brand name and location entity explicitly identified.'
-      : 'Mention One Studio and HBR Layout/Bengaluru explicitly to anchor geographic entity authority.',
+      : 'Mention One Studio and Jubilee Hills/Hyderabad explicitly to anchor geographic entity authority.',
   });
 
   // 4. Schema Structuring (FAQ / LocalBusiness)

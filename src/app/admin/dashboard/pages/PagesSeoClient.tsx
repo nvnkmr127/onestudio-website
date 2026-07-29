@@ -22,7 +22,7 @@ export default function PagesSeoClient() {
     title: '',
     meta_desc: '',
     canonical_url: '',
-    focus_keyword: 'interior designers bangalore',
+    focus_keyword: 'interior designers hyderabad',
     index: true,
     follow: true,
     og_title: '',
@@ -334,7 +334,7 @@ export default function PagesSeoClient() {
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. house construction bangalore"
+                    placeholder="e.g. interior designers hyderabad"
                     value={formData.focus_keyword || ''}
                     onChange={(e) => setFormData({ ...formData, focus_keyword: e.target.value })}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500"
@@ -347,7 +347,7 @@ export default function PagesSeoClient() {
                   </label>
                   <input
                     type="url"
-                    placeholder={`https://www.onestudio.in${selectedPath}`}
+                    placeholder={`https://www.onestudio.co.in${selectedPath}`}
                     value={formData.canonical_url || ''}
                     onChange={(e) => setFormData({ ...formData, canonical_url: e.target.value })}
                     className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500"
@@ -366,7 +366,7 @@ export default function PagesSeoClient() {
                 </div>
                 <input
                   type="text"
-                  placeholder="e.g. Interior Design in Bangalore | One Studio"
+                  placeholder="e.g. Interior Design in Hyderabad | One Studio"
                   value={formData.title || ''}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-orange-500"
