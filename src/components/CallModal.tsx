@@ -182,14 +182,7 @@ export default function CallModal() {
                 )}
 
                 {/* Ribbon with Marquee Text & Free Badge */}
-                <div className="overflow-hidden rounded-xl bg-amber-500/15 border border-amber-500/30 py-1.5 px-2 my-1 flex items-center shadow-inner">
-                  <div className="flex animate-marquee-slow space-x-6 whitespace-nowrap text-[11px] font-black text-amber-950 uppercase tracking-wider">
-                    <span>🎁 100% FREE NO OBLIGATION CONSULTATION</span>
-                    <span>⚡ INSTANT 3D FLOOR PLAN &amp; COST ITEMIZATION</span>
-                    <span>🎁 100% FREE NO OBLIGATION CONSULTATION</span>
-                    <span>⚡ INSTANT 3D FLOOR PLAN &amp; COST ITEMIZATION</span>
-                  </div>
-                </div>
+
 
                 <button
                   type="submit"
