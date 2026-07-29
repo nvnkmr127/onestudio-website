@@ -657,7 +657,7 @@ export default function AdminDashboardPage() {
                         seoDescription: editedPageDesc,
                         focusKeyword: selectedSeoPageSlug.replace(/-/g, ' '),
                         slug: selectedSeoPageSlug,
-                        content: 'Bespoke interior design and luxury home execution in Bangalore.',
+                        content: 'Bespoke interior design and luxury home execution in Hyderabad.',
                         ogImage: '/images/bangalore_hero_building.png',
                         canonicalUrl: `https://onestudio.in/${selectedSeoPageSlug}`,
                         schemaType: 'LocalBusiness',
@@ -717,7 +717,7 @@ export default function AdminDashboardPage() {
               <div>
                 <h3 className="text-xl font-black text-white">📍 Active Location Pages (/[slug])</h3>
                 <p className="text-xs text-slate-400">
-                  Geo-targeted local SEO landing pages optimized for Bangalore neighborhoods.
+                  Geo-targeted local SEO landing pages optimized for Hyderabad neighborhoods.
                 </p>
               </div>
 

@@ -26,19 +26,19 @@ export const defaultPosts: BlogPost[] = [
   },
   {
     id: '2',
-    slug: 'bbmp-building-approval-guide-2025',
-    title: 'Complete Guide to BBMP Plan Approvals & Regulations',
-    excerpt: 'Navigating plan sanctions, setback requirements, and structural norms for residential construction.',
+    slug: 'hyderabad-interior-design-cost-guide-2025',
+    title: 'Complete Guide to Interior Design Costs & Timelines in Hyderabad',
+    excerpt: 'Understanding modular kitchen costs, wardrobe finishes, and turnkey interior timelines in Hyderabad.',
     dateStr: '28 NOV 2024',
     image: '/images/bangalore_commercial_complex.png',
-    category: 'Regulations',
+    category: 'Interior Design',
     author: 'Lead Interior Designer, One Studio',
-    content: `BBMP building plan sanctions require strict adherence to setback rules, FAR ratios, and rainwater harvesting compliance. Working with certified structural engineers ensures seamless sanctioning without costly delays.
+    content: `Planning home interiors in Hyderabad requires clear understanding of material grades, factory modular manufacturing, and stage payments. From 2BHK to luxury villas in Jubilee Hills and Gachibowli, choosing BWP marine plywood and factory edge-banding ensures 10+ years of durability.
 
-### Mandatory Compliance Steps:
-- Khata A Certificate verification
-- Structural Stability Certificate from BBMP empaneled engineer
-- Solar Water Heater installation proof for structures above 2400 sq.ft`,
+### Key Budget Factors:
+- BWP Marine Plywood vs Commercial Plywood
+- German Hettich & Blum Soft-Close Hardware
+- Factory Modular Cabinetry vs On-Site Carpentry`,
   },
   {
     id: '3',
