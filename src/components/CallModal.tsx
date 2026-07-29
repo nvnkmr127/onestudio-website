@@ -108,7 +108,7 @@ export default function CallModal() {
                 Callback Requested!
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed max-w-xs mx-auto">
-                Thank you <span className="text-primary-orange font-bold">{name || 'there'}</span>! Our senior Bangalore construction advisor will call you at{' '}
+                Thank you <span className="text-primary-orange font-bold">{name || 'there'}</span>! Our senior Bangalore interior design advisor will call you at{' '}
                 <span className="text-primary-orange font-bold">+91 {phone}</span> regarding plot at <span className="text-slate-900 font-semibold">{address || 'Bangalore'}</span> within 2 hours.
               </p>
               <button

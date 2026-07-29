@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import PageHero from '@/components/PageHero';
 import Contact from '@/components/Contact';
-import CostEstimator from '@/components/CostEstimator';
 import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -95,7 +94,6 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
         </section>
 
-        <CostEstimator />
         <Contact />
         <FAQ />
       </main>

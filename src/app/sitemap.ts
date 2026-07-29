@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     sb.from('blogs').select('slug, updated_at, published_at'),
   ]);
 
-  const siteUrl = (settings?.site_url || 'https://www.onestudio.in').replace(/\/$/, '');
+  const siteUrl = (settings?.site_url || 'https://www.onestudio.co.in').replace(/\/$/, '');
   const metaMap = new Map<string, SeoMeta>();
   if (dbMetas && Array.isArray(dbMetas)) {
     dbMetas.forEach((m: SeoMeta) => metaMap.set(m.path, m));
@@ -55,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   addSitemapUrl('/how-it-works', 0.9, 'monthly');
   addSitemapUrl('/projects', 0.8, 'monthly');
   addSitemapUrl('/news', 0.8, 'daily');
-  addSitemapUrl('/ai-house-construction-calculator', 0.9, 'weekly');
+  addSitemapUrl('/estimate', 0.9, 'weekly');
 
   // Service Detail Pages
   Object.keys(staticServices).forEach((slug) => {

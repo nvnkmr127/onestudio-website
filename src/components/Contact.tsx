@@ -91,8 +91,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-extrabold text-slate-400">Email Support</p>
-                  <a href="mailto:reachus@onestudio.in" className="font-bold text-slate-200 hover:text-[#f2bd19] transition-colors">
-                    reachus@onestudio.in
+                  <a href="mailto:reachus@onestudio.co.in" className="font-bold text-slate-200 hover:text-[#f2bd19] transition-colors">
+                    reachus@onestudio.co.in
                   </a>
                 </div>
               </div>
@@ -104,12 +104,12 @@ export default function Contact() {
                 <div>
                   <p className="text-[10px] uppercase font-extrabold text-slate-400">Office Location</p>
                   <a
-                    href="https://maps.app.goo.gl/WtK7ztnSo6sjRspa9"
+                    href="https://maps.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-slate-300 text-xs leading-relaxed hover:text-[#f2bd19] hover:underline transition-colors block"
                   >
-                    38th Cross Rd, 1751, 15th Main Rd, HBR Layout 5th Block, 1st Stage, Telecom Layout, HBR Layout, Bengaluru, Karnataka 560043 ↗
+                    Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033 ↗
                   </a>
                 </div>
               </div>

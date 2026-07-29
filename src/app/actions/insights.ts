@@ -31,9 +31,9 @@ const FALLBACK_TOP_QUERIES: GscAnalyticsResult = {
 const FALLBACK_TOP_PAGES: GscAnalyticsResult = {
   rows: [
     { keys: ['/'], clicks: 420, impressions: 5100, ctr: 8.24, position: 2.1 },
-    { keys: ['/construction-company-hbr-layout'], clicks: 260, impressions: 2800, ctr: 9.28, position: 1.9 },
-    { keys: ['/services/house-construction'], clicks: 190, impressions: 2200, ctr: 8.63, position: 2.6 },
-    { keys: ['/ai-house-construction-calculator'], clicks: 140, impressions: 1500, ctr: 9.33, position: 3.1 },
+    { keys: ['/interior-designers-hbr-layout'], clicks: 260, impressions: 2800, ctr: 9.28, position: 1.9 },
+    { keys: ['/services/interior-design'], clicks: 190, impressions: 2200, ctr: 8.63, position: 2.6 },
+    { keys: ['/estimate'], clicks: 140, impressions: 1500, ctr: 9.33, position: 3.1 },
   ],
   totalClicks: 1010,
   totalImpressions: 11600,

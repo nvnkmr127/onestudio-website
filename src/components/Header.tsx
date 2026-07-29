@@ -23,13 +23,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isHomePage = pathname === '/';
-  const useDarkHeader = isScrolled || !isHomePage;
 
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Interior Estimator', href: '/estimate' },
-    { name: 'Construction Calc', href: '/ai-house-construction-calculator' },
     { name: 'How It Works', href: '/how-it-works' },
     { name: 'Services', href: '/services' },
     { name: 'Projects', href: '/projects' },
@@ -40,16 +37,16 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 px-4 py-4 transition-all duration-300">
       <nav
-        className={`max-w-7xl mx-auto flex justify-between items-center rounded-full px-6 md:px-8 py-3.5 transition-all duration-300 ${
-          useDarkHeader
-            ? 'bg-[#111111]/95 backdrop-blur-md border border-white/10 shadow-2xl text-white'
-            : 'bg-white/10 backdrop-blur-md border border-white/20 text-slate-200'
+        className={`max-w-7xl mx-auto flex justify-between items-center rounded-full px-6 md:px-8 py-3.5 transition-all duration-300 backdrop-blur-md ${
+          isScrolled
+            ? 'bg-white/80 border border-slate-200/80 shadow-2xl text-slate-900'
+            : 'bg-white/10 border border-white/20 shadow-lg text-white'
         }`}
       >
         {/* Brand Logo */}
         <Link href="/" className="flex items-center space-x-3 group">
           <img
-            src="/images/logo.svg"
+            src={isScrolled ? '/images/logo-dark.svg' : '/images/logo.svg'}
             alt="One Studio Logo"
             className="h-10 md:h-11 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform"
           />
@@ -63,8 +60,12 @@ export default function Header() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className={`transition-colors duration-200 hover:text-amber-400 ${
-                    isActive ? 'text-amber-400 font-black' : 'text-slate-200'
+                  className={`transition-colors duration-200 ${
+                    isActive
+                      ? 'text-amber-500 font-black'
+                      : isScrolled
+                      ? 'text-slate-900 hover:text-amber-600'
+                      : 'text-slate-200 hover:text-amber-400'
                   }`}
                 >
                   {item.name}
@@ -89,7 +90,9 @@ export default function Header() {
           {/* Hamburger Icon */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-2 rounded-lg hover:bg-slate-800 focus:outline-none"
+            className={`md:hidden p-2 rounded-lg focus:outline-none transition-colors ${
+              isScrolled ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-slate-800'
+            }`}
             aria-label="Toggle Navigation Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

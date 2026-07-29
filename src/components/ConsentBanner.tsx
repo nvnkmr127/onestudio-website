@@ -48,7 +48,7 @@ export default function ConsentBanner() {
             <span>🍪</span> Privacy &amp; Cookie Preferences
           </div>
           <p className="text-slate-400 leading-relaxed text-[11px]">
-            We use cookies to analyze site traffic and optimize your turnkey construction experience. Choose your consent level below.
+            We use cookies to analyze site traffic and optimize your interior design experience. Choose your consent level below.
           </p>
         </div>
       </div>

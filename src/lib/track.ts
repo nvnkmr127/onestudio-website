@@ -93,12 +93,12 @@ export function trackCallClick(phone: string = '+91 90143 03409', sourcePage: st
 }
 
 /**
- * Track AI Construction Calculator completion.
+ * Track Interior Estimator completion.
  */
 export function trackCalculatorComplete(calculatorData: Record<string, any> = {}): void {
   trackEvent('calculator_complete', {
     event_category: 'Tool',
-    event_label: 'AI House Construction Calculator',
+    event_label: 'Interior Design Estimator',
     ...calculatorData,
   });
 }

@@ -25,7 +25,7 @@ export async function listSitemapEntries(): Promise<ActionResult<SitemapItemAdmi
       sb.from('blogs').select('slug, title, updated_at, published_at'),
     ]);
 
-    const siteUrl = (settings?.site_url || 'https://www.onestudio.in').replace(/\/$/, '');
+    const siteUrl = (settings?.site_url || 'https://www.onestudio.co.in').replace(/\/$/, '');
     const metaMap = new Map<string, any>();
     if (dbMetas && Array.isArray(dbMetas)) {
       dbMetas.forEach((m: any) => metaMap.set(m.path, m));
@@ -61,7 +61,7 @@ export async function listSitemapEntries(): Promise<ActionResult<SitemapItemAdmi
     addRoute('/how-it-works', 0.9, 'monthly', 'core');
     addRoute('/projects', 0.8, 'monthly', 'core');
     addRoute('/news', 0.8, 'daily', 'core');
-    addRoute('/ai-house-construction-calculator', 0.9, 'weekly', 'core');
+    addRoute('/estimate', 0.9, 'weekly', 'core');
 
     // Service detail pages
     Object.keys(staticServices).forEach((slug) => {
@@ -124,7 +124,7 @@ export async function pingSearchEngines(): Promise<ActionResult<{ google: boolea
   try {
     const sb = createClient();
     const { data: settings } = await sb.from('seo_settings').select('site_url').eq('id', 1).maybeSingle();
-    const siteUrl = (settings?.site_url || 'https://www.onestudio.in').replace(/\/$/, '');
+    const siteUrl = (settings?.site_url || 'https://www.onestudio.co.in').replace(/\/$/, '');
     const sitemapUrl = `${siteUrl}/sitemap.xml`;
 
     let googleOk = false;

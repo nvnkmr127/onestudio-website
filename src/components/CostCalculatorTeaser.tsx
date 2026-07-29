@@ -44,10 +44,10 @@ export default function CostCalculatorTeaser() {
               Get a rough ballpark in seconds. Select your apartment size to see tier-wise estimates. For a detailed itemized quote, use our full calculator.
             </p>
             <Link
-              href="/ai-house-construction-calculator"
+              href="/estimate"
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-black text-xs uppercase tracking-wider px-7 py-3.5 rounded-full shadow-md hover:-translate-y-0.5 transition-all"
             >
-              Full AI Calculator →
+              Detailed Interior Estimator →
             </Link>
           </div>
 

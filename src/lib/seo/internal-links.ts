@@ -17,24 +17,19 @@ interface TargetPage {
 
 const STATIC_TARGET_PAGES: TargetPage[] = [
   {
-    title: 'House Construction Services in Bangalore',
-    path: '/services/house-construction',
-    keywords: ['house construction', 'home construction', 'turnkey construction', 'residential construction'],
-  },
-  {
     title: 'Luxury Interior Design Services',
     path: '/services/interior-design',
     keywords: ['interior design', 'interiors', 'modular kitchen', 'living room interior'],
   },
   {
-    title: 'Commercial Construction Services',
-    path: '/services/commercial-construction',
-    keywords: ['commercial construction', 'office construction', 'retail construction'],
+    title: 'Commercial & Office Interior Fitouts',
+    path: '/services/commercial-interiors',
+    keywords: ['commercial interiors', 'office fitout', 'office interior', 'retail interior'],
   },
   {
-    title: 'AI House Construction Cost Calculator',
-    path: '/ai-house-construction-calculator',
-    keywords: ['cost calculator', 'construction cost', 'estimate', 'calculator'],
+    title: 'Interior Design Cost Estimator',
+    path: '/estimate',
+    keywords: ['cost calculator', 'interior cost', 'estimate', 'calculator'],
   },
   {
     title: 'Contact One Studio Team',

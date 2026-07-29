@@ -7,7 +7,7 @@ export function buildGlobalSchemas(settings: SeoSettings): {
   organization: Record<string, any>;
   localBusiness: Record<string, any>;
 } {
-  const siteUrl = (settings.site_url || 'https://www.onestudio.in').replace(/\/$/, '');
+  const siteUrl = (settings.site_url || 'https://www.onestudio.co.in').replace(/\/$/, '');
   const logoUrl = settings.default_og_image || `${siteUrl}/og-default.jpg`;
 
   const organization = {
@@ -17,14 +17,14 @@ export function buildGlobalSchemas(settings: SeoSettings): {
     name: settings.business_name || settings.site_name || 'One Studio',
     url: siteUrl,
     logo: logoUrl,
-    email: settings.email || 'reachus@onestudio.in',
+    email: settings.email || 'reachus@onestudio.co.in',
     telephone: settings.phone || '+91 90143 03409',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: settings.street_address || '38th Cross Rd, 1751, 15th Main Rd, 5th Block, 1st Stage, Telecom Layout',
-      addressLocality: settings.locality || 'HBR Layout',
-      addressRegion: settings.region || 'Bengaluru, Karnataka',
-      postalCode: settings.postal_code || '560043',
+      streetAddress: settings.street_address || 'Road No. 36, Jubilee Hills',
+      addressLocality: settings.locality || 'Jubilee Hills',
+      addressRegion: settings.region || 'Hyderabad, Telangana',
+      postalCode: settings.postal_code || '500033',
       addressCountry: settings.country || 'IN',
     },
     contactPoint: [
@@ -33,7 +33,7 @@ export function buildGlobalSchemas(settings: SeoSettings): {
         telephone: settings.phone || '+91 90143 03409',
         contactType: 'customer service',
         areaServed: 'IN',
-        availableLanguage: ['English', 'Kannada', 'Hindi', 'Telugu'],
+        availableLanguage: ['English', 'Telugu', 'Hindi'],
       },
     ],
     sameAs: Object.values(settings.social_profiles || {}).filter(Boolean),
@@ -47,14 +47,14 @@ export function buildGlobalSchemas(settings: SeoSettings): {
     url: siteUrl,
     image: logoUrl,
     telephone: settings.phone || '+91 90143 03409',
-    email: settings.email || 'reachus@onestudio.in',
+    email: settings.email || 'reachus@onestudio.co.in',
     priceRange: '₹₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: settings.street_address || '38th Cross Rd, 1751, 15th Main Rd, 5th Block, 1st Stage, Telecom Layout',
-      addressLocality: settings.locality || 'HBR Layout',
-      addressRegion: settings.region || 'Bengaluru, Karnataka',
-      postalCode: settings.postal_code || '560043',
+      streetAddress: settings.street_address || 'Road No. 36, Jubilee Hills',
+      addressLocality: settings.locality || 'Jubilee Hills',
+      addressRegion: settings.region || 'Hyderabad, Telangana',
+      postalCode: settings.postal_code || '500033',
       addressCountry: settings.country || 'IN',
     },
     geo: {

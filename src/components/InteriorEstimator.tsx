@@ -225,9 +225,9 @@ function formatINR(n: number) {
 
 function isServedLocation(addr: string) {
   const lower = addr.toLowerCase();
-  return ['bangalore', 'bengaluru', 'hosur', 'sarjapur', 'ramanagara', 'nelamangala',
-    'doddaballapur', 'whitefield', 'electronic city', 'hbr', 'banaswadi',
-    'bommanahalli', 'yelanka', 'karnataka', 'bellandur', 'indiranagar', 'koramangala', 'hsr', 'jp nagar', 'jayanagar'].some(r => lower.includes(r));
+  return ['hyderabad', 'jubilee hills', 'banjara hills', 'gachibowli', 'hitec city', 'kondapur', 'madhapur',
+    'manikonda', 'financial district', 'kokapet', 'tellapur', 'nallagandla', 'kukatpally', 'miyapur',
+    'begumpet', 'somajiguda', 'telangana', 'secunderabad', 'kompally', 'attapur', 'puppalaguda'].some(r => lower.includes(r));
 }
 
 // ─── Main Component ────────────────────────────────────────────────────────────
@@ -355,7 +355,7 @@ export default function InteriorEstimator() {
         const place = ac.getPlace();
         if (place?.formatted_address) {
           if (!isServedLocation(place.formatted_address)) {
-            setAlertMsg({ title: 'Location Restricted', body: 'We currently serve Bangalore and surrounding Metro regions.' });
+            setAlertMsg({ title: 'Location Restricted', body: 'We currently serve Hyderabad and surrounding Metro regions.' });
             setPropertyName('');
           } else {
             setPropertyName(place.formatted_address);
@@ -405,10 +405,10 @@ export default function InteriorEstimator() {
       showAlert('Invalid Phone', 'Please enter a valid 10-digit WhatsApp number.'); return;
     }
     if (propertyName.trim().length < 3) {
-      showAlert('Location Required', 'Please enter your property location in Bangalore.'); return;
+      showAlert('Location Required', 'Please enter your property location in Hyderabad.'); return;
     }
     if (!isServedLocation(propertyName)) {
-      showAlert('Location Restricted', 'We currently serve Bangalore and surrounding regions only.'); return;
+      showAlert('Location Restricted', 'We currently serve Hyderabad and surrounding regions only.'); return;
     }
 
     setIsSubmitting(true);
@@ -663,7 +663,7 @@ export default function InteriorEstimator() {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
             </span>
             <span className="text-xs font-extrabold text-slate-800">
-              🔥 <strong className="text-slate-950">{viewerCount} homeowners</strong> calculated estimates in Bangalore today
+              🔥 <strong className="text-slate-950">{viewerCount} homeowners</strong> calculated estimates in Hyderabad today
             </span>
           </div>
 
@@ -688,7 +688,7 @@ export default function InteriorEstimator() {
                   Your Estimated Interior Investment
                 </h2>
                 <p className="text-slate-500 text-sm font-medium mt-1">
-                  For {selections.homeType?.originalText || selections.homeType?.text} • {selections.stylePackage.name} Package Tier • Bangalore
+                  For {selections.homeType?.originalText || selections.homeType?.text} • {selections.stylePackage.name} Package Tier • Hyderabad
                 </p>
               </div>
 
@@ -887,7 +887,7 @@ export default function InteriorEstimator() {
                 <button
                   type="button"
                   onClick={() => {
-                    const text = `Hi One Studio! I calculated an interior estimate of ₹${formatINR(animatedCost)} for my ${selections.homeType?.originalText || selections.homeType?.text} (${selections.stylePackage.name} Package) in ${propertyName || 'Bangalore'}. I'd like to book a consultation.`;
+                    const text = `Hi One Studio! I calculated an interior estimate of ₹${formatINR(animatedCost)} for my ${selections.homeType?.originalText || selections.homeType?.text} (${selections.stylePackage.name} Package) in ${propertyName || 'Hyderabad'}. I'd like to book a consultation.`;
                     window.open(`https://wa.me/919999999999?text=${encodeURIComponent(text)}`, '_blank');
                   }}
                   className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-4 rounded-2xl shadow-md transition cursor-pointer flex items-center justify-center gap-2"
@@ -1284,7 +1284,7 @@ export default function InteriorEstimator() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5">Property Location / Society in Bangalore *</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">Property Location / Society in Hyderabad *</label>
                       <LocationAutocomplete
                         value={propertyName}
                         onChange={val => setPropertyName(val)}
@@ -1377,7 +1377,7 @@ export default function InteriorEstimator() {
                     ESTIMATED BUDGET DASHBOARD
                   </span>
                   <span className="text-[10px] font-bold text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">
-                    Bangalore Standards
+                    Hyderabad Standards
                   </span>
                 </div>
 

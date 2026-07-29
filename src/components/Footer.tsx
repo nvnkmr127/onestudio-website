@@ -27,13 +27,13 @@ export default function Footer() {
                 Get Free 3D VR Space Plan &amp; Interior Cost Quote
               </h3>
               <p className="text-slate-400 text-sm md:text-base font-normal max-w-2xl">
-                Schedule a 1-on-1 consultation with Bangalore's leading interior designers today.
+                Schedule a 1-on-1 consultation with Hyderabad's leading interior designers today.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
               <Link
-                href="/ai-house-construction-calculator"
+                href="/estimate"
                 className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs md:text-sm uppercase tracking-wider py-4 px-6 rounded-2xl shadow-lg hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-2"
               >
                 LAUNCH COST ESTIMATOR{' '}
@@ -68,7 +68,7 @@ export default function Footer() {
                 />
               </div>
               <p className="text-gray-400 leading-relaxed text-sm font-normal">
-                Bangalore's premier luxury home interior design studio delivering bespoke homes with 150+ quality checks, escrow payment safety, and 10-year woodwork warranty.
+                Hyderabad's premier luxury home interior design studio delivering bespoke homes with 150+ quality checks, escrow payment safety, and 10-year woodwork warranty.
               </p>
 
               {/* Social Media SVG Icon Row */}
@@ -159,8 +159,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/ai-house-construction-calculator" className="text-amber-400 font-bold hover:underline transition-colors">
-                    AI Interior Cost Calculator
+                  <Link href="/estimate" className="text-amber-400 font-bold hover:underline transition-colors">
+                    Interior Estimator
                   </Link>
                 </li>
                 <li>
@@ -229,7 +229,7 @@ export default function Footer() {
                 onClick={() => toggleSection('office')}
                 className="w-full flex justify-between items-center text-white font-bold mb-4 md:mb-8 uppercase tracking-widest text-xs cursor-pointer md:cursor-default"
               >
-                <span>Bangalore Office</span>
+                <span>Hyderabad Office</span>
                 <span className="md:hidden text-amber-400 font-black text-lg">
                   {openSection === 'office' ? '−' : '+'}
                 </span>
@@ -246,12 +246,12 @@ export default function Footer() {
                       VISIT OUR EXPERIENCE CENTER
                     </span>
                     <a
-                      href="https://maps.app.goo.gl/WtK7ztnSo6sjRspa9"
+                      href="https://maps.google.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-300 group-hover:text-white font-medium leading-relaxed block group-hover:underline transition-colors"
                     >
-                      38th Cross Rd, 1751, 15th Main Rd, HBR Layout 5th Block, 1st Stage, Telecom Layout, HBR Layout, Bengaluru 560043 ↗
+                      Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033 ↗
                     </a>
                   </div>
                 </li>
@@ -284,10 +284,10 @@ export default function Footer() {
                       EMAIL ADDRESS
                     </span>
                     <a
-                      href="mailto:reachus@onestudio.in"
+                      href="mailto:reachus@onestudio.co.in"
                       className="text-xs font-bold text-amber-400 group-hover:underline transition-colors block truncate"
                     >
-                      reachus@onestudio.in
+                      reachus@onestudio.co.in
                     </a>
                   </div>
                 </li>

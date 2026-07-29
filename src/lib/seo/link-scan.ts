@@ -20,14 +20,13 @@ function delay(ms: number): Promise<void> {
 const PUBLIC_SEED_ROUTES = [
   '/',
   '/services',
-  '/services/house-construction',
   '/services/interior-design',
-  '/services/commercial-construction',
+  '/services/commercial-interiors',
   '/news',
   '/contact',
   '/how-it-works',
   '/projects',
-  '/ai-house-construction-calculator',
+  '/estimate',
 ];
 
 /**

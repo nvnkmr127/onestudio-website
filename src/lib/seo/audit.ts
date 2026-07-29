@@ -24,14 +24,13 @@ export interface FullSiteAuditReport {
 const PUBLIC_ROUTES = [
   '/',
   '/services',
-  '/services/house-construction',
   '/services/interior-design',
-  '/services/commercial-construction',
+  '/services/commercial-interiors',
   '/news',
   '/contact',
   '/how-it-works',
   '/projects',
-  '/ai-house-construction-calculator',
+  '/estimate',
 ];
 
 /**

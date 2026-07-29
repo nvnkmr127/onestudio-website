@@ -51,7 +51,7 @@ export default function Stats() {
               <span className="text-primary-orange font-bold uppercase tracking-widest text-xs">About One Studio</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-dark-charcoal mb-6 leading-tight">
-              Crafting Bangalore's Premier Luxury Interiors
+              Crafting Hyderabad's Premier Luxury Interiors
             </h2>
             <p className="text-slate-600 mb-8 leading-relaxed text-lg">
               At One Studio, we bring your vision to life with precision and passion. We specialize in bespoke modular kitchens, living spaces, and turnkey commercial interiors delivered on schedule.
@@ -82,7 +82,7 @@ export default function Stats() {
               <div className="flex flex-col justify-center bg-orange-50 p-8 rounded-3xl border border-orange-100 relative group transition-all duration-300 hover:shadow-md">
                 <span className="text-6xl text-primary-orange/20 absolute top-2 right-4">"</span>
                 <p className="text-dark-charcoal italic font-medium leading-relaxed relative z-10 text-sm">
-                  "Our commitment to excellence drives every space we transform across Bangalore."
+                  "Our commitment to excellence drives every space we transform across Hyderabad."
                 </p>
                 <p className="text-primary-orange font-bold text-[10px] uppercase mt-4 tracking-widest">— Founder, One Studio</p>
               </div>

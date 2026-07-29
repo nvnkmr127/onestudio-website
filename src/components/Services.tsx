@@ -54,7 +54,7 @@ const SERVICES: ServiceItem[] = [
     desc: 'Turnkey corporate office fitouts, retail stores, reception lobbies, and acoustic glass partition systems.',
     image: '/images/bangalore_commercial_complex.png',
     badge: 'Fast-Track',
-    slug: 'commercial-construction',
+    slug: 'interior-design',
   },
   {
     id: '6',
@@ -80,7 +80,7 @@ export default function Services() {
               Complete End-To-End Interior Solutions
             </h2>
             <p className="text-slate-600 text-sm md:text-base font-medium">
-              From empty apartment to luxury keys handover, we design bespoke modular kitchens, bedrooms, and living spaces across Bangalore with 150+ quality checks.
+              From empty apartment to luxury keys handover, we design bespoke modular kitchens, bedrooms, and living spaces across Hyderabad with 150+ quality checks.
             </p>
           </div>
 
@@ -141,13 +141,13 @@ export default function Services() {
                 </button>
 
                 <Link
-                  href="/ai-house-construction-calculator"
+                  href="/estimate"
                   className="w-full bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-xs uppercase tracking-wider px-8 py-4 rounded-2xl border border-slate-200/80 shadow-sm transition-all flex items-center justify-center gap-2 text-center hover:border-amber-400"
                 >
                   Calculate Interior Design Cost ⚡
                 </Link>
                 <p className="text-[11px] font-semibold text-slate-400 text-center">
-                  Get instant sq.ft estimate for your home interiors in Bengaluru.
+                  Get instant sq.ft estimate for your home interiors in Hyderabad.
                 </p>
               </div>
             </div>

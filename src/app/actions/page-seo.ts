@@ -39,7 +39,7 @@ export async function listSeoPaths(): Promise<ActionResult<SeoPathOption[]>> {
       { path: '/how-it-works', label: 'How It Works (/how-it-works)', category: 'core' },
       { path: '/projects', label: 'Completed Projects (/projects)', category: 'core' },
       { path: '/news', label: 'Blog & News Hub (/news)', category: 'core' },
-      { path: '/ai-house-construction-calculator', label: 'Cost Calculator', category: 'core' },
+      { path: '/estimate', label: 'Interior Estimator (/estimate)', category: 'core' },
     ];
 
     // Add static services

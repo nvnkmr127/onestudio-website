@@ -12,7 +12,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     sb.from('robots_rules').select('*').order('sort_order', { ascending: true }),
   ]);
 
-  const siteUrl = (settings?.site_url || 'https://www.onestudio.in').replace(/\/$/, '');
+  const siteUrl = (settings?.site_url || 'https://www.onestudio.co.in').replace(/\/$/, '');
 
   const rulesMap: Record<string, { allow?: string[]; disallow: string[] }> = {};
 

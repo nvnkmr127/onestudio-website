@@ -8,39 +8,39 @@ declare global {
   }
 }
 
-// Bangalore center coordinates and 25km radius
-const BANGALORE_LAT = 12.9716;
-const BANGALORE_LNG = 77.5946;
-const RADIUS_METERS = 25000; // 25km
+// Hyderabad center coordinates and 35km radius
+const HYDERABAD_LAT = 17.3850;
+const HYDERABAD_LNG = 78.4867;
+const RADIUS_METERS = 35000; // 35km
 
-// Featured Bangalore localities within 25km radius for instant fallback suggestions
-const BANGALORE_LOCALITIES = [
-  'Indiranagar, Bengaluru',
-  'Koramangala, Bengaluru',
-  'HSR Layout, Bengaluru',
-  'Whitefield, Bengaluru',
-  'Electronic City, Bengaluru',
-  'Jayanagar, Bengaluru',
-  'JP Nagar, Bengaluru',
-  'Marathahalli, Bengaluru',
-  'Hebbal, Bengaluru',
-  'Yelahanka, Bengaluru',
-  'Sarjapur Road, Bengaluru',
-  'Bellandur, Bengaluru',
-  'Banashankari, Bengaluru',
-  'Malleshwaram, Bengaluru',
-  'Rajajinagar, Bengaluru',
-  'BTM Layout, Bengaluru',
-  'Thanisandra, Bengaluru',
-  'Kengeri, Bengaluru',
-  'Devanahalli, Bengaluru',
-  'Bannerghatta Road, Bengaluru',
-  'Domlur, Bengaluru',
-  'MG Road, Bengaluru',
-  'Sadashivanagar, Bengaluru',
-  'Ulsoor, Bengaluru',
-  'KR Puram, Bengaluru',
-  'Nagarbhavi, Bengaluru',
+// Featured Hyderabad localities for instant fallback suggestions
+const HYDERABAD_LOCALITIES = [
+  'Jubilee Hills, Hyderabad',
+  'Banjara Hills, Hyderabad',
+  'Gachibowli, Hyderabad',
+  'Hitec City, Hyderabad',
+  'Kondapur, Hyderabad',
+  'Madhapur, Hyderabad',
+  'Manikonda, Hyderabad',
+  'Financial District, Nanakramguda, Hyderabad',
+  'Kokapet, Hyderabad',
+  'Tellapur, Hyderabad',
+  'Nallagandla, Hyderabad',
+  'Kukatpally, Hyderabad',
+  'Miyapur, Hyderabad',
+  'Begumpet, Hyderabad',
+  'Somajiguda, Hyderabad',
+  'Ameerpet, Hyderabad',
+  'Himayatnagar, Hyderabad',
+  'SR Nagar, Hyderabad',
+  'Attapur, Hyderabad',
+  'LB Nagar, Hyderabad',
+  'Uppal, Hyderabad',
+  'Secunderabad, Telangana',
+  'Kompally, Hyderabad',
+  'Shaikpet, Hyderabad',
+  'Puppalaguda, Hyderabad',
+  'Khajaguda, Hyderabad',
 ];
 
 interface LocationAutocompleteProps {
@@ -58,152 +58,112 @@ export default function LocationAutocomplete({
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [isGoogleLoaded, setIsGoogleLoaded] = useState(false);
-
-  const inputRef = useRef<HTMLInputElement>(null);
-  const autocompleteRef = useRef<any>(null);
+  const autocompleteServiceRef = useRef<any>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
+    setQuery(initialValue);
+  }, [initialValue]);
 
-    (window as any).gm_authFailure = () => {
-      console.warn('Google Maps API authentication blocked or restricted. Falling back to local suggestions.');
-      setIsGoogleLoaded(false);
-    };
-
-    const initAutocomplete = () => {
-      if (!inputRef.current || !window.google?.maps?.places) return;
-
-      try {
-        const bangaloreCenter = new window.google.maps.LatLng(BANGALORE_LAT, BANGALORE_LNG);
-        const circle = new window.google.maps.Circle({
-          center: bangaloreCenter,
-          radius: RADIUS_METERS,
-        });
-
-        const options = {
-          bounds: circle.getBounds(),
-          strictBounds: true, // Restrict auto-suggest strictly to 25km radius around Bangalore
-          componentRestrictions: { country: 'in' },
-          fields: ['formatted_address', 'geometry', 'name', 'place_id'],
-        };
-
-        const autocomplete = new window.google.maps.places.Autocomplete(
-          inputRef.current,
-          options
-        );
-
-        autocomplete.addListener('place_changed', () => {
-          const place = autocomplete.getPlace();
-          const address = place.formatted_address || place.name || inputRef.current?.value || '';
-          setQuery(address);
-          if (onChange) onChange(address);
-          setShowDropdown(false);
-        });
-
-        autocompleteRef.current = autocomplete;
+  useEffect(() => {
+    const checkGoogle = () => {
+      if (window.google?.maps?.places?.AutocompleteService) {
+        autocompleteServiceRef.current = new window.google.maps.places.AutocompleteService();
         setIsGoogleLoaded(true);
-      } catch (err) {
-        console.warn('Google Maps Autocomplete init warning:', err);
       }
     };
+    checkGoogle();
+    const timer = setInterval(checkGoogle, 500);
+    return () => clearInterval(timer);
+  }, []);
 
-    if (window.google?.maps?.places) {
-      initAutocomplete();
-      return;
-    }
-
-    if (apiKey) {
-      const scriptId = 'google-maps-places-script';
-      if (!document.getElementById(scriptId)) {
-        const script = document.createElement('script');
-        script.id = scriptId;
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
-        script.async = true;
-        script.defer = true;
-        script.onload = () => {
-          initAutocomplete();
-        };
-        document.head.appendChild(script);
-      } else {
-        const existingScript = document.getElementById(scriptId);
-        existingScript?.addEventListener('load', initAutocomplete);
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setShowDropdown(false);
       }
-    }
-  }, [onChange]);
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     setQuery(val);
     if (onChange) onChange(val);
 
-    if (!isGoogleLoaded && val.trim().length > 0) {
-      const filtered = BANGALORE_LOCALITIES.filter((loc) =>
-        loc.toLowerCase().includes(val.toLowerCase())
-      );
-      setSuggestions(filtered);
-      setShowDropdown(true);
-    } else {
+    if (!val.trim()) {
       setSuggestions([]);
       setShowDropdown(false);
+      return;
+    }
+
+    if (isGoogleLoaded && autocompleteServiceRef.current) {
+      const hydCenter = new window.google.maps.LatLng(HYDERABAD_LAT, HYDERABAD_LNG);
+      autocompleteServiceRef.current.getPlacePredictions(
+        {
+          input: val,
+          location: hydCenter,
+          radius: RADIUS_METERS,
+          componentRestrictions: { country: 'in' },
+        },
+        (predictions: any[], status: any) => {
+          if (status === window.google.maps.places.PlacesServiceStatus.OK && predictions) {
+            setSuggestions(predictions.map((p) => p.description));
+            setShowDropdown(true);
+          } else {
+            fallbackFilter(val);
+          }
+        }
+      );
+    } else {
+      fallbackFilter(val);
     }
   };
 
-  const handleSelectSuggestion = (loc: string) => {
+  const fallbackFilter = (text: string) => {
+    const filtered = HYDERABAD_LOCALITIES.filter((loc) =>
+      loc.toLowerCase().includes(text.toLowerCase())
+    );
+    setSuggestions(filtered);
+    setShowDropdown(filtered.length > 0);
+  };
+
+  const handleSelect = (loc: string) => {
     setQuery(loc);
     if (onChange) onChange(loc);
     setShowDropdown(false);
   };
 
   return (
-    <div className="relative w-full">
+    <div ref={containerRef} className="relative w-full">
       <div className="relative flex items-center">
         <input
-          ref={inputRef}
           type="text"
           value={query}
           onChange={handleInputChange}
           onFocus={() => {
-            if (!isGoogleLoaded && query.trim().length > 0 && suggestions.length > 0) {
-              setShowDropdown(true);
-            }
+            if (query.trim() && suggestions.length > 0) setShowDropdown(true);
           }}
-          placeholder="Enter location (e.g. Koramangala)"
+          placeholder="e.g. Jubilee Hills, Gachibowli, Kokapet"
           required={required}
-          className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 pl-11 text-slate-900 text-sm font-medium placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-orange/40 focus:border-primary-orange transition-all"
+          className="w-full bg-slate-900 border border-slate-700/80 rounded-2xl py-3 px-4 text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 transition-all"
         />
-        <div className="absolute left-3.5 text-primary-orange pointer-events-none flex items-center">
-          <svg className="w-5 h-5 text-primary-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-        </div>
+        <span className="absolute right-3.5 text-slate-400 text-xs font-bold pointer-events-none">
+          📍 HYD
+        </span>
       </div>
-      <span className="text-[11px] font-medium text-slate-400 ml-1 mt-1 block">
-        📍 Restricted to Bangalore &amp; 25km radius
-      </span>
 
-      {!isGoogleLoaded && showDropdown && suggestions.length > 0 && (
-        <ul className="absolute z-50 left-0 right-0 mt-1 bg-white border border-gray-200 rounded-xl shadow-lg max-h-48 overflow-y-auto">
-          {suggestions.map((item, idx) => (
+      {showDropdown && suggestions.length > 0 && (
+        <ul className="absolute z-50 left-0 right-0 mt-1 bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden max-h-60 overflow-y-auto font-sans">
+          {suggestions.map((loc, idx) => (
             <li
               key={idx}
-              onClick={() => handleSelectSuggestion(item)}
-              className="px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-primary-orange cursor-pointer flex items-center gap-2 border-b last:border-b-0 border-gray-100"
+              onClick={() => handleSelect(loc)}
+              className="px-4 py-2.5 text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-amber-400 cursor-pointer border-b border-slate-800/60 last:border-none flex items-center gap-2"
             >
-              <svg className="w-4 h-4 text-primary-orange shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              </svg>
-              <span>{item}</span>
+              <span>📍</span>
+              {loc}
             </li>
           ))}
         </ul>

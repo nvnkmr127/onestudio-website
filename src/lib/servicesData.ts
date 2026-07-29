@@ -9,27 +9,10 @@ export interface ServiceDetailConfig {
 }
 
 export const staticServices: Record<string, ServiceDetailConfig> = {
-  'house-construction': {
-    title: 'Turnkey Home Interiors Bangalore | One Studio',
-    heading: 'Turnkey Luxury Home Interiors',
-    description: 'A-Grade residential interior design in Bangalore. 100% transparent pricing, 150+ quality checks, and 10-year warranty.',
-    image: '/images/bangalore_modern_interior.png',
-    category: 'Residential Interiors',
-    overview: [
-      'One Studio provides complete turnkey home interior solutions in Bangalore. We handle everything from 3D VR space planning, material selection, and lighting design to factory modular woodwork, false ceiling, and luxury finishing.',
-      'Our dedicated interior designers ensure 100% finish specification compliance with daily progress tracking via our client app.',
-    ],
-    deliverables: [
-      'Custom 3D VR & 2D Space Plans',
-      'Modular Kitchens & Floor-to-Ceiling Wardrobes',
-      'Marine-Grade BWP Century/Greenply Woodwork',
-      '10-Year Comprehensive Woodwork & Hardware Warranty',
-    ],
-  },
   'interior-design': {
-    title: 'Custom Home & Commercial Interior Design Bangalore | One Studio',
+    title: 'Custom Home & Commercial Interior Design Hyderabad | One Studio',
     heading: 'Luxury Home & Commercial Interior Design',
-    description: 'Modular kitchens, wardrobes, living room interior design, and turnkey office fitouts delivered in 45 days.',
+    description: 'Modular kitchens, wardrobes, living room interior design, and turnkey office fitouts in Hyderabad delivered in 45 days.',
     image: '/images/bangalore_modern_interior.png',
     category: 'Interior Design',
     overview: [
@@ -43,10 +26,10 @@ export const staticServices: Record<string, ServiceDetailConfig> = {
       '45-Day Guaranteed Delivery with 10-Year Warranty',
     ],
   },
-  'commercial-construction': {
-    title: 'Commercial & Office Interior Fitouts Bangalore | One Studio',
+  'commercial-interiors': {
+    title: 'Commercial & Office Interior Fitouts Hyderabad | One Studio',
     heading: 'Commercial & Corporate Office Interior Fitouts',
-    description: 'Turnkey corporate office interiors, retail store design, and commercial space fitouts in Bangalore.',
+    description: 'Turnkey corporate office interiors, retail store design, and commercial space fitouts in Hyderabad.',
     image: '/images/bangalore_commercial_complex.png',
     category: 'Commercial Interiors',
     overview: [

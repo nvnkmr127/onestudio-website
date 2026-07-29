@@ -27,7 +27,7 @@ const faqData: FAQItem[] = [
     id: 3,
     category: 'General',
     question: 'What types of interior design projects do you specialize in?',
-    answer: 'We specialize in turnkey residential home interiors in Bangalore, including bespoke modular kitchens, living room false ceilings, floor-to-ceiling wardrobes, and corporate office fitouts.',
+    answer: 'We specialize in turnkey residential home interiors in Hyderabad, including bespoke modular kitchens, living room false ceilings, floor-to-ceiling wardrobes, and corporate office fitouts.',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const faqData: FAQItem[] = [
   {
     id: 5,
     category: 'Approvals',
-    question: 'How long does a 3BHK home interior project take to complete in Bangalore?',
+    question: 'How long does a 3BHK home interior project take to complete in Hyderabad?',
     answer: 'A standard 3BHK home interior project is completed within a guaranteed 45 days from design freeze to keys handover, backed by a strict delay penalty clause.',
   },
   {
@@ -81,7 +81,7 @@ export default function FAQ() {
             </h2>
 
             <p className="text-slate-500 text-sm leading-relaxed max-w-md">
-              Everything you need to know about interior estimation, escrow stage safety, 45-day delivery, and 15-year warranties in Bangalore.
+              Everything you need to know about interior estimation, escrow stage safety, 45-day delivery, and 15-year warranties in Hyderabad.
             </p>
           </div>
 
