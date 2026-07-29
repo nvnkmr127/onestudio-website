@@ -16,11 +16,11 @@ export interface SearchInsightsResult {
 
 const FALLBACK_TOP_QUERIES: GscAnalyticsResult = {
   rows: [
-    { keys: ['house construction company bangalore'], clicks: 342, impressions: 4210, ctr: 8.12, position: 2.4 },
-    { keys: ['turnkey builders hbr layout'], clicks: 218, impressions: 2150, ctr: 10.14, position: 1.8 },
-    { keys: ['luxury interior designers hbr layout'], clicks: 184, impressions: 1980, ctr: 9.29, position: 2.1 },
-    { keys: ['construction cost calculator bangalore'], clicks: 156, impressions: 1620, ctr: 9.63, position: 3.2 },
-    { keys: ['bbmp plan approval contractor'], clicks: 94, impressions: 1140, ctr: 8.25, position: 4.1 },
+    { keys: ['interior design company hyderabad'], clicks: 342, impressions: 4210, ctr: 8.12, position: 2.4 },
+    { keys: ['turnkey interiors jubilee hills'], clicks: 218, impressions: 2150, ctr: 10.14, position: 1.8 },
+    { keys: ['luxury interior designers gachibowli'], clicks: 184, impressions: 1980, ctr: 9.29, position: 2.1 },
+    { keys: ['interior cost estimator hyderabad'], clicks: 156, impressions: 1620, ctr: 9.63, position: 3.2 },
+    { keys: ['commercial interior fitout hyderabad'], clicks: 94, impressions: 1140, ctr: 8.25, position: 4.1 },
   ],
   totalClicks: 994,
   totalImpressions: 11100,

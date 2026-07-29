@@ -145,7 +145,7 @@ export default function GeoClient() {
             </div>
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-white">Geo Landing Pages &amp; NAP Drift Auditor</h1>
             <p className="text-slate-400 text-sm mt-1">
-              Manage serviceable area pages (HBR Layout &amp; North Bangalore) and audit NAP consistency.
+              Manage serviceable area pages (Jubilee Hills, Gachibowli & Hyderabad) and audit NAP consistency.
             </p>
           </div>
 
@@ -278,7 +278,7 @@ export default function GeoClient() {
                   required
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Best Construction Company in HBR Layout Bangalore"
+                  placeholder="Best Interior Design Company in Jubilee Hills Hyderabad"
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
                 />
               </div>
@@ -292,7 +292,7 @@ export default function GeoClient() {
                   required
                   value={heading}
                   onChange={(e) => setHeading(e.target.value)}
-                  placeholder="Turnkey House Construction in HBR Layout"
+                  placeholder="Turnkey Luxury Interiors in Jubilee Hills"
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"
                 />
               </div>
@@ -306,7 +306,7 @@ export default function GeoClient() {
                   required
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Top rated building contractors in HBR Layout 5th Block, Bangalore. Custom luxury home construction..."
+                  placeholder="Top rated interior designers in Jubilee Hills, Hyderabad. Custom luxury home interiors..."
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-emerald-500"
                 />
               </div>

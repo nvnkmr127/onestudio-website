@@ -7,13 +7,13 @@ export default function Testimonials() {
     <section className="py-20 md:py-28 bg-slate-50 overflow-hidden" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 mb-14 text-center space-y-3">
         <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
-          ⚡ REAL FEEDBACK FROM BENGALURU HOMEOWNERS
+          ⚡ REAL FEEDBACK FROM HYDERABAD HOMEOWNERS
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
           What Our Clients Say
         </h2>
         <p className="text-slate-600 text-sm md:text-base font-medium max-w-xl mx-auto">
-          121+ verified Google reviews • 5.0 star rating • Trusted across Bangalore for quality interior design.
+          121+ verified Google reviews • 5.0 star rating • Trusted across Hyderabad for quality interior design.
         </p>
       </div>
 
@@ -27,25 +27,25 @@ export default function Testimonials() {
           {[
             {
               name: 'Mohammed Rehan',
-              location: 'Villa in Whitefield, Bangalore',
+              location: 'Villa in Jubilee Hills, Hyderabad',
               img: '/images/indian_professional_man_1.png',
-              review: 'I had my home interiors done by One Studio. They provide the best quality and service that every company can\'t provide. Truly the best interior design team in Bangalore!',
+              review: 'I had my home interiors done by One Studio. They provide the best quality and service that every company can\'t provide. Truly the best interior design team in Hyderabad!',
             },
             {
               name: 'Jhansi Sony',
-              location: '3BHK Duplex in Koramangala',
+              location: '3BHK Duplex in Gachibowli',
               img: '/images/indian_professional_woman_1.png',
               review: 'I recently got my home interiors designed by One Studio and found this was the best place. They provided the best quality of woodwork with real dedication and 45-day delivery.',
             },
             {
               name: 'Prabavathi Muthukuru',
-              location: 'Independent House in Jayanagar',
+              location: 'Independent House in Banjara Hills',
               img: '/images/indian_professional_man_2.png',
-              review: 'I chose One Studio for my apartment in Jayanagar Bangalore. I got the best experience and the modular kitchen execution was top class. Highly recommended!',
+              review: 'I chose One Studio for my apartment in Banjara Hills Hyderabad. I got the best experience and the modular kitchen execution was top class. Highly recommended!',
             },
             {
               name: 'Nithil Bathli',
-              location: 'Villa in Marathahalli',
+              location: 'Villa in Kokapet',
               img: '/images/indian_professional_woman_1.png',
               review: 'I completed my interior project with One Studio. They provide outstanding customer service, transparent material wallets, and supportive interior designers.',
             },
@@ -93,7 +93,7 @@ export default function Testimonials() {
         <span className="text-slate-300 hidden sm:inline">|</span>
         <span className="text-slate-900 font-extrabold">121 Verified Google Reviews</span>
         <span className="text-slate-300 hidden sm:inline">|</span>
-        <span className="text-slate-500 font-medium">One Studio, Bangalore</span>
+        <span className="text-slate-500 font-medium">One Studio, Hyderabad</span>
       </div>
     </section>
   );

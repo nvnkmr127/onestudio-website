@@ -66,7 +66,7 @@ export default function Contact() {
 
             <div className="my-6 relative z-10">
               <img
-                alt="One Studio Bangalore Interior Design Studio"
+                alt="One Studio Hyderabad Interior Design Studio"
                 className="w-full h-52 object-cover rounded-3xl border border-white/10 shadow-lg"
                 src="/images/bangalore_architect_planning.png"
               />
@@ -141,7 +141,7 @@ export default function Contact() {
                   </div>
                   <h4 className="text-2xl font-black text-emerald-950">Thank You, {name}!</h4>
                   <p className="text-emerald-800 text-sm leading-relaxed max-w-md mx-auto">
-                    Your message has been received. Our Bangalore team will contact you at <span className="font-bold text-emerald-950">{phone}</span> shortly.
+                    Your message has been received. Our Hyderabad team will contact you at <span className="font-bold text-emerald-950">{phone}</span> shortly.
                   </p>
                   <button
                     type="button"
@@ -250,14 +250,14 @@ export default function Contact() {
                     INTERACTIVE MAP NAVIGATION
                   </span>
                   <h4 className="text-lg sm:text-2xl font-black text-slate-900 tracking-tight">
-                    One Studio Experience Center — HBR Layout
+                    One Studio Experience Center — Jubilee Hills
                   </h4>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
                 <a
-                  href="https://maps.app.goo.gl/WtK7ztnSo6sjRspa9"
+                  href="https://maps.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#f2bd19] hover:bg-amber-500 text-slate-900 font-extrabold text-xs uppercase tracking-wider px-5 py-3 rounded-2xl shadow-md transition-all inline-flex items-center justify-center gap-2 cursor-pointer w-full sm:w-auto text-center"
@@ -278,7 +278,7 @@ export default function Contact() {
             {/* Overlapping Embedded Map Frame */}
             <div className="relative w-full h-[380px] sm:h-[480px] rounded-[32px] overflow-hidden border border-slate-200/80 shadow-inner group">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.979347632583!2d77.6284213!3d13.036986500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17521ebd3561%3A0xd44e7fc989195229!2sScrew%20Wood%20Interiors%20%26%20Constructions!5e0!3m2!1sen!2sin!4v1784953713337!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5037250998325!2d78.33368999999999!3d17.4355883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93abc0348f15%3A0x94769af9f9ef2991!2sThe%20Lobster%20Kitchen!5e0!3m2!1sen!2sin!4v1785341054090!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -293,10 +293,10 @@ export default function Contact() {
                 <span className="text-xl shrink-0">🏢</span>
                 <div className="min-w-0">
                   <span className="text-[10px] font-extrabold uppercase text-[#f2bd19] block truncate">
-                    HBR Layout 5th Block, Bengaluru
+                    Jubilee Hills, Hyderabad
                   </span>
                   <span className="text-xs text-slate-200 font-semibold block truncate">
-                    38th Cross Rd, Telecom Layout 560043
+                    Road No. 36, Telangana 500033
                   </span>
                 </div>
               </div>

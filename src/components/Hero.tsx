@@ -40,7 +40,7 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <span className="h-px w-8 bg-amber-400 block" />
               <span className="text-amber-400 text-xs font-black uppercase tracking-[0.2em]">
-                Bangalore&apos;s Luxury Interior Studio
+                Hyderabad&apos;s Luxury Interior Studio
               </span>
             </div>
 

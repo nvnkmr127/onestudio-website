@@ -10,9 +10,9 @@ export default function AiClient() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [testContent, setTestContent] = useState(
-    `## Turnkey Interior Design in HBR Layout Bangalore\n\nOne Studio delivers 10-year craftsmanship guaranteed residential interior design in HBR Layout 5th Block, Bengaluru.\n\n### Why Choose One Studio?\n\nOur team of interior designers handles space planning, modular kitchens, wardrobes, and luxury interior design within 45 days.`
+    `## Turnkey Interior Design in Jubilee Hills Hyderabad\n\nOne Studio delivers 10-year craftsmanship guaranteed residential interior design in Jubilee Hills, Hyderabad.\n\n### Why Choose One Studio?\n\nOur team of interior designers handles space planning, modular kitchens, wardrobes, and luxury interior design within 45 days.`
   );
-  const [testTitle, setTestTitle] = useState('Turnkey Interior Design HBR Layout');
+  const [testTitle, setTestTitle] = useState('Turnkey Interior Design Jubilee Hills');
   const [hasFaq, setHasFaq] = useState(true);
   const [evaluating, setEvaluating] = useState(false);
   const [result, setResult] = useState<AiCitabilityResult | null>(null);

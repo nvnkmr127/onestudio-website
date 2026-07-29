@@ -4,9 +4,9 @@ import Footer from '@/components/Footer';
 import InteriorEstimator from '@/components/InteriorEstimator';
 
 export const metadata: Metadata = {
-  title: 'Interior Design Cost Estimator | One Studio Bangalore',
+  title: 'Interior Design Cost Estimator | One Studio Hyderabad',
   description:
-    'Calculate instant, personalized interior design costs for your 1BHK, 2BHK, 3BHK home or villa in Bangalore. Explore modular kitchen layouts and finish tiers.',
+    'Calculate instant, personalized interior design costs for your 1BHK, 2BHK, 3BHK home or villa in Hyderabad. Explore modular kitchen layouts and finish tiers.',
 };
 
 export default function EstimatePage() {
@@ -28,7 +28,7 @@ export default function EstimatePage() {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
-            Get an instant, transparent cost breakdown for modular kitchens, wardrobes &amp; full home interior packages tailored for Bangalore properties.
+            Get an instant, transparent cost breakdown for modular kitchens, wardrobes &amp; full home interior packages tailored for Hyderabad properties.
           </p>
         </div>
 

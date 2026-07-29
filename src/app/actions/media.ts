@@ -17,25 +17,25 @@ const STATIC_IMAGE_REGISTRY: ImageSeoItem[] = [
   {
     id: 'hero-building',
     url: '/images/bangalore_hero_building.png',
-    alt_text: 'One Studio Turnkey Interior Design Site in HBR Layout Bangalore',
+    alt_text: 'One Studio Turnkey Interior Design Site in Jubilee Hills Hyderabad',
     in_sitemap: true,
   },
   {
     id: 'architect-planning',
     url: '/images/bangalore_architect_planning.png',
-    alt_text: 'Structural engineers and architects reviewing BBMP blueprints in HBR Layout',
+    alt_text: 'Interior design team reviewing space plans in Jubilee Hills Hyderabad',
     in_sitemap: true,
   },
   {
     id: 'modern-interior',
     url: '/images/bangalore_modern_interior.png',
-    alt_text: 'Luxury modular kitchen and living room interior design by One Studio',
+    alt_text: 'Luxury modular kitchen and living room interior design by One Studio Hyderabad',
     in_sitemap: true,
   },
   {
     id: 'commercial-complex',
     url: '/images/bangalore_commercial_complex.png',
-    alt_text: 'Commercial office building construction in Whitefield Bangalore',
+    alt_text: 'Commercial office interior fitout in Gachibowli Hyderabad',
     in_sitemap: true,
   },
 ];

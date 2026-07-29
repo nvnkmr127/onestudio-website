@@ -15,19 +15,14 @@ export interface BlogPost {
 export const defaultPosts: BlogPost[] = [
   {
     id: '1',
-    slug: 'sustainable-building-materials-bangalore',
-    title: 'Top Sustainable Building Materials for Homes in Bangalore',
-    excerpt: 'Discover eco-friendly and energy-efficient building materials optimized for modern Bangalore homes.',
+    slug: 'sustainable-interior-materials-hyderabad',
+    title: 'Top Sustainable Interior Materials for Homes in Hyderabad',
+    excerpt: 'Discover eco-friendly and energy-efficient interior materials optimized for modern Hyderabad homes.',
     dateStr: '15 OCT 2024',
     image: '/images/bangalore_modern_interior.png',
     category: 'Materials',
     author: 'One Studio Design Team',
-    content: `Building a sustainable home in Bangalore involves choosing materials that reduce thermal heat gain, lower power consumption, and provide longevity. High-performance AAC blocks, solar-reflective roof coatings, and low-VOC paints are standard choices for eco-conscious homeowners.
-
-### Key Eco-Friendly Construction Practices:
-1. **Autoclaved Aerated Concrete (AAC) Blocks**: Superior thermal insulation reducing air conditioning loads up to 25%.
-2. **Rainwater Harvesting & Recharging Systems**: Mandatory for BBMP compliance while ensuring groundwater sustainability.
-3. **Low-E Solar Glazing**: Double-glazed UPVC windows that block UV rays while retaining natural indoor daylight.`,
+    content: `Designing a sustainable home in Hyderabad involves choosing materials that reduce thermal heat gain, lower power consumption, and provide longevity. Premium BWP marine plywood, low-VOC finishes, and energy-efficient LED ambient lighting are standard choices for eco-conscious homeowners.`,
   },
   {
     id: '2',

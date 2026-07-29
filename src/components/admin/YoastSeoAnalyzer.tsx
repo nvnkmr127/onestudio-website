@@ -167,7 +167,7 @@ export default function YoastSeoAnalyzer({
             type="text"
             value={seoTitle}
             onChange={(e) => onChange({ seoTitle: e.target.value })}
-            placeholder="e.g. Turnkey Interior Design Services Bangalore | One Studio"
+            placeholder="e.g. Turnkey Interior Design Services Hyderabad | One Studio"
             className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-xs font-bold text-white focus:outline-none focus:border-[#f2bd19]"
           />
         </div>
@@ -181,7 +181,7 @@ export default function YoastSeoAnalyzer({
             type="text"
             value={focusKeyword}
             onChange={(e) => onChange({ focusKeyword: e.target.value })}
-            placeholder="e.g., house construction bangalore"
+            placeholder="e.g., interior design hyderabad"
             className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-xs font-bold text-[#f2bd19] focus:outline-none focus:border-[#f2bd19]"
           />
         </div>

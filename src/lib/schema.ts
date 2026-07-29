@@ -18,7 +18,7 @@ export function localBusinessSchema(settings: Dict | null): Dict {
     address: settings?.address
       ? { '@type': 'PostalAddress', streetAddress: settings.address, addressCountry: 'IN' }
       : undefined,
-    areaServed: ['Bangalore', 'Hyderabad', 'Mumbai', 'Delhi'],
+    areaServed: ['Hyderabad', 'Secunderabad', 'Telangana'],
     sameAs: [settings?.facebook, settings?.instagram, settings?.linkedin].filter(Boolean),
   })
 }

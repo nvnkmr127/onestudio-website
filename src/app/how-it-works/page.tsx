@@ -13,7 +13,7 @@ const steps = [
     title: 'Raise a Request',
     subtitle: 'Share your site location & initial requirements',
     bullets: [
-      'Submit your construction request online or call our Bangalore team at +91 9014303409.',
+      'Submit your interior request online or call our Hyderabad team at +91 9014303409.',
       'Our senior project consultant connects with you within 2 hours to understand plot size, location, and vision.',
       'Schedule a free 1-on-1 consultation with a technical specialist at your convenient time.',
     ],
@@ -157,7 +157,7 @@ export default function HowItWorksPage() {
               Plan • Build • Track • Settle In
             </h2>
             <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed mb-10">
-              We make house construction transparent, tech-enabled, and stress-free. From architectural planning to 430+ quality inspections and 10-year warranty, discover how we build your dream home in Bangalore step by step.
+              We make luxury interiors transparent, tech-enabled, and stress-free. From 3D space planning to 150+ quality inspections and 10-year warranty, discover how we transform your dream home in Hyderabad step by step.
             </p>
 
             {/* Interactive Phase Filter Buttons */}
@@ -586,10 +586,10 @@ export default function HowItWorksPage() {
         <section className="py-20 bg-primary-orange text-white text-center">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-3xl md:text-5xl font-black mb-6">
-              Ready to Build Your Dream Home in Bangalore?
+              Ready to Design Your Dream Home in Hyderabad?
             </h2>
             <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">
-              Get 1:1 consultation with Bangalore's top architectural experts and guaranteed 100% transparent pricing.
+              Get 1:1 consultation with Hyderabad's top interior design experts and guaranteed 100% transparent pricing.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
