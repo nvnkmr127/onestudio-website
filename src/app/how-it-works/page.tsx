@@ -283,13 +283,13 @@ export default function HowItWorksPage() {
           <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-black uppercase tracking-widest">
-                📱 ONE STUDIO LIVE APP TRACKER
+                ✨ 100% TRANSPARENT PROJECT TRACKING
               </div>
               <h2 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-                Track Every Stage From Your Mobile Phone
+                Real-Time Project Control &amp; Live Updates
               </h2>
               <p className="text-slate-400 text-base leading-relaxed">
-                Stay updated on daily 3D site captures, material inspection reports, and milestone approvals without visiting the site every day.
+                Experience complete peace of mind. Watch your luxury interior space come together stage by stage with daily HD photo updates and 150+ quality audit certificates.
               </p>
 
               {/* App Control Tabs */}
