@@ -76,7 +76,7 @@ export default function CallModal() {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md animate-fade-in">
       {/* Outer Split Card Modal Container */}
-      <div className="relative w-full max-w-4xl bg-white rounded-3xl md:rounded-[36px] shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 text-slate-800">
+      <div className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white rounded-2xl sm:rounded-3xl md:rounded-[36px] shadow-2xl grid grid-cols-1 md:grid-cols-12 text-slate-800">
         {/* Close Button */}
         <button
           onClick={handleClose}
@@ -98,7 +98,7 @@ export default function CallModal() {
         </div>
 
         {/* Right Column: Form & Highlights */}
-        <div className="md:col-span-6 p-8 md:p-10 flex flex-col justify-between">
+        <div className="md:col-span-6 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
           {isSubmitted ? (
             <div className="text-center py-12 space-y-4 my-auto animate-fade-in">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 font-black text-3xl mx-auto flex items-center justify-center border border-emerald-200">
