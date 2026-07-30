@@ -176,7 +176,6 @@ export default function LuxePage() {
           <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-8">
             {/* Shimmering Crest Badge */}
             <div className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full bg-black/90 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(212,175,55,0.25)]">
-              <span>👑</span>
               <span className="text-gold-foil">ONE STUDIO LUXE COLLECTION</span>
             </div>
 
@@ -206,7 +205,7 @@ export default function LuxePage() {
                 onClick={openLuxeCallModal}
                 className="bg-black/90 hover:bg-neutral-950 text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400 cursor-pointer"
               >
-                Request Royalty Consultation 👑
+                Request Royalty Consultation
               </button>
             </div>
 
@@ -249,7 +248,7 @@ export default function LuxePage() {
         <section className="py-24 max-w-7xl mx-auto px-4 space-y-20">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
-              🏛️ EDITORIAL ARCHITECTURAL SHOWCASE
+              EDITORIAL ARCHITECTURAL SHOWCASE
             </span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
               Master Residences <span className="font-serif-luxe italic text-gold-foil">Collection</span>
@@ -286,7 +285,7 @@ export default function LuxePage() {
 
                     <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
                       <span className="bg-gold-foil text-black font-black text-xs uppercase px-4 py-1.5 rounded-full tracking-wider shadow-lg">
-                        📍 {estate.location}
+                        {estate.location}
                       </span>
                       <span className="text-amber-300 font-bold text-xs bg-black/90 px-4 py-1.5 rounded-full border border-amber-500/40">
                         {estate.subtitle}
@@ -343,7 +342,7 @@ export default function LuxePage() {
           <div className="max-w-7xl mx-auto px-4 space-y-12">
             <div className="text-center max-w-3xl mx-auto space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
-                🎨 HANDPICKED LUXURY MATERIALS
+                HANDPICKED LUXURY MATERIALS
               </span>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
                 Imported Finishes &amp; <span className="font-serif-luxe italic text-gold-foil">Metals</span>
@@ -388,7 +387,7 @@ export default function LuxePage() {
         <section className="py-24 max-w-7xl mx-auto px-4 space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.25em] shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-              👑 THE 7 ROYAL GUARANTEES
+              THE 7 ROYAL GUARANTEES
             </span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
               Royale Standards of <span className="font-serif-luxe italic text-gold-foil">Excellence</span>
@@ -431,7 +430,7 @@ export default function LuxePage() {
         <section className="py-24 max-w-7xl mx-auto px-4 space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
-              ⚙️ ARCHITECTURAL BENCHMARKS
+              ARCHITECTURAL BENCHMARKS
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
               Engineering Perfection in <span className="font-serif-luxe italic text-gold-foil">Every Detail</span>
@@ -474,7 +473,7 @@ export default function LuxePage() {
         <section className="py-24 max-w-4xl mx-auto px-4 text-center space-y-10">
           <div className="space-y-4">
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
-              💎 LUXE INVESTMENT GUIDE
+              LUXE INVESTMENT GUIDE
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
               Estimate Your Villa / Penthouse Project

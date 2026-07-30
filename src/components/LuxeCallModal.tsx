@@ -91,8 +91,8 @@ export default function LuxeCallModal() {
         <div className="md:col-span-6 p-5 sm:p-8 md:p-10 flex flex-col justify-between">
           {isSubmitted ? (
             <div className="text-center py-12 space-y-4 my-auto animate-fade-in">
-              <div className="w-16 h-16 rounded-full bg-amber-500/20 text-amber-300 font-black text-3xl mx-auto flex items-center justify-center border border-amber-500/50 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
-                👑
+              <div className="w-16 h-16 rounded-full bg-amber-500/20 text-amber-300 font-black text-3xl mx-auto flex items-center justify-center border border-amber-500/50 shadow-[0_0_30px_rgba(212,175,55,0.4)] font-serif-luxe">
+                ✓
               </div>
               <h3 className="text-2xl md:text-3xl font-black font-serif-luxe italic text-gold-foil">
                 VVIP Request Received!
@@ -110,7 +110,7 @@ export default function LuxeCallModal() {
                   rel="noopener noreferrer"
                   className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider py-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2"
                 >
-                  Connect via WhatsApp Concierge 💬
+                  Connect via WhatsApp Concierge
                 </a>
                 <button
                   onClick={handleClose}
@@ -125,7 +125,7 @@ export default function LuxeCallModal() {
               {/* Header Title & Subtitle */}
               <div className="space-y-1.5 mt-1">
                 <span className="inline-block px-3.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/40 text-[10px] font-black uppercase tracking-[0.25em]">
-                  👑 VVIP LUXE APPOINTMENT
+                  VVIP LUXE APPOINTMENT
                 </span>
                 <h3 className="text-2xl md:text-3xl font-black font-serif-luxe italic text-white tracking-tight">
                   Book Studio Session
@@ -152,7 +152,6 @@ export default function LuxeCallModal() {
                 {/* Phone Input with Country Code */}
                 <div className="flex items-center border border-amber-500/30 rounded-xl overflow-hidden focus-within:border-amber-400 transition-all bg-neutral-950 shadow-sm">
                   <div className="flex items-center gap-1.5 px-3 py-3 bg-neutral-900 border-r border-neutral-800 text-amber-300 font-extrabold text-sm shrink-0">
-                    <span className="text-base leading-none">🇮🇳</span>
                     <span>+91</span>
                   </div>
                   <input
@@ -181,7 +180,7 @@ export default function LuxeCallModal() {
 
                 {errorMsg && (
                   <div className="p-2.5 bg-red-950/80 border border-red-500/40 text-red-300 text-xs font-semibold rounded-xl">
-                    ⚠️ {errorMsg}
+                    {errorMsg}
                   </div>
                 )}
 
@@ -192,7 +191,7 @@ export default function LuxeCallModal() {
                     disabled={isSubmitting}
                     className="relative w-full bg-gold-foil text-black font-black text-xs uppercase tracking-[0.2em] py-4 rounded-xl shadow-[0_0_35px_rgba(212,175,55,0.4)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2 group overflow-hidden"
                   >
-                    <span>{isSubmitting ? 'Reserving Session...' : 'Confirm VVIP Session 👑'}</span>
+                    <span>{isSubmitting ? 'Reserving Session...' : 'Confirm VVIP Session'}</span>
                     <span className="bg-slate-950 text-amber-300 rounded-full w-5 h-5 flex items-center justify-center group-hover:translate-x-1 transition-transform text-xs font-black">
                       →
                     </span>
