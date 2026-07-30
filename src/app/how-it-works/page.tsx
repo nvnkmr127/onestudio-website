@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import PageHero from '@/components/PageHero';
 import Footer from '@/components/Footer';
@@ -88,6 +88,16 @@ export default function HowItWorksPage() {
   const [activePhase, setActivePhase] = useState<'all' | 'plan' | 'design' | 'build'>('all');
   const [selectedStep, setSelectedStep] = useState<string>('01');
   const [activeAppTab, setActiveAppTab] = useState<'overview' | 'photo' | 'audit' | 'milestone'>('overview');
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(typeof window !== 'undefined' && window.innerWidth >= 1024);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   // Interactive Interior Estimator State
   const [homeType, setHomeType] = useState<string>('3bhk');
@@ -191,7 +201,7 @@ export default function HowItWorksPage() {
                   <div
                     key={step.num}
                     onClick={() => setSelectedStep(step.num)}
-                    style={{ '--sticky-top': `${stickyTop}px` } as React.CSSProperties}
+                    style={isDesktop ? ({ '--sticky-top': `${stickyTop}px` } as React.CSSProperties) : undefined}
                     className={`lg:sticky lg:top-[var(--sticky-top)] relative cursor-pointer transition-all duration-300 transform ${
                       isSelected ? 'scale-[1.01]' : 'hover:scale-[1.005]'
                     }`}
