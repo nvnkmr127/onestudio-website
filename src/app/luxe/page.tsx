@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FAQ from '@/components/FAQ';
-import { openCallModal } from '@/components/CallModal';
-import Link from 'next/link';
+import LuxeCallModal, { openLuxeCallModal } from '@/components/LuxeCallModal';
 
 const LUXE_ESTATES = [
   {
@@ -196,7 +195,7 @@ export default function LuxePage() {
             <div className="flex flex-wrap justify-center gap-4 pt-4">
               <button
                 type="button"
-                onClick={openCallModal}
+                onClick={openLuxeCallModal}
                 className="bg-gold-foil text-black font-black text-xs md:text-sm uppercase tracking-[0.2em] px-9 py-4 rounded-2xl shadow-[0_0_35px_rgba(212,175,55,0.35)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2 group"
               >
                 <span>Book Private Studio Session</span>
@@ -204,7 +203,7 @@ export default function LuxePage() {
               </button>
               <button
                 type="button"
-                onClick={openCallModal}
+                onClick={openLuxeCallModal}
                 className="bg-black/90 hover:bg-neutral-950 text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400 cursor-pointer"
               >
                 Request Royalty Consultation 👑
@@ -326,7 +325,7 @@ export default function LuxePage() {
                     <div className="pt-4 flex items-center gap-3">
                       <button
                         type="button"
-                        onClick={openCallModal}
+                        onClick={openLuxeCallModal}
                         className="bg-gold-foil text-black font-black text-xs uppercase tracking-[0.18em] px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer"
                       >
                         Request Private Floor Plan
@@ -519,7 +518,7 @@ export default function LuxePage() {
             </div>
             <button
               type="button"
-              onClick={openCallModal}
+              onClick={openLuxeCallModal}
               className="bg-gold-foil text-black font-black text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-xl transition-all cursor-pointer"
             >
               Request Custom Itemized BOQ →
@@ -531,6 +530,7 @@ export default function LuxePage() {
         <FAQ />
       </main>
       <Footer />
+      <LuxeCallModal />
     </>
   );
 }
