@@ -26,6 +26,7 @@ export default function Header() {
 
   const navItems = [
     { name: 'Home', href: '/' },
+    { name: 'Luxe ✨', href: '/luxe' },
     { name: 'Interior Estimator', href: '/estimate' },
     { name: 'How It Works', href: '/how-it-works' },
     { name: 'Services', href: '/services' },
