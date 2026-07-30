@@ -86,6 +86,44 @@ const LUXE_MATERIALS = [
   },
 ];
 
+const ROYAL_PILLARS = [
+  {
+    badge: 'CONCIERGE',
+    title: 'Private Executive Concierge',
+    desc: '24/7 direct priority access to your Senior Principal Architect & Private Site Director with zero-waiting response.',
+  },
+  {
+    badge: 'AUTHENTICITY',
+    title: 'Certified Italian Origin',
+    desc: 'Stamped certificate of origin for all imported smoked eucalyptus veneers, Italian Calacatta quartz & lacquered glass.',
+  },
+  {
+    badge: 'PRIVACY',
+    title: 'Strict VVIP Privacy & NDA',
+    desc: '100% confidential project execution with zero public site photography or publishing without owner written consent.',
+  },
+  {
+    badge: 'CRAFTSMANSHIP',
+    title: '24K Gold Inlay & Brass Detailing',
+    desc: 'Hand-burnished solid brass profiles, gold foil moldings, and micro-precision flush joint trims engineered to 0.2mm tolerance.',
+  },
+  {
+    badge: 'GUARANTEE',
+    title: 'Zero-Delay Financial Clause',
+    desc: 'Strict 45 to 55-day completion contract backed by a ₹10,000/day penalty payout directly credited for any handover delay.',
+  },
+  {
+    badge: 'WELLNESS',
+    title: 'Zero-VOC Bio-Safe Polish',
+    desc: 'Eco-certified non-toxic Italian PU polishes ensuring 100% pure indoor air quality for your family from Day 1.',
+  },
+  {
+    badge: 'ROYAL CARE',
+    title: 'Lifetime Royal Maintenance',
+    desc: 'Complementary semi-annual architectural polish, hardware alignment, and LED health checkups for lifetime peace of mind.',
+  },
+];
+
 const LUXE_SPECS = [
   {
     num: '01',
@@ -343,6 +381,49 @@ export default function LuxePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* 7 Royal VVIP Pillars of One Studio Luxe */}
+        <section className="py-24 max-w-7xl mx-auto px-4 space-y-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.25em] shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+              👑 THE 7 ROYAL GUARANTEES
+            </span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              Royale Standards of <span className="font-serif-luxe italic text-gold-foil">Excellence</span>
+            </h2>
+            <p className="text-slate-400 text-sm md:text-base font-medium">
+              Every One Studio Luxe project is governed by strict VVIP protocols, certified authenticity, and guaranteed financial penalties for any delivery delay.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ROYAL_PILLARS.map((pillar, pIdx) => (
+              <div
+                key={pIdx}
+                className="bg-neutral-950 p-8 rounded-[36px] border border-amber-500/30 hover:border-amber-400/80 shadow-[0_0_40px_rgba(0,0,0,0.8)] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-300 bg-amber-500/15 border border-amber-500/40 px-3.5 py-1 rounded-full">
+                      {pillar.badge}
+                    </span>
+                    <span className="text-amber-400 font-serif-luxe text-xl font-bold">0{pIdx + 1}</span>
+                  </div>
+                  <h3 className="text-xl font-black text-white font-serif-luxe italic group-hover:text-amber-300 transition-colors">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                    {pillar.desc}
+                  </p>
+                </div>
+                <div className="mt-8 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-black text-amber-400">
+                  <span>Royal Standard</span>
+                  <span>✦ ✦ ✦</span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
