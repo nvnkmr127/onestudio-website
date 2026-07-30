@@ -55,25 +55,25 @@ const LUXE_COLLECTIONS = [
 const LUXE_MATERIALS = [
   {
     name: 'Italian Smoked Veneer',
-    tier: 'Hand-Selected Wood',
+    tier: 'Hand-Selected European Wood',
     desc: 'Deep grain texture imported from Northern Italy, cured with zero-yellowing matte lacquer.',
     tag: 'Veneer Finish',
   },
   {
     name: 'High-Gloss PU Polish',
-    tier: 'Mirror Lacquer',
-    desc: '7-coat polyurethane polish baked in dust-free spray chambers for flawless mirror reflection.',
+    tier: '7-Coat Mirror Lacquer',
+    desc: 'Polyurethane polish baked in dust-free spray chambers for flawless mirror reflection.',
     tag: 'Ultra-Gloss',
   },
   {
     name: 'Calacatta Gold Quartz',
-    tier: 'Engineered Stone',
+    tier: 'Book-Matched Stone',
     desc: 'Stain-resistant, scratch-proof Quartz surfaces with dramatic gold and warm gray veining.',
     tag: 'Countertop',
   },
   {
     name: 'Brushed Champagne Brass',
-    tier: 'Architectural Profiles',
+    tier: 'Solid Brass Profiles',
     desc: 'Custom extruded aluminum and solid brass profiles for door frames, louvers, and ceiling accents.',
     tag: 'Metal Accent',
   },
@@ -115,47 +115,51 @@ export default function LuxePage() {
   return (
     <>
       <Header />
-      <main className="bg-slate-950 text-white font-sans overflow-x-hidden selection:bg-amber-500 selection:text-slate-950">
-        {/* Ultra-Luxury Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 border-b border-amber-500/20">
+      <main className="bg-[#050811] text-white font-sans overflow-x-hidden selection:bg-amber-400 selection:text-slate-950">
+        {/* Ultra-Luxury Full-Bleed Obsidian Hero */}
+        <section className="relative min-h-screen flex items-center justify-center pt-32 pb-24 border-b border-amber-500/30">
+          {/* Ambient Lighting & Image */}
           <div className="absolute inset-0 z-0">
             <img
               src="/images/luxury_living_room_hero.png"
               alt="One Studio Luxe Interior"
-              className="w-full h-full object-cover brightness-[0.25] scale-105 filter blur-[1px]"
+              className="w-full h-full object-cover brightness-[0.22] scale-105 filter blur-[0.5px]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/50" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,189,25,0.12)_0,transparent_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/80 to-[#050811]/40" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.15)_0,transparent_75%)]" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-8">
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.25em] shadow-[0_0_25px_rgba(242,189,25,0.2)]">
-              ✨ THE ONE STUDIO LUXE COLLECTION
+            {/* Shimmering Crest Badge */}
+            <div className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full bg-[#0B101D]/90 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(212,175,55,0.25)]">
+              <span>👑</span>
+              <span className="text-gold-foil">ONE STUDIO LUXE COLLECTION</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.06] text-white">
-              Bespoke Architectural Mastery for <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 font-serif italic font-extrabold">
-                Luxury Hyderabad Residences
+            {/* Serif Luxury Title */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] text-white">
+              Bespoke Architectural Mastery <br className="hidden sm:inline" />
+              <span className="font-serif-luxe italic text-gold-foil font-bold block mt-2">
+                Designed for Royalty
               </span>
             </h1>
 
             <p className="text-slate-300 text-base md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
-              Uncompromising craftsmanship, Italian veneers, automated lighting, and bespoke joinery engineered for Jubilee Hills, Banjara Hills &amp; Gachibowli villas.
+              Uncompromising craftsmanship, Italian veneers, automated lighting, and bespoke joinery engineered for Hyderabad’s most exclusive addresses in Jubilee Hills, Banjara Hills &amp; Gachibowli.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 pt-4">
               <button
                 type="button"
                 onClick={openCallModal}
-                className="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs md:text-sm uppercase tracking-widest px-9 py-4 rounded-2xl shadow-[0_0_30px_rgba(242,189,25,0.3)] hover:shadow-[0_0_40px_rgba(242,189,25,0.5)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2 group"
+                className="bg-gold-foil text-slate-950 font-black text-xs md:text-sm uppercase tracking-[0.2em] px-9 py-4 rounded-2xl shadow-[0_0_35px_rgba(212,175,55,0.35)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2 group"
               >
                 <span>Book VIP Studio Session</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
               <Link
                 href="/estimate"
-                className="bg-slate-900/90 hover:bg-slate-900 text-white font-black text-xs md:text-sm uppercase tracking-widest px-8 py-4 rounded-2xl border border-amber-500/40 shadow-lg transition-all hover:border-amber-400"
+                className="bg-[#0B101D]/90 hover:bg-[#0F1628] text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400"
               >
                 Luxe Cost Calculator ⚡
               </Link>
@@ -169,7 +173,7 @@ export default function LuxePage() {
                 { label: 'Warranty', val: '15-Year Structural' },
                 { label: 'Execution', val: 'Guaranteed 45-55 Days' },
               ].map((item, idx) => (
-                <div key={idx} className="space-y-1 bg-slate-900/40 p-3.5 rounded-2xl border border-amber-500/20">
+                <div key={idx} className="space-y-1 bg-[#0B101D]/70 p-4 rounded-2xl border border-amber-500/30 shadow-inner">
                   <p className="text-[10px] font-black uppercase tracking-widest text-amber-400">{item.label}</p>
                   <p className="text-sm font-black text-white">{item.val}</p>
                 </div>
@@ -184,28 +188,28 @@ export default function LuxePage() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
               🏛️ EXCLUSIVE HYDERABAD ESTATES
             </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-              Curated Master Residences
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+              Curated Master <span className="font-serif-luxe italic text-gold-foil">Residences</span>
             </h2>
             <p className="text-slate-400 text-sm md:text-base font-medium">
               Explore our master architectural executions designed for high-profile homeowners in Jubilee Hills, Banjara Hills, and Financial District.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-900/60 p-6 md:p-10 rounded-[40px] border border-amber-500/30 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0B101D]/90 p-6 md:p-10 rounded-[40px] border border-amber-500/40 shadow-[0_0_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
             {/* Image Preview Column */}
-            <div className="lg:col-span-7 relative h-[320px] md:h-[480px] rounded-[32px] overflow-hidden border border-amber-500/40 shadow-2xl group">
+            <div className="lg:col-span-7 relative h-[340px] md:h-[500px] rounded-[32px] overflow-hidden border border-amber-500/50 shadow-2xl group">
               <img
                 src={selectedCollection.image}
                 alt={selectedCollection.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                <span className="bg-amber-500 text-slate-950 font-black text-xs uppercase px-4 py-1.5 rounded-full tracking-wider shadow-lg">
+                <span className="bg-gold-foil text-slate-950 font-black text-xs uppercase px-4 py-1.5 rounded-full tracking-wider shadow-lg">
                   📍 {selectedCollection.location}
                 </span>
-                <span className="text-amber-300 font-bold text-xs bg-slate-950/90 px-4 py-1.5 rounded-full border border-amber-500/30">
+                <span className="text-amber-300 font-bold text-xs bg-[#050811]/90 px-4 py-1.5 rounded-full border border-amber-500/40">
                   {selectedCollection.subtitle}
                 </span>
               </div>
@@ -214,7 +218,7 @@ export default function LuxePage() {
             {/* Details & Selectors Column */}
             <div className="lg:col-span-5 space-y-6">
               <div className="space-y-2">
-                <h3 className="text-2xl md:text-3xl font-black text-white leading-tight font-serif italic">
+                <h3 className="text-2xl md:text-3xl font-black text-white leading-tight font-serif-luxe italic text-gold-foil">
                   {selectedCollection.title}
                 </h3>
                 <div className="flex flex-wrap gap-2 pt-1">
@@ -254,12 +258,12 @@ export default function LuxePage() {
                       onClick={() => setSelectedCollection(c)}
                       className={`px-4 py-3 rounded-2xl text-xs font-bold transition-all text-left flex justify-between items-center cursor-pointer ${
                         selectedCollection.id === c.id
-                          ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 font-black shadow-md'
-                          : 'bg-slate-950/70 text-slate-300 border border-slate-800 hover:border-amber-500/40'
+                          ? 'bg-gold-foil text-slate-950 font-black shadow-lg scale-[1.01]'
+                          : 'bg-[#050811]/90 text-slate-300 border border-slate-800 hover:border-amber-500/40'
                       }`}
                     >
                       <span>{c.title}</span>
-                      <span className="text-[10px] opacity-75">{c.subtitle}</span>
+                      <span className="text-[10px] opacity-80">{c.subtitle}</span>
                     </button>
                   ))}
                 </div>
@@ -269,17 +273,17 @@ export default function LuxePage() {
         </section>
 
         {/* Exclusive Material Swatches & Finishes Grid */}
-        <section className="py-24 bg-slate-900/60 border-t border-b border-amber-500/20">
+        <section className="py-24 bg-[#0B101D]/70 border-t border-b border-amber-500/30">
           <div className="max-w-7xl mx-auto px-4 space-y-12">
             <div className="text-center max-w-3xl mx-auto space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
                 🎨 HANDPICKED LUXURY MATERIALS
               </span>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-                Imported Finishes &amp; Metals
+                Imported Finishes &amp; <span className="font-serif-luxe italic text-gold-foil">Metals</span>
               </h2>
               <p className="text-slate-400 text-sm md:text-base font-medium">
-                Every surface is crafted using authentic European wood veneers, Italian natural quartz, and brass architectural trims.
+                Every surface is crafted using authentic European wood veneers, Italian natural quartz, and solid brass architectural trims.
               </p>
             </div>
 
@@ -287,13 +291,13 @@ export default function LuxePage() {
               {LUXE_MATERIALS.map((mat, mIdx) => (
                 <div
                   key={mIdx}
-                  className="bg-slate-950 p-6 rounded-3xl border border-amber-500/20 hover:border-amber-500/50 shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                  className="bg-[#050811] p-6 rounded-3xl border border-amber-500/30 hover:border-amber-400/80 shadow-2xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1"
                 >
                   <div>
-                    <span className="text-[10px] font-black uppercase text-amber-400 bg-amber-500/15 border border-amber-500/30 px-3 py-1 rounded-full">
+                    <span className="text-[10px] font-black uppercase text-amber-300 bg-amber-500/15 border border-amber-500/40 px-3 py-1 rounded-full">
                       {mat.tag}
                     </span>
-                    <h3 className="text-lg font-black text-white mt-4 mb-1 group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-lg font-black text-white mt-4 mb-1 group-hover:text-amber-300 transition-colors font-serif-luxe italic">
                       {mat.name}
                     </h3>
                     <p className="text-xs font-bold text-amber-400/80 mb-3">{mat.tier}</p>
@@ -301,9 +305,9 @@ export default function LuxePage() {
                       {mat.desc}
                     </p>
                   </div>
-                  <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-black text-amber-400">
-                    <span>Luxe Grade</span>
-                    <span>100% Certified</span>
+                  <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-black text-amber-400">
+                    <span>Luxe Certified</span>
+                    <span>100% Authentic</span>
                   </div>
                 </div>
               ))}
@@ -318,7 +322,7 @@ export default function LuxePage() {
               ⚙️ ARCHITECTURAL BENCHMARKS
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
-              Engineering Perfection in Every Detail
+              Engineering Perfection in <span className="font-serif-luxe italic text-gold-foil">Every Detail</span>
             </h2>
             <p className="text-slate-400 text-sm md:text-base font-medium">
               We combine imported European materials with German CNC precision to deliver unmatched luxury finishes.
@@ -329,7 +333,7 @@ export default function LuxePage() {
             {LUXE_SPECS.map((spec, sIdx) => (
               <div
                 key={sIdx}
-                className="bg-slate-900/80 p-8 rounded-[32px] border border-amber-500/20 hover:border-amber-500/60 shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                className="bg-[#0B101D]/90 p-8 rounded-[32px] border border-amber-500/30 hover:border-amber-400/80 shadow-2xl transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-6 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
@@ -366,7 +370,7 @@ export default function LuxePage() {
           </div>
 
           {/* Vibe Selection Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 p-1.5 bg-slate-900 rounded-2xl border border-slate-800 max-w-fit mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 p-1.5 bg-[#0B101D] rounded-2xl border border-slate-800 max-w-fit mx-auto">
             {[
               { id: 'villa', label: 'Luxury Villa (4,500+ sq.ft)' },
               { id: 'penthouse', label: 'Sky Penthouse (3,500+ sq.ft)' },
@@ -378,7 +382,7 @@ export default function LuxePage() {
                 onClick={() => setVibeTier(v.id as any)}
                 className={`px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                   vibeTier === v.id
-                    ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 shadow-lg'
+                    ? 'bg-gold-foil text-slate-950 shadow-lg font-black'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -388,7 +392,7 @@ export default function LuxePage() {
           </div>
 
           {/* Result Card */}
-          <div className="bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900 p-8 md:p-10 rounded-[36px] border border-amber-500/40 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          <div className="bg-gradient-to-r from-[#0B101D] via-[#0D1426] to-[#0B101D] p-8 md:p-10 rounded-[36px] border border-amber-500/40 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-amber-400">Estimated Investment</p>
               <p className="text-3xl font-black text-white mt-1">{luxeEst[vibeTier].price}</p>
@@ -400,7 +404,7 @@ export default function LuxePage() {
             <button
               type="button"
               onClick={openCallModal}
-              className="bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-xl transition-all cursor-pointer"
+              className="bg-gold-foil text-slate-950 font-black text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-xl transition-all cursor-pointer"
             >
               Request Custom Itemized BOQ →
             </button>
