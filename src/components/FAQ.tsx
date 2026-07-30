@@ -67,7 +67,7 @@ export default function FAQ() {
     <section className="py-12 md:py-24 bg-slate-50 border-t border-slate-200/60" id="faq">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column: Title & Support Person Card */}
-        <div className="lg:col-span-5 space-y-6 md:space-y-8 relative lg:sticky lg:top-28">
+        <div className="lg:col-span-5 space-y-6 md:space-y-8">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-[3px] bg-amber-500 rounded-full" />
