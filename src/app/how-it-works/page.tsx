@@ -191,8 +191,8 @@ export default function HowItWorksPage() {
                   <div
                     key={step.num}
                     onClick={() => setSelectedStep(step.num)}
-                    style={{ top: `${stickyTop}px` }}
-                    className={`lg:sticky relative cursor-pointer transition-all duration-300 transform ${
+                    style={{ '--sticky-top': `${stickyTop}px` } as React.CSSProperties}
+                    className={`lg:sticky lg:top-[var(--sticky-top)] relative cursor-pointer transition-all duration-300 transform ${
                       isSelected ? 'scale-[1.01]' : 'hover:scale-[1.005]'
                     }`}
                   >
