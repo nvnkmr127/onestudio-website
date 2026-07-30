@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 
-// Custom event dispatcher to trigger Luxe VIP Modal globally or per page
 export function openLuxeCallModal() {
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new Event('open-luxe-modal'));
@@ -18,8 +17,7 @@ export default function LuxeCallModal() {
     name: '',
     phone: '',
     location: 'Jubilee Hills',
-    propertyType: 'Luxury Villa (4,500+ sq.ft)',
-    handoverDate: 'Immediate / Within 3 Months',
+    propertyType: 'Luxury Villa',
   });
 
   useEffect(() => {
@@ -37,7 +35,7 @@ export default function LuxeCallModal() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 800);
+    }, 700);
   };
 
   const handleClose = () => {
@@ -45,17 +43,23 @@ export default function LuxeCallModal() {
     setIsSubmitted(false);
   };
 
+  const LOCALITIES = ['Jubilee Hills', 'Banjara Hills', 'Gachibowli', 'Financial District', 'Hitec City'];
+  const PROPERTY_TYPES = ['Luxury Villa', 'Sky Penthouse', 'Duplex Residence', '4BHK+ Estate'];
+
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-2xl animate-fade-in font-sans">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-2xl animate-fade-in font-sans"
+      onClick={handleClose}
+    >
       <div
-        className="relative w-full max-w-lg bg-black rounded-[36px] border border-amber-500/50 shadow-[0_0_60px_rgba(212,175,55,0.3)] p-6 sm:p-10 text-white overflow-hidden max-h-[92vh] overflow-y-auto scrollbar-none"
+        className="relative w-full max-w-lg bg-black rounded-[40px] border border-amber-500/50 shadow-[0_0_80px_rgba(212,175,55,0.3)] p-6 sm:p-10 text-white overflow-hidden max-h-[92vh] overflow-y-auto scrollbar-none"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           type="button"
           onClick={handleClose}
-          className="absolute top-5 right-5 w-10 h-10 rounded-full bg-neutral-900 border border-amber-500/30 text-amber-300 hover:text-white hover:bg-neutral-800 flex items-center justify-center font-black text-lg transition-all cursor-pointer z-10"
+          className="absolute top-6 right-6 w-9 h-9 rounded-full bg-neutral-950 border border-amber-500/40 text-amber-300 hover:text-white hover:bg-neutral-900 flex items-center justify-center font-black text-sm transition-all cursor-pointer z-10"
           aria-label="Close modal"
         >
           ✕
@@ -63,15 +67,15 @@ export default function LuxeCallModal() {
 
         {isSubmitted ? (
           <div className="text-center py-8 space-y-6">
-            <div className="w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500/50 text-amber-300 flex items-center justify-center text-3xl mx-auto shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+            <div className="w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500/50 text-amber-300 flex items-center justify-center text-3xl mx-auto shadow-[0_0_40px_rgba(212,175,55,0.4)]">
               👑
             </div>
             <div className="space-y-2">
-              <h3 className="text-2xl font-black font-serif-luxe italic text-gold-foil">
-                VVIP Request Received
+              <h3 className="text-2xl sm:text-3xl font-black font-serif-luxe italic text-gold-foil">
+                VVIP Consultation Reserved
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm font-medium leading-relaxed max-w-sm mx-auto">
-                Thank you, <span className="text-amber-300 font-bold">{formData.name}</span>. Your Senior Principal Architect has been notified and will contact you directly within 30 minutes.
+                Thank you, <span className="text-amber-300 font-bold">{formData.name}</span>. Your Senior Principal Architect has been notified for your confidential Jubilee Hills appointment.
               </p>
             </div>
 
@@ -89,7 +93,7 @@ export default function LuxeCallModal() {
               <button
                 type="button"
                 onClick={handleClose}
-                className="w-full bg-neutral-900 hover:bg-neutral-800 text-slate-300 font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl border border-neutral-800"
+                className="w-full bg-neutral-950 hover:bg-neutral-900 text-slate-300 font-bold text-xs uppercase tracking-wider py-3.5 rounded-2xl border border-neutral-800"
               >
                 Return to Luxe Gallery
               </button>
@@ -99,36 +103,38 @@ export default function LuxeCallModal() {
           <div className="space-y-6">
             {/* Header */}
             <div className="text-center space-y-2">
-              <span className="inline-block px-4 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/40 text-[10px] font-black uppercase tracking-[0.25em]">
-                👑 VVIP LUXE APPOINTMENT
+              <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/40 text-[10px] font-black uppercase tracking-[0.3em] shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                👑 PRIVATE VVIP APPOINTMENT
               </span>
               <h2 className="text-2xl sm:text-3xl font-black font-serif-luxe italic text-white tracking-tight">
-                Book Private Studio Session
+                Studio Consultation
               </h2>
               <p className="text-slate-400 text-xs font-medium max-w-xs mx-auto">
-                Closed-door appointment at Jubilee Hills Studio with a Senior Principal Architect.
+                Closed-door Jubilee Hills appointment with Lead Principal Architect.
               </p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 text-left">
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-black uppercase tracking-wider text-amber-400">
-                  Full Name *
+            <form onSubmit={handleSubmit} className="space-y-6 text-left pt-2">
+              {/* Floating Underline Input: Name */}
+              <div className="space-y-1 relative">
+                <label className="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400">
+                  FULL NAME *
                 </label>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Maharajah Rao / Dr. Ananya"
+                  placeholder="Maharajah / Dr. Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-neutral-950 border border-amber-500/30 rounded-2xl px-4 py-3.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-transparent border-b border-amber-500/40 focus:border-amber-300 pb-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors font-medium"
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-black uppercase tracking-wider text-amber-400">
-                  Phone / WhatsApp Number *
+              {/* Floating Underline Input: Phone */}
+              <div className="space-y-1 relative">
+                <label className="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400">
+                  PHONE / WHATSAPP NUMBER *
                 </label>
                 <input
                   type="tel"
@@ -136,56 +142,66 @@ export default function LuxeCallModal() {
                   placeholder="+91 98765 43210"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-neutral-950 border border-amber-500/30 rounded-2xl px-4 py-3.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full bg-transparent border-b border-amber-500/40 focus:border-amber-300 pb-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none transition-colors font-medium"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-black uppercase tracking-wider text-amber-400">
-                    Hyderabad Locality
-                  </label>
-                  <select
-                    value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full bg-neutral-950 border border-amber-500/30 rounded-2xl px-3 py-3 text-xs text-white focus:outline-none focus:border-amber-400"
-                  >
-                    <option value="Jubilee Hills">Jubilee Hills</option>
-                    <option value="Banjara Hills">Banjara Hills</option>
-                    <option value="Gachibowli">Gachibowli</option>
-                    <option value="Financial District">Financial District</option>
-                    <option value="Hitec City">Hitec City</option>
-                    <option value="Other Hyderabad Locality">Other Hyderabad</option>
-                  </select>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-[11px] font-black uppercase tracking-wider text-amber-400">
-                    Residence Type
-                  </label>
-                  <select
-                    value={formData.propertyType}
-                    onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-                    className="w-full bg-neutral-950 border border-amber-500/30 rounded-2xl px-3 py-3 text-xs text-white focus:outline-none focus:border-amber-400"
-                  >
-                    <option value="Luxury Villa (4,500+ sq.ft)">Luxury Villa (4.5k+ sqft)</option>
-                    <option value="Sky Penthouse (3,500+ sq.ft)">Sky Penthouse (3.5k+ sqft)</option>
-                    <option value="Duplex Apartment (2,800+ sq.ft)">Duplex Apartment</option>
-                    <option value="4BHK+ Premium Residence">4BHK+ Premium Residence</option>
-                  </select>
+              {/* Locality Pill Selection */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400 block">
+                  HYDERABAD LOCALITY
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {LOCALITIES.map((loc) => (
+                    <button
+                      key={loc}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, location: loc })}
+                      className={`px-3 py-1.5 rounded-full text-xs font-extrabold transition-all cursor-pointer ${
+                        formData.location === loc
+                          ? 'bg-gold-foil text-black font-black shadow-md scale-105'
+                          : 'bg-neutral-950 text-slate-400 border border-neutral-800 hover:border-amber-500/40'
+                      }`}
+                    >
+                      {loc}
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              <div className="pt-2">
+              {/* Property Type Pill Selection */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-[0.25em] text-amber-400 block">
+                  RESIDENCE MODEL
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  {PROPERTY_TYPES.map((prop) => (
+                    <button
+                      key={prop}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, propertyType: prop })}
+                      className={`px-3 py-2 rounded-2xl text-xs font-bold transition-all text-center cursor-pointer ${
+                        formData.propertyType === prop
+                          ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-black font-black shadow-md'
+                          : 'bg-neutral-950 text-slate-300 border border-neutral-800 hover:border-amber-500/40'
+                      }`}
+                    >
+                      {prop}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-3">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gold-foil text-black font-black text-xs uppercase tracking-[0.2em] py-4 rounded-2xl shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:shadow-[0_0_45px_rgba(212,175,55,0.6)] transition-all cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full bg-gold-foil text-black font-black text-xs uppercase tracking-[0.25em] py-4 rounded-2xl shadow-[0_0_35px_rgba(212,175,55,0.4)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'Confirming VVIP Appointment...' : 'Request Private VVIP Appointment 👑 →'}
+                  {isSubmitting ? 'Reserving Appointment...' : 'Request Private VVIP Appointment 👑 →'}
                 </button>
-                <p className="text-[10px] font-semibold text-slate-500 text-center mt-2">
-                  🔒 Protected by strict VVIP Non-Disclosure Agreement (NDA).
+                <p className="text-[10px] font-semibold text-slate-500 text-center mt-2.5">
+                  🔒 Strictly protected by Non-Disclosure Agreement (NDA).
                 </p>
               </div>
             </form>
