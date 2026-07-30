@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { openCallModal } from '@/components/CallModal';
 
 const comparisonData = [
@@ -56,6 +56,35 @@ const comparisonData = [
 ];
 
 export default function MaintenanceComparison() {
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const minSwipeDistance = 40;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && activeCardIndex < comparisonData.length - 1) {
+      setActiveCardIndex((prev) => prev + 1);
+    }
+    if (isRightSwipe && activeCardIndex > 0) {
+      setActiveCardIndex((prev) => prev - 1);
+    }
+  };
+
   return (
     <section className="py-16 md:py-28 bg-slate-50 font-sans" id="the-one-studio-edge">
       <div className="max-w-7xl mx-auto px-4 space-y-10 md:space-y-12">
@@ -72,44 +101,97 @@ export default function MaintenanceComparison() {
           </p>
         </div>
 
-        {/* Mobile Cards View (< md breakpoint) */}
+        {/* Mobile Touch Swipe Gesture Slider (< md breakpoint) */}
         <div className="md:hidden space-y-4">
-          {comparisonData.map((row, idx) => (
-            <div
-              key={row.feature}
-              className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-5 space-y-3.5 hover:shadow-lg transition-all"
-            >
-              {/* Feature Header Badge */}
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <span className="text-xs font-black text-slate-900 uppercase tracking-wider">
-                  0{idx + 1}. {row.feature}
-                </span>
-              </div>
-
-              {/* One Studio Box (Golden Highlight) */}
-              <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/10 to-amber-500/15 border border-amber-500/40 rounded-2xl p-4 space-y-1.5 shadow-inner">
-                <div className="flex items-center justify-between text-amber-950 font-black text-xs uppercase tracking-wider">
-                  <span className="flex items-center gap-1.5">
-                    <span className="text-amber-600">👑</span> One Studio
-                  </span>
-                  <span className="bg-amber-500 text-slate-950 px-2 py-0.5 rounded-md text-[9px] font-black">
-                    RECOMMENDED ✓
-                  </span>
-                </div>
-                <h4 className="font-black text-sm text-slate-950">{row.oneStudioTitle}</h4>
-                <p className="text-xs text-slate-700 font-medium leading-relaxed">{row.oneStudioDesc}</p>
-              </div>
-
-              {/* Typical Experience Box */}
-              <div className="bg-slate-100/70 border border-slate-200 rounded-2xl p-4 space-y-1.5">
-                <div className="text-slate-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="text-slate-400">✕</span> Typical Experience
-                </div>
-                <h4 className="font-bold text-sm text-slate-700">{row.typicalTitle}</h4>
-                <p className="text-xs text-slate-500 font-medium leading-relaxed">{row.typicalDesc}</p>
-              </div>
+          {/* Controls Bar */}
+          <div className="flex items-center justify-between px-2 text-xs font-black text-slate-700">
+            <span className="bg-amber-500/15 text-amber-900 border border-amber-500/30 px-3 py-1 rounded-full uppercase tracking-wider text-[11px]">
+              👈 SWIPE TO COMPARE ({activeCardIndex + 1} / {comparisonData.length})
+            </span>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => setActiveCardIndex((prev) => Math.max(0, prev - 1))}
+                disabled={activeCardIndex === 0}
+                className="w-8 h-8 rounded-full bg-slate-200 disabled:opacity-30 text-slate-900 flex items-center justify-center font-black text-sm cursor-pointer"
+                aria-label="Previous card"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveCardIndex((prev) => Math.min(comparisonData.length - 1, prev + 1))}
+                disabled={activeCardIndex === comparisonData.length - 1}
+                className="w-8 h-8 rounded-full bg-amber-500 disabled:opacity-30 text-slate-950 flex items-center justify-center font-black text-sm shadow-md cursor-pointer"
+                aria-label="Next card"
+              >
+                →
+              </button>
             </div>
-          ))}
+          </div>
+
+          {/* Touch Swipeable Container */}
+          <div
+            className="relative overflow-hidden touch-pan-y"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            <div
+              className="flex transition-transform duration-300 ease-out"
+              style={{ transform: `translateX(-${activeCardIndex * 100}%)` }}
+            >
+              {comparisonData.map((row, idx) => (
+                <div key={row.feature} className="w-full shrink-0 px-1">
+                  <div className="bg-white rounded-3xl border border-slate-200/90 shadow-lg p-5 space-y-4">
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <span className="text-xs font-black text-slate-900 uppercase tracking-wider">
+                        0{idx + 1}. {row.feature}
+                      </span>
+                    </div>
+
+                    {/* One Studio Box (Golden Highlight) */}
+                    <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/10 to-amber-500/15 border border-amber-500/40 rounded-2xl p-4 space-y-1.5 shadow-inner">
+                      <div className="flex items-center justify-between text-amber-950 font-black text-xs uppercase tracking-wider">
+                        <span className="flex items-center gap-1.5">
+                          <span className="text-amber-600">👑</span> One Studio
+                        </span>
+                        <span className="bg-amber-500 text-slate-950 px-2 py-0.5 rounded-md text-[9px] font-black">
+                          RECOMMENDED ✓
+                        </span>
+                      </div>
+                      <h4 className="font-black text-sm text-slate-950">{row.oneStudioTitle}</h4>
+                      <p className="text-xs text-slate-700 font-medium leading-relaxed">{row.oneStudioDesc}</p>
+                    </div>
+
+                    {/* Typical Experience Box */}
+                    <div className="bg-slate-100/70 border border-slate-200 rounded-2xl p-4 space-y-1.5">
+                      <div className="text-slate-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5">
+                        <span className="text-slate-400">✕</span> Typical Experience
+                      </div>
+                      <h4 className="font-bold text-sm text-slate-700">{row.typicalTitle}</h4>
+                      <p className="text-xs text-slate-500 font-medium leading-relaxed">{row.typicalDesc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Indicator Dots */}
+          <div className="flex justify-center gap-1.5 pt-2">
+            {comparisonData.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                type="button"
+                onClick={() => setActiveCardIndex(dotIdx)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  activeCardIndex === dotIdx ? 'w-6 bg-amber-500' : 'w-2 bg-slate-300'
+                }`}
+                aria-label={`Go to card ${dotIdx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Desktop Table View (>= md breakpoint) */}
