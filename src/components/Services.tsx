@@ -147,7 +147,7 @@ export default function Services() {
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="w-[85vw] max-w-[330px] sm:w-full md:min-w-0 snap-center bg-white rounded-3xl md:rounded-[32px] p-4 sm:p-6 border border-slate-200/90 shadow-md flex flex-col justify-between group hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 shrink-0 md:shrink relative overflow-hidden"
+              className="w-[85vw] max-w-[330px] sm:w-full md:w-full md:max-w-none md:min-w-0 snap-center bg-white rounded-3xl md:rounded-[32px] p-5 sm:p-6 border border-slate-200/90 shadow-md flex flex-col justify-between group hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 shrink-0 md:shrink relative overflow-hidden"
             >
               <div>
                 <div className="relative rounded-2xl sm:rounded-[24px] overflow-hidden mb-4 h-[160px] sm:h-[210px]">
