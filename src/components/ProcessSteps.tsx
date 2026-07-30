@@ -8,7 +8,7 @@ const STEPS = [
     num: '01',
     title: 'Free Consultation',
     desc: 'Book a no-cost session with our senior designers to discuss your space, style & budget.',
-    image: '/images/bangalore_architect_planning.png',
+    image: '/images/process_step1_consultation.png',
     icon: (
       <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-.47 0-.94.004-1.41.01A8.966 8.966 0 0112 17.25c-4.97 0-9-3.358-9-7.5s4.03-7.5 9-7.5c2.72 0 5.167 1.006 6.837 2.645" />
@@ -22,7 +22,7 @@ const STEPS = [
     num: '02',
     title: '3D Design & VR Walkthrough',
     desc: 'Get a photorealistic 3D render and immersive VR walkthrough of your home — before anything is built.',
-    image: '/images/luxury_living_room_hero.png',
+    image: '/images/process_step2_3ddesign.png',
     icon: (
       <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <rect x="3" y="4" width="18" height="12" rx="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -34,7 +34,7 @@ const STEPS = [
     num: '03',
     title: 'Material Selection & Quote',
     desc: 'Lock in your itemized quote with zero hidden costs. Choose from branded materials at transparent prices.',
-    image: '/images/luxury_master_bedroom.png',
+    image: '/images/process_step3_materials.png',
     icon: (
       <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -45,7 +45,7 @@ const STEPS = [
     num: '04',
     title: 'Factory Precision Build',
     desc: 'Your interiors are precision-manufactured in our in-house factory with 150+ quality checkpoints.',
-    image: '/images/luxury_modular_kitchen.png',
+    image: '/images/process_step4_factory.png',
     icon: (
       <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -56,7 +56,7 @@ const STEPS = [
     num: '05',
     title: '45-Day Handover',
     desc: 'On-time delivery, flawless installation, and a 15-year warranty handed over with your keys.',
-    image: '/images/luxury_living_room_hero.png',
+    image: '/images/process_step5_handover.png',
     icon: (
       <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
