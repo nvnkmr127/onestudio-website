@@ -67,7 +67,9 @@ const STEPS = [
 
 export default function ProcessSteps() {
   const headerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
+  const [activeMobileStep, setActiveMobileStep] = useState(0);
 
   useEffect(() => {
     const el = headerRef.current;
@@ -85,9 +87,31 @@ export default function ProcessSteps() {
     return () => observer.disconnect();
   }, []);
 
+  const handleMobileScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollPosition = container.scrollLeft;
+    const firstCard = container.firstElementChild as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
+    const index = Math.round(scrollPosition / cardWidth);
+    setActiveMobileStep(Math.min(STEPS.length - 1, Math.max(0, index)));
+  };
+
+  const scrollToStep = (index: number) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const firstCard = container.firstElementChild as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 16 : 280;
+    container.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth',
+    });
+    setActiveMobileStep(index);
+  };
+
   return (
-    <section className="py-20 md:py-28 bg-[#FAF8F5] font-sans overflow-hidden" id="how-it-works">
-      <div className="max-w-7xl mx-auto px-4 space-y-12">
+    <section className="py-16 md:py-28 bg-[#FAF8F5] font-sans overflow-hidden" id="how-it-works">
+      <div className="max-w-7xl mx-auto px-4 space-y-8 md:space-y-12">
         {/* Section Header */}
         <div
           ref={headerRef}
@@ -110,19 +134,103 @@ export default function ProcessSteps() {
           </p>
         </div>
 
-        {/* 5 Steps Layout Container */}
-        <div className="relative pt-4">
-          {/* Dashed Connecting Line — Desktop Only */}
-          <div className="hidden lg:block absolute top-[110px] left-[8%] right-[8%] border-t-2 border-dashed border-amber-500/40 z-0" />
+        {/* Mobile Navigation Header (< lg) */}
+        <div className="lg:hidden flex items-center justify-between px-1 text-xs font-black text-slate-700">
+          <span className="bg-[#FFF4E8] text-amber-900 border border-[#FDE0C2] px-3.5 py-1 rounded-full uppercase tracking-wider text-[11px]">
+            👈 SWIPE STEPS ({activeMobileStep + 1} / {STEPS.length})
+          </span>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => scrollToStep(Math.max(0, activeMobileStep - 1))}
+              disabled={activeMobileStep === 0}
+              className="w-8 h-8 rounded-full bg-slate-200 disabled:opacity-30 text-slate-900 flex items-center justify-center font-black text-sm cursor-pointer"
+              aria-label="Previous step"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToStep(Math.min(STEPS.length - 1, activeMobileStep + 1))}
+              disabled={activeMobileStep === STEPS.length - 1}
+              className="w-8 h-8 rounded-full bg-amber-500 disabled:opacity-30 text-slate-950 flex items-center justify-center font-black text-sm shadow-md cursor-pointer"
+              aria-label="Next step"
+            >
+              →
+            </button>
+          </div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-5 relative z-10">
+        {/* Mobile Swipe Container (< lg) */}
+        <div className="lg:hidden space-y-4">
+          <div
+            ref={scrollRef}
+            onScroll={handleMobileScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2 scrollbar-none px-1"
+          >
+            {STEPS.map((step) => (
+              <div
+                key={step.num}
+                className="w-[84vw] max-w-[320px] shrink-0 snap-center bg-white rounded-[24px] p-4 border border-slate-200/80 shadow-md flex flex-col justify-between"
+              >
+                <div>
+                  <div className="relative rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white h-[170px] mb-4">
+                    <div className="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-amber-500 text-white font-extrabold text-xs flex items-center justify-center shadow-md border-2 border-white">
+                      {step.num}
+                    </div>
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  <div className="bg-[#FFF4E8]/60 border border-[#FDE0C2] rounded-xl p-3 flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-lg bg-white border border-[#FDE0C2] flex items-center justify-center shrink-0 shadow-xs">
+                      {step.icon}
+                    </div>
+                    <h3 className="text-slate-900 font-extrabold text-xs sm:text-sm leading-tight text-left">
+                      {step.title}
+                    </h3>
+                  </div>
+
+                  <p className="text-slate-600 text-xs font-medium leading-relaxed text-center px-1">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Pagination Indicator Dots */}
+          <div className="flex justify-center gap-1.5 pt-1">
+            {STEPS.map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                type="button"
+                onClick={() => scrollToStep(dotIdx)}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  activeMobileStep === dotIdx ? 'w-6 bg-amber-500' : 'w-2 bg-slate-300'
+                }`}
+                aria-label={`Go to step ${dotIdx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop 5 Steps Grid (>= lg) — 100% UNCHANGED */}
+        <div className="hidden lg:block relative pt-4">
+          {/* Dashed Connecting Line — Desktop Only */}
+          <div className="absolute top-[110px] left-[8%] right-[8%] border-t-2 border-dashed border-amber-500/40 z-0" />
+
+          <div className="grid grid-cols-5 gap-5 relative z-10">
             {STEPS.map((step) => (
               <div
                 key={step.num}
                 className="flex flex-col space-y-4 group transition-all duration-300"
               >
                 {/* Image Container with Floating Number Badge */}
-                <div className="relative rounded-[22px] overflow-hidden shadow-md border border-slate-200/80 bg-white h-[180px] sm:h-[190px]">
+                <div className="relative rounded-[22px] overflow-hidden shadow-md border border-slate-200/80 bg-white h-[190px]">
                   {/* Step Badge */}
                   <div className="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-amber-500 text-white font-extrabold text-xs flex items-center justify-center shadow-lg border-2 border-white">
                     {step.num}
