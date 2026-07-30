@@ -64,10 +64,10 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-24 bg-slate-50 border-t border-slate-200/60" id="faq">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <section className="py-12 md:py-24 bg-slate-50 border-t border-slate-200/60" id="faq">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Column: Title & Support Person Card */}
-        <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-28">
+        <div className="lg:col-span-5 space-y-6 md:space-y-8 relative lg:sticky lg:top-28">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-[3px] bg-amber-500 rounded-full" />
@@ -103,14 +103,17 @@ export default function FAQ() {
 
         {/* Right Column: Category Filters & Accordion List */}
         <div className="lg:col-span-7 space-y-6">
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-2 pb-2">
+          {/* Category Filter Pills - Mobile Horizontal Scrollable */}
+          <div className="flex overflow-x-auto md:flex-wrap gap-2 pb-2 scrollbar-none">
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-2xl text-xs font-extrabold transition-all cursor-pointer ${
+                onClick={() => {
+                  setActiveCategory(cat);
+                  setOpenId(null);
+                }}
+                className={`px-4 py-2 rounded-2xl text-xs font-extrabold shrink-0 transition-all cursor-pointer ${
                   activeCategory === cat
                     ? 'bg-slate-900 text-white shadow-md'
                     : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 border border-slate-200/80'
