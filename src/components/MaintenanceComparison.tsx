@@ -3,94 +3,65 @@
 import React from 'react';
 import { openCallModal } from '@/components/CallModal';
 
-interface ComparisonRow {
-  feature: string;
-  oneStudioTitle: string;
-  oneStudioDesc: string;
-  typicalTitle: string;
-  typicalDesc: string;
-}
-
-const comparisonData: ComparisonRow[] = [
+const comparisonData = [
   {
-    feature: 'Design Approach & Uniqueness',
-    oneStudioTitle: '100% Bespoke & Unique',
-    oneStudioDesc: 'Every inch is designed around your lifestyle. No two homes look the same.',
-    typicalTitle: 'Catalog-Based & Cookie-Cutter',
-    typicalDesc: 'You pick from pre-set modular lists; your kitchen looks just like your neighbor’s.',
+    feature: 'Project Timelines & Guarantees',
+    oneStudioTitle: 'Guaranteed 45-Day Handover',
+    oneStudioDesc: 'Strict penalty clause for delays. Detailed day-by-day milestone schedule.',
+    typicalTitle: 'Frequent Uncontrolled Delays',
+    typicalDesc: 'Projects drag on for months beyond verbal promises with zero accountability.',
   },
   {
-    feature: 'VR & 3D Visual Walkthroughs',
-    oneStudioTitle: 'Interactive 3D & VR Walkthroughs',
-    oneStudioDesc: 'Experience your complete home interiors in immersive 3D before execution begins.',
-    typicalTitle: 'No VR Walkthroughs',
-    typicalDesc: 'Absence of advanced technology support; reliance on basic 2D drawings & guesswork.',
+    feature: 'Pricing & Cost Transparency',
+    oneStudioTitle: '100% Price Lock Guarantee',
+    oneStudioDesc: 'Zero hidden costs after contract signing. Itemized BOQ before booking.',
+    typicalTitle: 'Continuous Cost Escalations',
+    typicalDesc: 'Initial low quotes followed by 20-30% surprise extra charges during execution.',
   },
   {
-    feature: 'Manufacturing & Materials',
-    oneStudioTitle: 'In-House German Factory',
-    oneStudioDesc: '100% Branded materials (Hettich, Blum, Merino). No hidden costs for custom dimensions.',
-    typicalTitle: 'Outsourced Third-Party Vendors',
-    typicalDesc: 'Quality varies widely and extra charges apply for any custom customization.',
+    feature: 'Woodwork & Material Quality',
+    oneStudioTitle: '100% BWP Marine Plywood & German CNC',
+    oneStudioDesc: 'Boiling waterproof plywood with factory edge-banding & Hettich/Blum hardware.',
+    typicalTitle: 'Sub-Standard Local Carpentry',
+    typicalDesc: 'Cheap commercial ply, manual edge banding that peels, and non-branded hinges.',
   },
   {
-    feature: 'Quality Assurance',
-    oneStudioTitle: '150+ Periodic Quality Checks',
-    oneStudioDesc: 'Well-timed quality reviews at raw material, assembly, and finishing stages.',
-    typicalTitle: 'No Periodic Inspections',
-    typicalDesc: 'Usage of low-grade materials and skipped inspections to cut vendor costs.',
+    feature: 'Quality Audits & Inspection',
+    oneStudioTitle: '150+ Standardized Quality Checks',
+    oneStudioDesc: 'Dedicated quality auditor inspects moisture levels, alignment, and finishing.',
+    typicalTitle: 'Zero Independent Quality Control',
+    typicalDesc: 'Carpenters inspect their own work; quality depends entirely on individual labor.',
   },
   {
-    feature: 'Solutions & Convenience',
-    oneStudioTitle: 'All Under One Roof',
-    oneStudioDesc: 'A one-stop destination for modular, woodwork, ceiling, electrical & styling.',
-    typicalTitle: 'Multiple Contractors & Market Trips',
-    typicalDesc: 'Coordination with 5+ intermediaries and 25+ exhausting market visits.',
+    feature: 'Site Progress Tracking',
+    oneStudioTitle: 'Live 3D App Tracking & Daily Photos',
+    oneStudioDesc: 'Monitor daily HD photo updates and stage audit reports directly on your phone.',
+    typicalTitle: 'Endless Site Visits Required',
+    typicalDesc: 'You have to personally visit the site daily to manage contractors and check work.',
   },
   {
-    feature: 'Point of Contact & Team',
-    oneStudioTitle: '1 Dedicated Project Manager & Designers',
-    oneStudioDesc: 'Expert team providing innovative solutions with single-point accountability.',
-    typicalTitle: 'Multiple Disconnected Handlers',
-    typicalDesc: 'Sales, Design, and Operations are often disconnected, leading to costly errors.',
+    feature: 'Payment Security',
+    oneStudioTitle: 'Safe Stage Milestone Payment System',
+    oneStudioDesc: 'Payments are released ONLY after you approve each completed inspection stage.',
+    typicalTitle: 'High Upfront Advances',
+    typicalDesc: 'Demands 50%+ advance payment before work starts, leaving you with no leverage.',
   },
   {
-    feature: 'Pricing & Hidden Charges',
-    oneStudioTitle: 'You Get What You See',
-    oneStudioDesc: '100% Transparent pricing with easy EMIs, zero hidden charges, and no false claims.',
-    typicalTitle: 'Over-Promising & Under-Delivery',
-    typicalDesc: '45% budget hike between the initial quote and final completion.',
-  },
-  {
-    feature: 'Timelines & Tracking',
-    oneStudioTitle: '45-Day Guaranteed Delivery*',
-    oneStudioDesc: 'Reliable execution schedules with proactive updates and live project tracking.',
-    typicalTitle: 'Unreliable Timelines',
-    typicalDesc: 'Frequent unexplained delays with zero proactive communication.',
-  },
-  {
-    feature: 'Warranty Protection',
-    oneStudioTitle: '15-Year Warranty on Woodwork*',
-    oneStudioDesc: "India's first warranty covering both modular craftsmanship and interior service.",
-    typicalTitle: 'No Formal Warranty',
-    typicalDesc: 'No verifiable warranty offered for products, accessories, or services.',
-  },
-  {
-    feature: 'After-Sales Support',
-    oneStudioTitle: "We're Right by Your Side",
-    oneStudioDesc: 'Dedicated rapid after-sales support team for long-term peace of mind.',
-    typicalTitle: 'No After-Sales Support',
-    typicalDesc: 'Customer service and contractor availability vanish after final handover.',
+    feature: 'Warranty & Post-Handover Care',
+    oneStudioTitle: '10-Year Warranty & Free Service',
+    oneStudioDesc: 'Official warranty certificate with 1-year free post-handover maintenance support.',
+    typicalTitle: 'Zero After-Sales Support',
+    typicalDesc: 'Contractor availability vanishes immediately after receiving final payment.',
   },
 ];
 
 export default function MaintenanceComparison() {
   return (
-    <section className="py-20 md:py-28 bg-slate-50 font-sans" id="the-one-studio-edge">
-      <div className="max-w-7xl mx-auto px-4 space-y-12">
+    <section className="py-16 md:py-28 bg-slate-50 font-sans" id="the-one-studio-edge">
+      <div className="max-w-7xl mx-auto px-4 space-y-10 md:space-y-12">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
+        <div className="text-center max-w-3xl mx-auto space-y-3 md:space-y-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-950 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
             ✨ THE ONE STUDIO EDGE
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
@@ -101,19 +72,55 @@ export default function MaintenanceComparison() {
           </p>
         </div>
 
-        {/* Comparison Table Container */}
-        <div className="relative overflow-hidden md:overflow-visible">
-          <div className="grid grid-cols-1 md:grid-cols-12 rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-            
-            {/* Table Header Row (Desktop Only) */}
-            <div className="hidden md:contents font-black text-sm md:text-base">
-              {/* Column 1: Feature Label Header */}
-              <div className="md:col-span-3 bg-slate-50 p-6 border-b border-r border-slate-200 flex items-center justify-start text-xs font-extrabold text-slate-500 uppercase tracking-wider">
+        {/* Mobile Cards View (< md breakpoint) */}
+        <div className="md:hidden space-y-4">
+          {comparisonData.map((row, idx) => (
+            <div
+              key={row.feature}
+              className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-5 space-y-3.5 hover:shadow-lg transition-all"
+            >
+              {/* Feature Header Badge */}
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <span className="text-xs font-black text-slate-900 uppercase tracking-wider">
+                  0{idx + 1}. {row.feature}
+                </span>
+              </div>
+
+              {/* One Studio Box (Golden Highlight) */}
+              <div className="bg-gradient-to-r from-amber-500/15 via-amber-400/10 to-amber-500/15 border border-amber-500/40 rounded-2xl p-4 space-y-1.5 shadow-inner">
+                <div className="flex items-center justify-between text-amber-950 font-black text-xs uppercase tracking-wider">
+                  <span className="flex items-center gap-1.5">
+                    <span className="text-amber-600">👑</span> One Studio
+                  </span>
+                  <span className="bg-amber-500 text-slate-950 px-2 py-0.5 rounded-md text-[9px] font-black">
+                    RECOMMENDED ✓
+                  </span>
+                </div>
+                <h4 className="font-black text-sm text-slate-950">{row.oneStudioTitle}</h4>
+                <p className="text-xs text-slate-700 font-medium leading-relaxed">{row.oneStudioDesc}</p>
+              </div>
+
+              {/* Typical Experience Box */}
+              <div className="bg-slate-100/70 border border-slate-200 rounded-2xl p-4 space-y-1.5">
+                <div className="text-slate-500 font-bold text-xs uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-slate-400">✕</span> Typical Experience
+                </div>
+                <h4 className="font-bold text-sm text-slate-700">{row.typicalTitle}</h4>
+                <p className="text-xs text-slate-500 font-medium leading-relaxed">{row.typicalDesc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table View (>= md breakpoint) */}
+        <div className="hidden md:block relative overflow-hidden">
+          <div className="grid grid-cols-12 rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            {/* Table Header Row */}
+            <div className="col-span-12 grid grid-cols-12 font-black text-sm md:text-base">
+              <div className="col-span-3 bg-slate-50 p-6 border-b border-r border-slate-200 flex items-center justify-start text-xs font-extrabold text-slate-500 uppercase tracking-wider">
                 FEATURE
               </div>
-              
-              {/* Column 2: One Studio Header (Elevated & Highlighted) */}
-              <div className="md:col-span-5 bg-gradient-to-r from-amber-600 to-amber-500 text-white p-6 border-b border-amber-600 font-extrabold text-xl flex items-center justify-between shadow-md">
+              <div className="col-span-5 bg-gradient-to-r from-amber-600 to-amber-500 text-white p-6 border-b border-amber-600 font-extrabold text-xl flex items-center justify-between shadow-md">
                 <span className="flex items-center gap-2">
                   <span>👑 One Studio</span>
                 </span>
@@ -121,9 +128,7 @@ export default function MaintenanceComparison() {
                   Recommended
                 </span>
               </div>
-              
-              {/* Column 3: Typical Experience Header */}
-              <div className="md:col-span-4 bg-slate-100 text-slate-800 p-6 border-b border-slate-200 font-extrabold text-base flex items-center justify-between">
+              <div className="col-span-4 bg-slate-100 text-slate-800 p-6 border-b border-slate-200 font-extrabold text-base flex items-center justify-between">
                 <span>Other Companies / Typical Experience</span>
               </div>
             </div>
@@ -132,27 +137,22 @@ export default function MaintenanceComparison() {
             {comparisonData.map((row, idx) => {
               const isLast = idx === comparisonData.length - 1;
               return (
-                <div key={row.feature} className="contents group">
-                  
-                  {/* Feature Label Column (Left) */}
+                <div key={row.feature} className="col-span-12 grid grid-cols-12 group">
+                  {/* Feature Label Column */}
                   <div
-                    className={`md:col-span-3 bg-slate-50/70 p-5 md:p-6 font-extrabold text-xs md:text-sm text-slate-900 tracking-wide flex items-center border-r border-slate-200/80 ${
+                    className={`col-span-3 bg-slate-50/70 p-5 md:p-6 font-extrabold text-xs md:text-sm text-slate-900 tracking-wide flex items-center border-r border-slate-200/80 ${
                       !isLast ? 'border-b border-slate-200/60' : ''
                     }`}
                   >
                     {row.feature}
                   </div>
 
-                  {/* One Studio Column (Center Highlighted) */}
+                  {/* One Studio Column */}
                   <div
-                    className={`md:col-span-5 bg-white p-5 md:p-6 space-y-1.5 border-r border-slate-200/80 ${
+                    className={`col-span-5 bg-white p-5 md:p-6 space-y-1.5 border-r border-slate-200/80 ${
                       !isLast ? 'border-b border-slate-200/60' : ''
                     } transition-colors group-hover:bg-amber-50/40`}
                   >
-                    {/* Mobile Label Badge */}
-                    <div className="md:hidden text-xs font-black text-amber-700 uppercase tracking-wider mb-1">
-                      👑 One Studio ({row.feature})
-                    </div>
                     <div className="flex items-start gap-2.5">
                       <span className="text-amber-500 font-black text-lg leading-none shrink-0 mt-0.5">•</span>
                       <div>
@@ -166,16 +166,12 @@ export default function MaintenanceComparison() {
                     </div>
                   </div>
 
-                  {/* Typical Experience Column (Right) */}
+                  {/* Typical Experience Column */}
                   <div
-                    className={`md:col-span-4 bg-slate-100/60 p-5 md:p-6 space-y-1.5 ${
+                    className={`col-span-4 bg-slate-100/60 p-5 md:p-6 space-y-1.5 ${
                       !isLast ? 'border-b border-slate-200/60' : ''
                     }`}
                   >
-                    {/* Mobile Label Badge */}
-                    <div className="md:hidden text-xs font-black text-slate-500 uppercase tracking-wider mb-1">
-                      Typical Experience
-                    </div>
                     <div className="flex items-start gap-2.5">
                       <span className="text-slate-400 font-bold text-lg leading-none shrink-0 mt-0.5">•</span>
                       <div>
@@ -188,11 +184,9 @@ export default function MaintenanceComparison() {
                       </div>
                     </div>
                   </div>
-
                 </div>
               );
             })}
-
           </div>
         </div>
 
@@ -201,13 +195,13 @@ export default function MaintenanceComparison() {
           <button
             type="button"
             onClick={openCallModal}
-            className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-black text-xs md:text-sm uppercase tracking-wider px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer"
+            className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs md:text-sm uppercase tracking-wider px-10 py-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer"
           >
             GET FREE CONSULTATION
           </button>
           
           <p className="text-[11px] text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            *15-year warranty on modular woodwork &amp; structural fittings and 45-day guaranteed installation applicable per official One Studio specification agreement.
+            *10-year warranty on modular woodwork &amp; hardware fittings and 45-day guaranteed installation applicable per official One Studio specification agreement.
           </p>
         </div>
       </div>
