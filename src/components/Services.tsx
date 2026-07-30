@@ -1,79 +1,93 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { openCallModal } from '@/components/CallModal';
 
-interface ServiceItem {
-  id: string;
-  title: string;
-  category?: string;
-  desc: string;
-  icon?: string;
-  image: string;
-  badge: string;
-  slug: string;
-}
-
-const SERVICES: ServiceItem[] = [
+const SERVICES = [
   {
-    id: '1',
-    title: 'Modular Kitchen & Dining Interiors',
-    desc: 'Bespoke factory-finished modular kitchens with BWP marine ply, quartz countertops, and Hettich/Blum soft-close hardware.',
+    id: 'modular-kitchen',
+    title: 'Modular Kitchens & Dining',
+    badge: '100% BWP Marine Ply',
+    desc: 'Bespoke L-shape, U-shape, Island & Parallel modular kitchens with anti-bubble edge-banding, Quartz countertops & soft-close Hettich hardware.',
     image: '/images/luxury_modular_kitchen.png',
-    badge: '45-Day Delivery',
     slug: 'interior-design',
   },
   {
-    id: '2',
-    title: 'Luxury Living & False Ceiling',
-    desc: 'Contemporary TV units, acoustic false ceilings, designer wall paneling, and automated ambient lighting layouts.',
-    image: '/images/luxury_living_room_hero.png',
-    badge: 'Popular Choice',
-    slug: 'interior-design',
-  },
-  {
-    id: '3',
-    title: 'Custom Master Bedroom & Wardrobes',
-    desc: 'Floor-to-ceiling customized wardrobes, walk-in closets, upholstered bed backrests, and ergonomic study tables.',
+    id: 'master-bedroom',
+    title: 'Master Bedrooms & Wardrobes',
+    badge: 'German Hardware',
+    desc: 'Floor-to-ceiling floor sliding wardrobes, acrylic finishes, lacquered glass doors, upholstered bed backdrops & vanity storage.',
     image: '/images/luxury_master_bedroom.png',
-    badge: '15-Yr Warranty',
     slug: 'interior-design',
   },
   {
-    id: '4',
-    title: '3D VR Space Planning & Visualization',
-    desc: 'Interactive 3D VR walkthroughs and detailed material moodboards before execution begins.',
-    image: '/images/bangalore_architect_planning.png',
-    badge: 'Free Consultation',
+    id: 'living-dining',
+    title: 'Living Rooms & False Ceilings',
+    badge: 'Ambient LED Lighting',
+    desc: 'Custom TV console units, fluted louvers, veneer paneling, magnetic track lighting & geometric false ceiling designs.',
+    image: '/images/luxury_living_room_hero.png',
     slug: 'interior-design',
   },
   {
-    id: '5',
-    title: 'Commercial & Office Interiors',
-    desc: 'Turnkey corporate office fitouts, retail stores, reception lobbies, and acoustic glass partition systems.',
-    image: '/images/bangalore_commercial_complex.png',
-    badge: 'Fast-Track',
+    id: 'turnkey-villas',
+    title: 'Turnkey Villa Interiors',
+    badge: 'End-to-End Execution',
+    desc: 'Full-scope luxury villa design & execution: false ceilings, electrical, plumbing, woodwork, wall paneling, and deep cleaning.',
+    image: '/images/luxury_living_room_hero.png',
     slug: 'interior-design',
   },
   {
-    id: '6',
-    title: 'Turnkey Full-Home Interior Execution',
-    desc: 'End-to-end interior project management from electrical plumbing modifications to final styling and handover.',
-    image: '/images/bangalore_modern_interior.png',
-    badge: 'Turnkey Studio',
+    id: 'commercial-interiors',
+    title: 'Commercial Offices & Retail',
+    badge: 'Fast-Track Handover',
+    desc: 'Modern workplace acoustics, ergonomic workstations, executive suites, reception counters, and conference room fit-outs.',
+    image: '/images/luxury_living_room_hero.png',
+    slug: 'commercial-interiors',
+  },
+  {
+    id: 'custom-woodwork',
+    title: 'Custom Joinery & Foyers',
+    badge: '10-Year Warranty',
+    desc: 'Shoe racks with seating, decorative partition screens, study units, bar counters, and stone vanity units.',
+    image: '/images/luxury_master_bedroom.png',
     slug: 'interior-design',
   },
 ];
 
 export default function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollPosition = container.scrollLeft;
+    const firstCard = container.firstElementChild as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 320;
+    const index = Math.round(scrollPosition / cardWidth);
+    setActiveIndex(Math.min(SERVICES.length - 1, Math.max(0, index)));
+  };
+
+  const scrollToIndex = (index: number) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const firstCard = container.firstElementChild as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 320;
+    container.scrollTo({
+      left: index * cardWidth,
+      behavior: 'smooth',
+    });
+    setActiveIndex(index);
+  };
+
   return (
-    <section className="py-20 md:py-28 bg-slate-50 font-sans" id="services">
-      <div className="max-w-7xl mx-auto px-4 space-y-12">
+    <section className="py-16 md:py-28 bg-slate-50 font-sans" id="services">
+      <div className="max-w-7xl mx-auto px-4 space-y-8 md:space-y-12">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-950 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
               ✨ BESPOKE INTERIOR DESIGN SERVICES
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
@@ -97,15 +111,46 @@ export default function Services() {
           </Link>
         </div>
 
-        {/* 6 Services Grid Skeleton */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible">
+        {/* Mobile Swipe Navigation Controls (< md) */}
+        <div className="md:hidden flex items-center justify-between px-1 text-xs font-black text-slate-700">
+          <span className="bg-amber-500/15 text-amber-900 border border-amber-500/30 px-3 py-1 rounded-full uppercase tracking-wider text-[11px]">
+            👈 SWIPE SERVICES ({activeIndex + 1} / {SERVICES.length})
+          </span>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
+              disabled={activeIndex === 0}
+              className="w-8 h-8 rounded-full bg-slate-200 disabled:opacity-30 text-slate-900 flex items-center justify-center font-black text-sm cursor-pointer"
+              aria-label="Previous service"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollToIndex(Math.min(SERVICES.length - 1, activeIndex + 1))}
+              disabled={activeIndex === SERVICES.length - 1}
+              className="w-8 h-8 rounded-full bg-amber-500 disabled:opacity-30 text-slate-950 flex items-center justify-center font-black text-sm shadow-md cursor-pointer"
+              aria-label="Next service"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        {/* 6 Services Grid / Horizontal Swipe Slider */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible scrollbar-none"
+        >
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="min-w-[280px] sm:min-w-[320px] md:min-w-0 snap-center bg-white rounded-[32px] p-5 md:p-6 border border-slate-200/80 shadow-md flex flex-col justify-between group hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 shrink-0 md:shrink relative overflow-hidden"
+              className="min-w-[85vw] sm:min-w-[340px] md:min-w-0 snap-center bg-white rounded-[32px] p-5 md:p-6 border border-slate-200/80 shadow-md flex flex-col justify-between group hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 shrink-0 md:shrink relative overflow-hidden"
             >
               <div>
-                <div className="relative rounded-[24px] overflow-hidden mb-5 h-[200px] sm:h-[220px]">
+                <div className="relative rounded-[24px] overflow-hidden mb-5 h-[190px] sm:h-[220px]">
                   <img
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -118,17 +163,17 @@ export default function Services() {
                 </div>
 
                 <div className="space-y-2 mb-4">
-                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-xl font-black text-slate-900 group-hover:text-amber-600 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-slate-600 text-xs leading-relaxed font-normal">
+                  <p className="text-slate-600 text-xs leading-relaxed font-medium">
                     {service.desc}
                   </p>
                 </div>
                 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-slate-400">
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-black text-slate-500">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" /> 150+ Quality Audits
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" /> 150+ Quality Audits
                   </span>
                   <span className="text-slate-900 group-hover:text-amber-600 transition-colors">
                     45-Day Delivery →
@@ -136,26 +181,41 @@ export default function Services() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 pt-6">
+              <div className="flex flex-col gap-2.5 pt-5">
                 <button
                   type="button"
                   onClick={openCallModal}
-                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs uppercase tracking-wider px-8 py-4 rounded-2xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 group-hover:bg-amber-500 group-hover:text-slate-950"
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3.5 rounded-2xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 group-hover:bg-amber-500 group-hover:text-slate-950"
                 >
                   Schedule Designer Consultation 📞
                 </button>
 
                 <Link
                   href="/estimate"
-                  className="w-full bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-xs uppercase tracking-wider px-8 py-4 rounded-2xl border border-slate-200/80 shadow-sm transition-all flex items-center justify-center gap-2 text-center hover:border-amber-400"
+                  className="w-full bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-2xl border border-slate-200/80 shadow-sm transition-all flex items-center justify-center gap-2 text-center hover:border-amber-400"
                 >
                   Calculate Interior Design Cost ⚡
                 </Link>
-                <p className="text-[11px] font-semibold text-slate-400 text-center">
+                <p className="text-[10px] font-semibold text-slate-400 text-center">
                   Get instant sq.ft estimate for your home interiors in Hyderabad.
                 </p>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Mobile Pagination Indicator Dots (< md) */}
+        <div className="md:hidden flex justify-center gap-1.5 pt-1">
+          {SERVICES.map((_, dotIdx) => (
+            <button
+              key={dotIdx}
+              type="button"
+              onClick={() => scrollToIndex(dotIdx)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                activeIndex === dotIdx ? 'w-6 bg-amber-500' : 'w-2 bg-slate-300'
+              }`}
+              aria-label={`Go to service ${dotIdx + 1}`}
+            />
           ))}
         </div>
       </div>
