@@ -199,15 +199,16 @@ export default function LuxePage() {
                 onClick={openCallModal}
                 className="bg-gold-foil text-black font-black text-xs md:text-sm uppercase tracking-[0.2em] px-9 py-4 rounded-2xl shadow-[0_0_35px_rgba(212,175,55,0.35)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2 group"
               >
-                <span>Book VIP Studio Session</span>
+                <span>Book Private Studio Session</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
-              <Link
-                href="/estimate"
-                className="bg-black/90 hover:bg-neutral-950 text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400"
+              <button
+                type="button"
+                onClick={openCallModal}
+                className="bg-black/90 hover:bg-neutral-950 text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400 cursor-pointer"
               >
-                Luxe Cost Calculator ⚡
-              </Link>
+                Request Royalty Consultation 👑
+              </button>
             </div>
 
             {/* 4 Luxe Highlights Strip */}
