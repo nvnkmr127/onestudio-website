@@ -122,7 +122,7 @@ export default function LuxePage() {
   return (
     <>
       <Header />
-      <main className="bg-[#050811] text-white font-sans overflow-x-hidden selection:bg-amber-400 selection:text-slate-950">
+      <main className="bg-black text-white font-sans overflow-x-hidden selection:bg-amber-400 selection:text-black">
         {/* Ultra-Luxury Full-Bleed Obsidian Hero */}
         <section className="relative min-h-screen flex items-center justify-center pt-32 pb-24 border-b border-amber-500/30">
           {/* Ambient Lighting & Image */}
@@ -132,13 +132,13 @@ export default function LuxePage() {
               alt="One Studio Luxe Interior"
               className="w-full h-full object-cover brightness-[0.22] scale-105 filter blur-[0.5px]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/80 to-[#050811]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.18)_0,transparent_75%)]" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-8">
             {/* Shimmering Crest Badge */}
-            <div className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full bg-[#0B101D]/90 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(212,175,55,0.25)]">
+            <div className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full bg-black/90 border border-amber-500/40 text-amber-300 text-xs font-black uppercase tracking-[0.3em] shadow-[0_0_30px_rgba(212,175,55,0.25)]">
               <span>👑</span>
               <span className="text-gold-foil">ONE STUDIO LUXE COLLECTION</span>
             </div>
@@ -159,14 +159,14 @@ export default function LuxePage() {
               <button
                 type="button"
                 onClick={openCallModal}
-                className="bg-gold-foil text-slate-950 font-black text-xs md:text-sm uppercase tracking-[0.2em] px-9 py-4 rounded-2xl shadow-[0_0_35px_rgba(212,175,55,0.35)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2 group"
+                className="bg-gold-foil text-black font-black text-xs md:text-sm uppercase tracking-[0.2em] px-9 py-4 rounded-2xl shadow-[0_0_35px_rgba(212,175,55,0.35)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 transition-all cursor-pointer flex items-center gap-2 group"
               >
                 <span>Book VIP Studio Session</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
               <Link
                 href="/estimate"
-                className="bg-[#0B101D]/90 hover:bg-[#0F1628] text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400"
+                className="bg-black/90 hover:bg-neutral-950 text-amber-300 font-extrabold text-xs md:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-2xl border border-amber-500/40 shadow-xl transition-all hover:border-amber-400"
               >
                 Luxe Cost Calculator ⚡
               </Link>
@@ -180,7 +180,7 @@ export default function LuxePage() {
                 { label: 'Warranty', val: '15-Year Structural' },
                 { label: 'Execution', val: 'Guaranteed 45-55 Days' },
               ].map((item, idx) => (
-                <div key={idx} className="space-y-1 bg-[#0B101D]/70 p-4 rounded-2xl border border-amber-500/30 shadow-inner">
+                <div key={idx} className="space-y-1 bg-neutral-950/80 p-4 rounded-2xl border border-amber-500/30 shadow-inner">
                   <p className="text-[10px] font-black uppercase tracking-widest text-amber-400">{item.label}</p>
                   <p className="text-sm font-black text-white">{item.val}</p>
                 </div>
@@ -190,7 +190,7 @@ export default function LuxePage() {
         </section>
 
         {/* Editorial Manifesto Quote Section */}
-        <section className="py-20 bg-[#070B16] border-b border-amber-500/20 relative overflow-hidden">
+        <section className="py-20 bg-neutral-950 border-b border-amber-500/20 relative overflow-hidden">
           <div className="max-w-5xl mx-auto px-4 text-center space-y-6">
             <span className="text-4xl text-amber-400 font-serif-luxe block">“</span>
             <blockquote className="text-xl sm:text-3xl md:text-4xl font-serif-luxe italic font-extrabold text-slate-100 leading-relaxed max-w-4xl mx-auto">
@@ -228,7 +228,7 @@ export default function LuxePage() {
               return (
                 <div
                   key={estate.num}
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 md:p-12 rounded-[44px] bg-[#0B101D]/90 border border-amber-500/30 shadow-[0_0_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl transition-all duration-500 ${
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 md:p-12 rounded-[44px] bg-neutral-950 border border-amber-500/30 shadow-[0_0_60px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-all duration-500 ${
                     isEven ? '' : 'lg:flex-row-reverse'
                   }`}
                 >
@@ -239,7 +239,7 @@ export default function LuxePage() {
                       alt={estate.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050811] via-[#050811]/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
                     
                     {/* Oversized Roman Numeral Overlay */}
                     <div className="absolute top-6 left-6 font-serif-luxe text-5xl font-extrabold text-gold-foil opacity-90 drop-shadow-lg">
@@ -247,10 +247,10 @@ export default function LuxePage() {
                     </div>
 
                     <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                      <span className="bg-gold-foil text-slate-950 font-black text-xs uppercase px-4 py-1.5 rounded-full tracking-wider shadow-lg">
+                      <span className="bg-gold-foil text-black font-black text-xs uppercase px-4 py-1.5 rounded-full tracking-wider shadow-lg">
                         📍 {estate.location}
                       </span>
-                      <span className="text-amber-300 font-bold text-xs bg-[#050811]/90 px-4 py-1.5 rounded-full border border-amber-500/40">
+                      <span className="text-amber-300 font-bold text-xs bg-black/90 px-4 py-1.5 rounded-full border border-amber-500/40">
                         {estate.subtitle}
                       </span>
                     </div>
@@ -288,7 +288,7 @@ export default function LuxePage() {
                       <button
                         type="button"
                         onClick={openCallModal}
-                        className="bg-gold-foil text-slate-950 font-black text-xs uppercase tracking-[0.18em] px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer"
+                        className="bg-gold-foil text-black font-black text-xs uppercase tracking-[0.18em] px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer"
                       >
                         Request Private Floor Plan
                       </button>
@@ -301,7 +301,7 @@ export default function LuxePage() {
         </section>
 
         {/* Asymmetric Material Swatches & Finishes Grid */}
-        <section className="py-24 bg-[#0B101D]/70 border-t border-b border-amber-500/30">
+        <section className="py-24 bg-neutral-950/90 border-t border-b border-amber-500/30">
           <div className="max-w-7xl mx-auto px-4 space-y-12">
             <div className="text-center max-w-3xl mx-auto space-y-4">
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-black uppercase tracking-widest">
@@ -319,7 +319,7 @@ export default function LuxePage() {
               {LUXE_MATERIALS.map((mat, mIdx) => (
                 <div
                   key={mIdx}
-                  className="bg-[#050811] p-7 rounded-[32px] border border-amber-500/30 hover:border-amber-400/80 shadow-2xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1"
+                  className="bg-black p-7 rounded-[32px] border border-amber-500/30 hover:border-amber-400/80 shadow-2xl transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
@@ -336,7 +336,7 @@ export default function LuxePage() {
                       {mat.desc}
                     </p>
                   </div>
-                  <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-black text-amber-400">
+                  <div className="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-black text-amber-400">
                     <span>Luxe Grade</span>
                     <span>100% Certified</span>
                   </div>
@@ -364,7 +364,7 @@ export default function LuxePage() {
             {LUXE_SPECS.map((spec, sIdx) => (
               <div
                 key={sIdx}
-                className="bg-[#0B101D]/90 p-8 rounded-[32px] border border-amber-500/30 hover:border-amber-400/80 shadow-2xl transition-all duration-300 group flex flex-col justify-between"
+                className="bg-neutral-950 p-8 rounded-[32px] border border-amber-500/30 hover:border-amber-400/80 shadow-2xl transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -380,7 +380,7 @@ export default function LuxePage() {
                     {spec.desc}
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-extrabold text-amber-400">
+                <div className="mt-6 pt-4 border-t border-neutral-900 flex items-center justify-between text-xs font-extrabold text-amber-400">
                   <span>Luxe Certified</span>
                   <span>✓</span>
                 </div>
@@ -404,7 +404,7 @@ export default function LuxePage() {
           </div>
 
           {/* Vibe Selection Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 p-1.5 bg-[#0B101D] rounded-2xl border border-slate-800 max-w-fit mx-auto">
+          <div className="flex flex-wrap justify-center gap-3 p-1.5 bg-neutral-950 rounded-2xl border border-neutral-800 max-w-fit mx-auto">
             {[
               { id: 'villa', label: 'Luxury Villa (4,500+ sq.ft)' },
               { id: 'penthouse', label: 'Sky Penthouse (3,500+ sq.ft)' },
@@ -416,7 +416,7 @@ export default function LuxePage() {
                 onClick={() => setVibeTier(v.id as any)}
                 className={`px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                   vibeTier === v.id
-                    ? 'bg-gold-foil text-slate-950 shadow-lg font-black'
+                    ? 'bg-gold-foil text-black shadow-lg font-black'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -426,7 +426,7 @@ export default function LuxePage() {
           </div>
 
           {/* Result Card */}
-          <div className="bg-gradient-to-r from-[#0B101D] via-[#0D1426] to-[#0B101D] p-8 md:p-10 rounded-[36px] border border-amber-500/40 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          <div className="bg-gradient-to-r from-black via-neutral-950 to-black p-8 md:p-10 rounded-[36px] border border-amber-500/40 shadow-2xl grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest text-amber-400">Estimated Investment</p>
               <p className="text-3xl font-black text-white mt-1">{luxeEst[vibeTier].price}</p>
@@ -438,7 +438,7 @@ export default function LuxePage() {
             <button
               type="button"
               onClick={openCallModal}
-              className="bg-gold-foil text-slate-950 font-black text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-xl transition-all cursor-pointer"
+              className="bg-gold-foil text-black font-black text-xs uppercase tracking-wider py-4 px-6 rounded-2xl shadow-xl transition-all cursor-pointer"
             >
               Request Custom Itemized BOQ →
             </button>
